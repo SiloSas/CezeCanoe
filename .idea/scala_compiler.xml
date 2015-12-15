@@ -1,0 +1,28 @@
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="Profile 1" modules="server">
+      <option name="deprecationWarnings" value="true"/>
+      <option name="uncheckedWarnings" value="true"/>
+      <parameters>
+        <parameter value="-encoding"/>
+        <parameter value="utf8"/>
+      </parameters>
+    </profile>
+    <profile name="Profile 2" modules="client">
+      <parameters>
+        <parameter value="-P:scalajs:mapSourceURI:file:/home/loann/Desktop/CezeCanoe/client/src/main/scala/-&gt;c4dbd2efa3bf81a93d5f/"/>
+      </parameters>
+      <plugins>
+        <plugin path="/home/loann/.ivy2/cache/org.scala-js/scalajs-compiler_2.11.7/jars/scalajs-compiler_2.11.7-0.6.5.jar"/>
+      </plugins>
+    </profile>
+    <profile name="Profile 3" modules="sharedJS">
+      <parameters>
+        <parameter value="-P:scalajs:mapSourceURI:file:/home/loann/Desktop/CezeCanoe/shared/src/main/scala/-&gt;86a98f0638450be3d4c2/"/>
+      </parameters>
+      <plugins>
+        <plugin path="/home/loann/.ivy2/cache/org.scala-js/scalajs-compiler_2.11.7/jars/scalajs-compiler_2.11.7-0.6.5.jar"/>
+      </plugins>
+    </profile>
+  </component>
+</project>

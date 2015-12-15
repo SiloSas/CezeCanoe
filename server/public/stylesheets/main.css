@@ -24242,7 +24242,442 @@ figure.effect-zoe:hover p.icon-links a:first-child {
   transition-delay: 0.2s;
 }
 
-/* line 6, ../scss/main.scss */
+/* line 1, ../../../client/src/main/scala/Slider/slider.scss */
+.roomsImagesSlider.ng-hide-remove {
+  display: block !important;
+  -moz-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  -webkit-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  -o-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  position: absolute;
+}
+
+/* line 8, ../../../client/src/main/scala/Slider/slider.scss */
+.roomsImagesSlider.ng-hide-add {
+  display: block !important;
+  -moz-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  -webkit-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  -o-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+  position: absolute;
+}
+
+/* line 16, ../../../client/src/main/scala/Slider/slider.scss */
+.component-fullwidth {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  background: #333;
+}
+
+/* line 22, ../../../client/src/main/scala/Slider/slider.scss */
+.component-fullwidth > ul {
+  overflow: hidden;
+}
+
+/* line 25, ../../../client/src/main/scala/Slider/slider.scss */
+.component li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 999;
+}
+
+/* line 36, ../../../client/src/main/scala/Slider/slider.scss */
+.component-fullwidth li {
+  overflow: hidden;
+}
+
+/* line 39, ../../../client/src/main/scala/Slider/slider.scss */
+.component {
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 40px;
+  max-width: 100%;
+}
+
+/* line 45, ../../../client/src/main/scala/Slider/slider.scss */
+.component > ul {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+/* line 55, ../../../client/src/main/scala/Slider/slider.scss */
+.component .current {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+/* line 61, ../../../client/src/main/scala/Slider/slider.scss */
+.component li img {
+  display: block;
+  max-width: 100%;
+}
+
+/* line 66, ../../../client/src/main/scala/Slider/slider.scss */
+.component-fullwidth li img {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* line 74, ../../../client/src/main/scala/Slider/slider.scss */
+slider {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 72, ../scss/_focal-point.scss */
+.focal-point {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* line 78, ../scss/_focal-point.scss */
+.focal-point img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 85, ../scss/_focal-point.scss */
+.focal-point div {
+  position: relative;
+  max-width: none;
+  height: auto;
+}
+
+@media all and (max-width: 767px) {
+  /* line 103, ../scss/_focal-point.scss */
+  .focal-point div {
+    margin: -3em -4em;
+  }
+
+  /* line 113, ../scss/_focal-point.scss */
+  .focal-point.zoom-2 div {
+    margin: -6em -8em;
+  }
+  /* line 113, ../scss/_focal-point.scss */
+  .focal-point.zoom-1 div {
+    margin: -3em -4em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-1 div {
+    margin-top: -3.5em;
+    margin-bottom: -2.5em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-1 div {
+    margin-top: -2.5em;
+    margin-bottom: -3.5em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-1 div {
+    margin-left: -4.6666666667em;
+    margin-right: -3.3333333333em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-1 div {
+    margin-left: -3.3333333333em;
+    margin-right: -4.6666666667em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-2 div {
+    margin-top: -4em;
+    margin-bottom: -2em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-2 div {
+    margin-top: -2em;
+    margin-bottom: -4em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-2 div {
+    margin-left: -5.3333333333em;
+    margin-right: -2.6666666667em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-2 div {
+    margin-left: -2.6666666667em;
+    margin-right: -5.3333333333em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-3 div {
+    margin-top: -4.5em;
+    margin-bottom: -1.5em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-3 div {
+    margin-top: -1.5em;
+    margin-bottom: -4.5em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-3 div {
+    margin-left: -6em;
+    margin-right: -2em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-3 div {
+    margin-left: -2em;
+    margin-right: -6em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-4 div {
+    margin-top: -5em;
+    margin-bottom: -1em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-4 div {
+    margin-top: -1em;
+    margin-bottom: -5em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-4 div {
+    margin-left: -6.6666666667em;
+    margin-right: -1.3333333333em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-4 div {
+    margin-left: -1.3333333333em;
+    margin-right: -6.6666666667em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-5 div {
+    margin-top: -5.5em;
+    margin-bottom: -0.5em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-5 div {
+    margin-top: -0.5em;
+    margin-bottom: -5.5em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-5 div {
+    margin-left: -7.3333333333em;
+    margin-right: -0.6666666667em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-5 div {
+    margin-left: -0.6666666667em;
+    margin-right: -7.3333333333em;
+  }
+
+  /* line 137, ../scss/_focal-point.scss */
+  .down-6 div {
+    margin-top: -6em;
+    margin-bottom: -0em;
+  }
+
+  /* line 142, ../scss/_focal-point.scss */
+  .up-6 div {
+    margin-top: -0em;
+    margin-bottom: -6em;
+  }
+
+  /* line 147, ../scss/_focal-point.scss */
+  .right-6 div {
+    margin-left: -8em;
+    margin-right: -0em;
+  }
+
+  /* line 152, ../scss/_focal-point.scss */
+  .left-6 div {
+    margin-left: -0em;
+    margin-right: -8em;
+  }
+
+  /* line 169, ../scss/_focal-point.scss */
+  .portrait.focal-point div {
+    margin: -4em -3em;
+  }
+
+  /* line 179, ../scss/_focal-point.scss */
+  .portrait.focal-point.zoom-2 div {
+    margin: -8em -6em;
+  }
+  /* line 179, ../scss/_focal-point.scss */
+  .portrait.focal-point.zoom-1 div {
+    margin: -4em -3em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-1 div {
+    margin-top: -4.6666666667em;
+    margin-bottom: -3.3333333333em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-1 div {
+    margin-top: -3.3333333333em;
+    margin-bottom: -4.6666666667em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-1 div {
+    margin-left: -3.5em;
+    margin-right: -2.5em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-1 div {
+    margin-left: -2.5em;
+    margin-right: -3.5em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-2 div {
+    margin-top: -5.3333333333em;
+    margin-bottom: -2.6666666667em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-2 div {
+    margin-top: -2.6666666667em;
+    margin-bottom: -5.3333333333em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-2 div {
+    margin-left: -4em;
+    margin-right: -2em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-2 div {
+    margin-left: -2em;
+    margin-right: -4em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-3 div {
+    margin-top: -6em;
+    margin-bottom: -2em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-3 div {
+    margin-top: -2em;
+    margin-bottom: -6em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-3 div {
+    margin-left: -4.5em;
+    margin-right: -1.5em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-3 div {
+    margin-left: -1.5em;
+    margin-right: -4.5em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-4 div {
+    margin-top: -6.6666666667em;
+    margin-bottom: -1.3333333333em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-4 div {
+    margin-top: -1.3333333333em;
+    margin-bottom: -6.6666666667em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-4 div {
+    margin-left: -5em;
+    margin-right: -1em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-4 div {
+    margin-left: -1em;
+    margin-right: -5em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-5 div {
+    margin-top: -7.3333333333em;
+    margin-bottom: -0.6666666667em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-5 div {
+    margin-top: -0.6666666667em;
+    margin-bottom: -7.3333333333em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-5 div {
+    margin-left: -5.5em;
+    margin-right: -0.5em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-5 div {
+    margin-left: -0.5em;
+    margin-right: -5.5em;
+  }
+
+  /* line 203, ../scss/_focal-point.scss */
+  .portrait.down-6 div {
+    margin-top: -8em;
+    margin-bottom: -0em;
+  }
+
+  /* line 208, ../scss/_focal-point.scss */
+  .portrait.up-6 div {
+    margin-top: -0em;
+    margin-bottom: -8em;
+  }
+
+  /* line 213, ../scss/_focal-point.scss */
+  .portrait.right-6 div {
+    margin-left: -6em;
+    margin-right: -0em;
+  }
+
+  /* line 218, ../scss/_focal-point.scss */
+  .portrait.left-6 div {
+    margin-left: -0em;
+    margin-right: -6em;
+  }
+}
+/* line 17, ../scss/main.scss */
 body, html {
   background-color: white;
   background-size: 100%;
