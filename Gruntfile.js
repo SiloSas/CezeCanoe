@@ -169,6 +169,11 @@ module.exports = function (grunt) {
       angularMap: {
         src: 'bower_components/ngmap/build/scripts/ng-map.min.js',
         dest: 'server/public/plugins/ng-map.min.js'
+      },
+
+      smartCrop: {
+        src: 'bower_components/smartcrop/smartcrop.js',
+        dest: 'server/public/plugins/smartcrop.js'
       }
 
     },
