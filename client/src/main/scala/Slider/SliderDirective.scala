@@ -10,7 +10,7 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("slider")
-class SliderDirective(window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective {
+class SliderDirective(window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective  {
   override val templateUrl = "assets/templates/Slider/slider.html"
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
@@ -23,12 +23,11 @@ class SliderDirective(window: Window, timeout: Timeout) extends ElementDirective
           }
       }
       timeout (fn = () => {
-        setNewHeight(window.innerWidth * 0.4)
+        setNewHeight(element.clientWidth * 0.4)
       }, 50, false)
 
       window.addEventListener("resize", (event: UIEvent) =>
-        setNewHeight(window.innerWidth * 0.4))
-
+        setNewHeight(element.clientWidth * 0.4))
     }
   }
 }

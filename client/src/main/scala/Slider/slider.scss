@@ -1,23 +1,29 @@
-.roomsImagesSlider.ng-hide-remove {
+.roomsImagesSlider.ng-enter, .roomsImagesSlider.ng-enter-active {
   display: block!important;
   -moz-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   position: absolute;
+  top: 0;
+  left: 0;
+  animation-delay: 1s;
+  z-index: 4;
 }
-.roomsImagesSlider.ng-hide-add {
+.roomsImagesSlider.ng-leave {
   display: block!important;
   -moz-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   position: absolute;
+  animation-delay: 1s;
+  z-index: 1;
 }
 
 .component-fullwidth {
   width: 100%;
   height: 100%;
   margin-bottom: 0;
-  background: #333;
+  background: #B4D5B8 none repeat scroll;
 }
 .component-fullwidth > ul {
   overflow: hidden;

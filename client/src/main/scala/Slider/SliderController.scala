@@ -3,10 +3,12 @@ package Slider
 import com.greencatsoft.angularjs.core.{Location, RouteParams, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.console
+import scala.scalajs.js
+import scala.scalajs.js.Array
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.concurrent.ExecutionContext.Implicits.global
 
-import scala.scalajs.js.annotation.JSExportAll
+import scala.scalajs.js.annotation.{JSExport, JSExportAll}
 
 @JSExportAll
 case class ActiveImage(step: Int, url: String, url1: String)
@@ -14,28 +16,41 @@ case class ActiveImage(step: Int, url: String, url1: String)
 class SliderController(sliderScope: SliderScope, timeout: Timeout, location: Location, $routeParams: RouteParams)
   extends AbstractController[SliderScope](sliderScope) {
 
-  val img = "assets/images/img1.jpg"
+  /*val img = "assets/images/img1.jpg"
   val img1 = "assets/images/img2.jpg"
   val img2 = "assets/images/img3.jpg"
   val images = Seq(img, img1, img2)
-  sliderScope.images = images.toJSArray
-  scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
-  if(sliderScope.images.length > 1) {
+  sliderScope.images = images.toJSArray*/
+  @JSExport
+  def makeScope(images: Array[String]): Boolean = {
+    console.log(images)
+    sliderScope.images = images
+    startSlider
+    true
+  }
+
+
+  def startSlider: Any = {
     timeout(fn = () => {
-      changeActiveImage(scope.images.tail)
-    },
-      delay = 10000,
-      invokeApply = true
-    )
-  } else {
-    println("one image")
+      sliderScope.activeImage = ActiveImage(step = 0, url = sliderScope.images.head, url1 = sliderScope.images.head)
+    }, 0, true)
+    if (sliderScope.images.length > 1) {
+      timeout(fn = () => {
+        changeActiveImage(sliderScope.images.tail)
+      },
+        delay = 10000,
+        invokeApply = true
+      )
+    } else {
+      println("one image")
+    }
   }
 
   def changeActiveImage(images: Seq[String]): Any = {
     images.headOption match {
       case Some(image) =>
         val step =
-          if (scope.activeImage.step == 0) 1
+          if (sliderScope.activeImage.step == 0) 1
           else 0
 
         val image0 =
@@ -44,7 +59,7 @@ class SliderController(sliderScope: SliderScope, timeout: Timeout, location: Loc
             case Some(nextImage) =>
               nextImage
             case _ =>
-              scope.images.head
+              sliderScope.images.head
           }
 
         val image1 =
@@ -53,19 +68,18 @@ class SliderController(sliderScope: SliderScope, timeout: Timeout, location: Loc
             case Some(nextImage) =>
               nextImage
             case _ =>
-              scope.images.head
+              sliderScope.images.head
           }
         timeout(fn = () => {
-          if (step == 0) scope.activeImage = scope.activeImage.copy(url = image0)
-          else scope.activeImage = scope.activeImage.copy(url1 = image1)
+          if (step == 0) sliderScope.activeImage = sliderScope.activeImage.copy(url = image0)
+          else sliderScope.activeImage = sliderScope.activeImage.copy(url1 = image1)
           timeout(fn = () => {
-            scope.activeImage = scope.activeImage.copy(step = step)
+            sliderScope.activeImage = sliderScope.activeImage.copy(step = step)
             timeout(fn = () => {
-              scope.activeImage = scope.activeImage.copy(step = step, url = image0, url1 = image1)
-            }, 20)
+              sliderScope.activeImage = sliderScope.activeImage.copy(step = step, url = image0, url1 = image1)
+            }, 10)
           }, 20)
         }, 0, true)
-        console.log(image0, image1)
 
         timeout(fn = () => {
           changeActiveImage(images.tail)
@@ -74,7 +88,7 @@ class SliderController(sliderScope: SliderScope, timeout: Timeout, location: Loc
           invokeApply = true
         )
       case _ =>
-        changeActiveImage(scope.images)
+        changeActiveImage(sliderScope.images)
     }
   }
 

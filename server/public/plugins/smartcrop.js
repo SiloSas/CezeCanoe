@@ -278,7 +278,6 @@ SmartCrop.prototype = {
             options = this.options,
             canvas = this.canvas(image.width, image.height),
             ctx = canvas.getContext('2d');
-        console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
         ctx.drawImage(image, 0, 0);
         var input = ctx.getImageData(0, 0, canvas.width, canvas.height),
             output = ctx.getImageData(0, 0, canvas.width, canvas.height);

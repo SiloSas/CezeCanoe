@@ -13,9 +13,10 @@ object RoutingConfig extends Config {
       .when(path = "/",
         route = Route(templateUrl = "/assets/templates/main.html", title = "Main"))
       .when(
-        path = "/rooms/:id",
+        path = "/descentes",
         route = Route(
-          templateUrl = "/assets/templates/Room/room.html",
+          templateUrl = "/assets/templates/Descentes/descentes.html",
+          controller = "descenteController",
           title = "Room"))
 
   }

@@ -2,20 +2,10 @@
 @import "../../../bower_components/foundation/scss/normalize";
 @import "../../../client/src/main/scala/Room/room";
 @import "../../../client/src/main/scala/Slider/slider";
-@import "focal-point";
-
-@include focal-point(
-        $grid: 12,
-        $landscape-classes: true,
-        $portrait-classes: true,
-        $breakpoint: 767px,
-        $inner-element: div,
-        $zoom-factor: 1,
-        $zoom-levels: 1
-        );
+@import "../../../client/src/main/scala/Home/home";
 
 body, html {
-  background-color: white;
+  background: #B4D5B8 none repeat scroll;
   background-size: 100%;
   height: 100%;
   position: relative;
