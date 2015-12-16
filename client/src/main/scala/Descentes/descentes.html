@@ -1,1 +1,6 @@
-<descente ng-repeat="descente in descentes" class="column large-6"></descente>
+<div class="descente paddindTop40">
+<descente ng-repeat="descente in descentes"
+          class="column large-6 descente"
+          ng-class="{'paddingTop40': $index%2 == 1, 'top-40': $index%2 == 0 && $index != 0}">
+</descente>
+</div>

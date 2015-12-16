@@ -1,0 +1,40 @@
+.descenteTitle {
+  background-color: #000;
+  color: #FA0;
+  font: italic 40px/1.4em Anton,sans-serif;
+  word-wrap: break-word;
+  font-weight: bold;
+  font-synthesis: weight style;
+  font-family: Anton, sans-serif;
+  line-height: 1em;
+  letter-spacing: -1px;
+  font-size: 28px;
+  bottom: -3px;
+  z-index: 9999;
+  padding: 10px;
+}
+
+.descentePrices {
+  font: italic 28px/1.4em Anton,sans-serif;
+  background: black;
+  color: white;
+  word-wrap: break-word;
+  font-weight: bold;
+}
+
+.smallerPrice {
+  font-size: 18px;
+}
+
+.top-40 {
+  top: -40px
+}
+
+@media (max-width: 600px) {
+  .descente.top-40 {
+    top: 0;
+  }
+  .descente.paddingTop40 {
+    padding-top: 0;
+  }
+}

@@ -24246,24 +24246,24 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 /* line 1, ../../../client/src/main/scala/Slider/slider.scss */
 .roomsImagesSlider.ng-enter, .roomsImagesSlider.ng-enter-active {
   display: block !important;
+  position: absolute;
+  top: 0 !important;
+  left: 0;
   -moz-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation-delay: 1s;
   z-index: 4;
 }
 
-/* line 12, ../../../client/src/main/scala/Slider/slider.scss */
+/* line 11, ../../../client/src/main/scala/Slider/slider.scss */
 .roomsImagesSlider.ng-leave {
   display: block !important;
+  position: absolute;
+  top: 0 !important;
+  animation-delay: 1s;
   -moz-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
-  position: absolute;
-  animation-delay: 1s;
   z-index: 1;
 }
 
@@ -24356,13 +24356,21 @@ slider {
 }
 
 /* line 7, ../../../client/src/main/scala/Home/home.scss */
+.homeArticleContent h3 {
+  color: #FA0;
+  font-family: americantypwrteritcw01--731025,americantypwrteritcw02--737091,serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* line 13, ../../../client/src/main/scala/Home/home.scss */
 .homeArticleContent p {
   font: 14px/1.4em Arial,"ｍｓ ｐゴシック","ms pgothic","돋움",dotum,helvetica,sans-serif;
   color: #FFF;
   font-size: 18px;
 }
 
-/* line 13, ../../../client/src/main/scala/Home/home.scss */
+/* line 19, ../../../client/src/main/scala/Home/home.scss */
 .homeArticleMedia {
   background-image: url("/assets/images/border.png");
   background-repeat: no-repeat;
@@ -24376,26 +24384,26 @@ slider {
   border-image-slice: 473;
 }
 
-/* line 25, ../../../client/src/main/scala/Home/home.scss */
+/* line 31, ../../../client/src/main/scala/Home/home.scss */
 .bigger-right {
   height: 120%;
   left: -15px;
   z-index: 9999;
 }
 
-/* line 31, ../../../client/src/main/scala/Home/home.scss */
+/* line 37, ../../../client/src/main/scala/Home/home.scss */
 .bigger-left {
   height: 120%;
   right: -15px;
   z-index: 9999;
 }
 
-/* line 37, ../../../client/src/main/scala/Home/home.scss */
+/* line 43, ../../../client/src/main/scala/Home/home.scss */
 .smaller-left {
   margin-top: 1.5%;
 }
 
-/* line 40, ../../../client/src/main/scala/Home/home.scss */
+/* line 46, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing {
   background: #FFCB05;
   font: italic 40px/1.4em Anton,sans-serif;
@@ -24409,38 +24417,85 @@ slider {
   font-size: 28px;
 }
 
-/* line 53, ../../../client/src/main/scala/Home/home.scss */
+/* line 59, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing-bottom {
   margin-top: -10px;
   z-index: 99999;
 }
 
 @media (max-width: 600px) {
-  /* line 58, ../../../client/src/main/scala/Home/home.scss */
+  /* line 64, ../../../client/src/main/scala/Home/home.scss */
   .bigger-right {
     height: 100%;
     left: 0;
     z-index: 9999;
   }
 
-  /* line 64, ../../../client/src/main/scala/Home/home.scss */
+  /* line 70, ../../../client/src/main/scala/Home/home.scss */
   .yellowThing-bottom {
     margin-top: 0px;
   }
 
-  /* line 67, ../../../client/src/main/scala/Home/home.scss */
+  /* line 73, ../../../client/src/main/scala/Home/home.scss */
   .bigger-left {
     height: 100%;
     right: 0;
     z-index: 9999;
   }
 
-  /* line 73, ../../../client/src/main/scala/Home/home.scss */
+  /* line 79, ../../../client/src/main/scala/Home/home.scss */
   .smaller-left {
     margin-top: 0;
   }
 }
-/* line 7, ../scss/main.scss */
+/* line 1, ../../../client/src/main/scala/Descentes/descente.scss */
+.descenteTitle {
+  background-color: #000;
+  color: #FA0;
+  font: italic 40px/1.4em Anton,sans-serif;
+  word-wrap: break-word;
+  font-weight: bold;
+  font-synthesis: weight style;
+  font-family: Anton, sans-serif;
+  line-height: 1em;
+  letter-spacing: -1px;
+  font-size: 28px;
+  bottom: -3px;
+  z-index: 9999;
+  padding: 10px;
+}
+
+/* line 17, ../../../client/src/main/scala/Descentes/descente.scss */
+.descentePrices {
+  font: italic 28px/1.4em Anton,sans-serif;
+  background: black;
+  color: white;
+  word-wrap: break-word;
+  font-weight: bold;
+}
+
+/* line 25, ../../../client/src/main/scala/Descentes/descente.scss */
+.smallerPrice {
+  font-size: 18px;
+}
+
+/* line 29, ../../../client/src/main/scala/Descentes/descente.scss */
+.top-40 {
+  top: -40px;
+}
+
+@media (max-width: 600px) {
+  /* line 34, ../../../client/src/main/scala/Descentes/descente.scss */
+  .descente.top-40 {
+    top: 0;
+  }
+
+  /* line 37, ../../../client/src/main/scala/Descentes/descente.scss */
+  .descente.paddingTop40 {
+    padding-top: 0;
+  }
+}
+/* line 8, ../scss/main.scss */
 body, html {
   background: #B4D5B8 none repeat scroll;
   background-size: 100%;

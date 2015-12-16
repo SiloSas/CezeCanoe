@@ -1,21 +1,21 @@
 .roomsImagesSlider.ng-enter, .roomsImagesSlider.ng-enter-active {
   display: block!important;
+  position: absolute;
+  top: 0!important;
+  left: 0;
   -moz-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeIn 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation-delay: 1s;
   z-index: 4;
 }
 .roomsImagesSlider.ng-leave {
   display: block!important;
+  position: absolute;
+  top: 0!important;
+  animation-delay: 1s;
   -moz-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
-  position: absolute;
-  animation-delay: 1s;
   z-index: 1;
 }
 

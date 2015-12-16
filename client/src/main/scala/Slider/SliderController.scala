@@ -77,8 +77,8 @@ class SliderController(sliderScope: SliderScope, timeout: Timeout, location: Loc
             sliderScope.activeImage = sliderScope.activeImage.copy(step = step)
             timeout(fn = () => {
               sliderScope.activeImage = sliderScope.activeImage.copy(step = step, url = image0, url1 = image1)
-            }, 10)
-          }, 20)
+            }, 50)
+          }, 10)
         }, 0, true)
 
         timeout(fn = () => {
