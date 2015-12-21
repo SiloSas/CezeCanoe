@@ -10,6 +10,8 @@ import org.scalajs.dom.raw.Event
 import com.greencatsoft.angularjs.extensions.material.Sidenav
 import org.scalajs.dom.console
 
+import scala.scalajs.js
+import scala.scalajs.js.timers._
 import scala.scalajs.js.annotation.JSExport
 
 
@@ -36,7 +38,11 @@ class TopBarDirective(window: Window, sidenav: Sidenav) extends ClassDirective {
         element.classList.remove("ng-hide")
       }
       def addScrollListener() = {
-        document.getElementById("mainContent").asInstanceOf[Html].onscroll = (event: Event) => setTopBarVisibility()
+        var timer: SetTimeoutHandle = setTimeout(30)(setTopBarVisibility())
+        document.getElementById("mainContent").asInstanceOf[Html].onscroll = (event: Event) => {
+          clearTimeout(timer)
+          timer = setTimeout(50)(setTopBarVisibility())
+        }
         document.getElementById("title").classList.remove("ng-hide")
         element.classList.add("ng-hide")
       }
@@ -62,7 +68,6 @@ class TopBarContentDirective(sidenav: Sidenav) extends ElementDirective with Tem
   override val templateUrl = "assets/templates/Home/topBar.html"
   @JSExport
   def toggleLeft(): Any = {
-    console.log("yo")
     sidenav("left").toggle()
   }
 }

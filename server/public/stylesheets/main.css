@@ -24244,7 +24244,7 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 }
 
 /* line 1, ../../../client/src/main/scala/Slider/slider.scss */
-.roomsImagesSlider.ng-enter, .roomsImagesSlider.ng-enter-active {
+.roomsImagesSlider.ng-hide-remove {
   display: block !important;
   position: absolute;
   top: 0 !important;
@@ -24256,11 +24256,10 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 }
 
 /* line 11, ../../../client/src/main/scala/Slider/slider.scss */
-.roomsImagesSlider.ng-leave {
+.roomsImagesSlider.ng-hide-add {
   display: block !important;
   position: absolute;
   top: 0 !important;
-  animation-delay: 1s;
   -moz-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -webkit-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
   -o-animation: fadeOut 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
@@ -24375,35 +24374,36 @@ slider {
   background-image: url("/assets/images/border.png");
   background-repeat: no-repeat;
   background-size: 100% auto;
-  border-bottom: 10px solid black;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+  border-bottom: 0px solid black;
   border-image: url("/assets/images/borderBottom.png");
-  padding: 0.25%;
-  padding-bottom: 0;
   border-image-width: auto;
   border-image-outset: 0;
   border-image-slice: 473;
 }
 
-/* line 31, ../../../client/src/main/scala/Home/home.scss */
+/* line 32, ../../../client/src/main/scala/Home/home.scss */
 .bigger-right {
   height: 120%;
   left: -15px;
   z-index: 9999;
 }
 
-/* line 37, ../../../client/src/main/scala/Home/home.scss */
+/* line 38, ../../../client/src/main/scala/Home/home.scss */
 .bigger-left {
   height: 120%;
   right: -15px;
   z-index: 9999;
 }
 
-/* line 43, ../../../client/src/main/scala/Home/home.scss */
+/* line 44, ../../../client/src/main/scala/Home/home.scss */
 .smaller-left {
   margin-top: 1.5%;
 }
 
-/* line 46, ../../../client/src/main/scala/Home/home.scss */
+/* line 47, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing {
   background: #FFCB05;
   font: italic 40px/1.4em Anton,sans-serif;
@@ -24417,33 +24417,58 @@ slider {
   font-size: 28px;
 }
 
-/* line 59, ../../../client/src/main/scala/Home/home.scss */
+/* line 60, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing-bottom {
   margin-top: -10px;
   z-index: 99999;
 }
 
+/* line 65, ../../../client/src/main/scala/Home/home.scss */
+top-bar-content > * > .md-button {
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0088cb !important;
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  border: solid #392100 2px;
+  cursor: pointer !important;
+  color: #FFC13D !important;
+  font: normal normal normal 20px/1.4em arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
+  line-height: 43px;
+}
+
+/* line 81, ../../../client/src/main/scala/Home/home.scss */
+top-bar-content > * > .md-button:hover {
+  background-color: #ffc13d !important;
+  border-color: #392100;
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  color: #545454 !important;
+}
+
 @media (max-width: 600px) {
-  /* line 64, ../../../client/src/main/scala/Home/home.scss */
+  /* line 88, ../../../client/src/main/scala/Home/home.scss */
   .bigger-right {
     height: 100%;
     left: 0;
     z-index: 9999;
   }
 
-  /* line 70, ../../../client/src/main/scala/Home/home.scss */
+  /* line 94, ../../../client/src/main/scala/Home/home.scss */
   .yellowThing-bottom {
     margin-top: 0px;
   }
 
-  /* line 73, ../../../client/src/main/scala/Home/home.scss */
+  /* line 97, ../../../client/src/main/scala/Home/home.scss */
   .bigger-left {
     height: 100%;
     right: 0;
     z-index: 9999;
   }
 
-  /* line 79, ../../../client/src/main/scala/Home/home.scss */
+  /* line 103, ../../../client/src/main/scala/Home/home.scss */
   .smaller-left {
     margin-top: 0;
   }

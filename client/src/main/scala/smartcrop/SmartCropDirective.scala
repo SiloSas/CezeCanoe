@@ -2,7 +2,7 @@ package smartcrop
 
 import com.greencatsoft.angularjs._
 import com.greencatsoft.angularjs.core.{Timeout, Window}
-import org.scalajs.dom.raw.{UIEvent, HTMLImageElement}
+import org.scalajs.dom.raw.{Event, UIEvent, HTMLImageElement}
 import org.scalajs.dom.{Element, console}
 import org.scalajs.dom.html.{Image, Canvas, Html}
 import scala.scalajs.js
@@ -24,7 +24,9 @@ class SmartCropDirective(window: Window, smartCropService: SmartCropService, tim
       }
 
       def getParentWidth(parent: Html): Int = {
-        if (parent.getBoundingClientRect().width > 0) parent.getBoundingClientRect().width.toInt
+        if (parent.getBoundingClientRect().width > 0)  {
+          parent.getBoundingClientRect().width.toInt
+        }
         else getParentHeight(parent.parentNode.asInstanceOf[Html])
       }
 
@@ -36,19 +38,21 @@ class SmartCropDirective(window: Window, smartCropService: SmartCropService, tim
             size.width = width.toInt
           } else {
             val percent = width.replace("%", "").toInt
-            console.log(getParentWidth(element))
-            size.width = getParentWidth(element) * percent / 100
+            size.width = getParentWidth(element.parentNode.asInstanceOf[Html]) * percent / 100
           }
         } else {
           size.width = getParentWidth(element)
         }
         val height = element.getAttribute("height")
         if (height != null) {
-          if (height.indexOf("%") == -1) {
-            size.height = height.toInt
-          } else {
+          if (height.indexOf("%") > -1) {
             val percent = height.replace("%", "").toInt
             size.height = getParentHeight(element) * percent / 100
+          } else if (height.indexOf("w") > -1) {
+            val ratio = height.replace("w", "").toDouble
+            size.height = (getParentWidth(element.parentNode.asInstanceOf[Html]) * ratio).toInt
+          } else {
+            size.height = height.toInt
           }
         } else {
           size.height = 500
@@ -59,19 +63,20 @@ class SmartCropDirective(window: Window, smartCropService: SmartCropService, tim
       val image = element.getElementsByTagName("img").item(0).asInstanceOf[Image]
 
       val callback: Function = (result: CropResult) => {
-        val crop = result.topCrop
-        val canvas = element.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas]
-        val ctx = canvas.getContext("2d")
-        canvas.width = defineSize.width
-        canvas.height = defineSize.height
-        if (image.complete) {
-          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, canvas.width, canvas.height)
-        }
+//        timeout( fn = () => {
+          val crop = result.topCrop
+          val canvas = element.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas]
+          val ctx = canvas.getContext("2d")
+          canvas.width = defineSize.width
+          canvas.height = defineSize.height
+          if (image.complete) {
+            ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, canvas.width, canvas.height)
+          }
+//        }, 0, true)
       }
 
       def cropImage: Unit = {
         if (image.complete) {
-          console.log(defineSize)
           smartCropService.crop(image, defineSize, callback)
         } else {
           timeout( fn = () => {
@@ -90,22 +95,16 @@ class SmartCropDirective(window: Window, smartCropService: SmartCropService, tim
           }, 20)
         }, 20, true)
         })
-        window.addEventListener("resize", (event: UIEvent) => {
+
+        val resize = (event: Event) => {
           defineSize
           cropImage
+        }
+        window.addEventListener("resize", resize)
+        scope.$on("$destroy", () => {
+          window.removeEventListener("resize", resize)
         })
       }, 10)
-
-
-     /* val a = scope.$watch(element.getAttribute("image"), new js.Function() {
-        //image.src = element.getAttribute("image")
-        console.log(image)
-        /*timeout( fn = () => {
-          cropImage
-        }, 0)*/
-      })
-      console.log(a)*/
-       //, function(newValue){});
     }
   }
 }

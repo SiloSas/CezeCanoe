@@ -20,10 +20,11 @@
   background-image: url("/assets/images/border.png");
   background-repeat: no-repeat;
   background-size: 100% auto;
-  border-bottom: 10px solid black;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+  border-bottom: 0px solid black;
   border-image: url("/assets/images/borderBottom.png");
-  padding: 0.25%;
-  padding-bottom: 0;
   border-image-width: auto;
   border-image-outset: 0;
   border-image-slice: 473;
@@ -60,6 +61,29 @@
   margin-top: -10px;
   z-index: 99999;
 }
+
+top-bar-content > * > .md-button {
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 136, 203, 1)!important;
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  border: solid rgba(57, 33, 0, 1) 2px;
+  cursor: pointer !important;
+  color: #FFC13D!important;
+  font: normal normal normal 20px/1.4em arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
+  line-height: 43px
+}
+
+top-bar-content > * > .md-button:hover {
+            background-color: rgba(255, 193, 61, 1)!important;
+            border-color: rgba(57, 33, 0, 1);
+            transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+            color: #545454!important;
+          }
 @media (max-width: 600px) {
   .bigger-right {
     height: 100%;

@@ -1,7 +1,9 @@
-import Descentes.{DescenteController, DescenteDirective}
+import Booking.BookingController
+import Descentes.{DescenteServiceFactory, DescenteController, DescenteDirective}
 import Home.{TopBarContentDirective, TopBarDirective, HomeController, HomeArticleDirective}
+import Lang.{LangDirective, LangServiceFactory}
 import Room.{RoomController, RoomMinDirective}
-import Slider.{SliderContentDirective, SliderDirective, SliderController}
+import Slider.{SliderContentDirective, SliderDirective}
 import VideoPlayer.VideoPlayerDirective
 import com.greencatsoft.angularjs._
 import example.RoomServiceFactory
@@ -17,10 +19,12 @@ object App extends JSApp {
 
     module
     .factory[RoomServiceFactory]
+    .factory[DescenteServiceFactory]
+    .factory[LangServiceFactory]
     .controller[RoomController]
-    .controller[SliderController]
     .controller[HomeController]
     .controller[DescenteController]
+    .controller[BookingController]
     .directive[RoomMinDirective]
       .directive[SmartCropDirective]
       .directive[SliderDirective]
@@ -30,6 +34,7 @@ object App extends JSApp {
       .directive[TopBarDirective]
       .directive[TopBarContentDirective]
       .directive[DescenteDirective]
+      .directive[LangDirective]
     .config(RoutingConfig)
   }
 }

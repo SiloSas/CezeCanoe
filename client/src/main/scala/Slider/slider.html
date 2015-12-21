@@ -1,12 +1,12 @@
 <div id="component" class="component component-fullwidth width100p">
     <ul class="width100p">
-        <li class="current roomsImagesSlider width100p" ng-if="activeImage.step == 0">
-            <smart-crop image="{{activeImage.url}}" width="100%" height="100%" class="float-left height100p width100p">
-            </smart-crop>
+        <li class="current roomsImagesSlider width100p">
+                <img src="" class="float-left height100p width100p roomsImagesSlider" style="display: none">
+                <canvas></canvas>
         </li>
-        <li class="current roomsImagesSlider width100p" ng-if="activeImage.step == 1">
-            <smart-crop image="{{activeImage.url1}}" width="100%" height="100%" class="float-left height100p width100p">
-            </smart-crop>
+        <li class="current roomsImagesSlider width100p">
+            <img src="" class="float-left height100p width100p roomsImagesSlider" style="display: none">
+            <canvas></canvas>
         </li>
     </ul>
 

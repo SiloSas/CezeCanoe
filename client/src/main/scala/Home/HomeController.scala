@@ -43,6 +43,7 @@ class HomeController(scope: HomeScope, service: RoomService, $sce: SceService) e
   val articles = Seq(article1, article2, article3)
   scope.articles = js.Array[Article]()
 
+
   scope.articles = articles.toJSArray
 
 }

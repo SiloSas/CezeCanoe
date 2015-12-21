@@ -19,5 +19,12 @@ object RoutingConfig extends Config {
           controller = "descenteController",
           title = "Room"))
 
+      .when(
+        path = "/booking/:id",
+        route = Route(
+          templateUrl = "/assets/templates/Booking/booking.html",
+          controller = "bookingController",
+          title = "Room"))
+
   }
 }
