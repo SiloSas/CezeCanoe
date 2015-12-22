@@ -20,7 +20,7 @@ class DescenteService(http: HttpService) extends Service {
     name = "Les Rochers de St Gély",
     presentation = "[lang_Fr]<p>Sur ce parcours de <b>7 km</b> (2h non-stop) vous pouvez garder le canoë 3 ou 4 heures pour pique-niquer et " +
       "vous baigner. Riche en faune et en flore, la rivière vous offrira un agréable moment de détente. Rendez-vous à notre " +
-      "base de Goudargues au centre du village,\net <b>partez immédiatement de 9h à 16h !</b></p>" +
+      "base de Goudargues au centre du village,<br/>et <b>partez immédiatement de 9h à 16h !</b></p>" +
       "[lang_En] <p>Discover the valley of the Ceze " +
       "river between Goudargues and Cazernau all along this 7 km trip, with a duration of about 2 hours if you choose to do it without any stops. " +
       "You just have to show up in our base of Goudargues in the village center, then you can go immediately from 9am to 4pm !",
@@ -37,8 +37,8 @@ class DescenteService(http: HttpService) extends Service {
   val descente1 = Descente(
     id = "2",
     name = "Les Petites Gorges",
-    presentation ="[lang_Fr]<p>Cette descente necessite une réservation. Merci.\n\n \n\nVous avez 1h30 de pagayage " +
-      "et vous pouvez garder vos embarcations 3 ou 4 heures.\n\nCette courte descente est idéale pour s'initier et découvrir " +
+    presentation ="[lang_Fr]<p>Cette descente necessite une réservation. Merci. <br/><br/>Vous avez 1h30 de pagayage " +
+      "et vous pouvez garder vos embarcations 3 ou 4 heures.<br/>Cette courte descente est idéale pour s'initier et découvrir " +
       "les paisibles gorges de la Cèze. Nous vous attendons à notre base du pont de Saint André pour vous équiper et " +
       "vous emmener 5 km en amont, au départ de Montclus. Arrivé au Pont de St André, vous déposerez votre bateau et " +
       "retrouverez votre véhicule. <b>Départ jusqu'à 13h.</b></p>",
@@ -76,7 +76,7 @@ class DescenteService(http: HttpService) extends Service {
     presentation = "[lang_Fr]<p>Profitez d'une journée nature avec cette petite randonnée à canoë de 12 km partant " +
       "de Montclus. Passez juste à côté de ce magnifique village puis naviguez entre les gorges de la Cèze, et laissez " +
       "vous guidez par les paisibles eaux jusqu'à votre arrivée à notre base de Goudargues. Comptez 3 heures de pagayage. " +
-      "La location des bateaux sur ce parcours est à la journée :<b> partez avant 13 h !</b>\n\nRéservation conseillée.</p>",
+      "La location des bateaux sur ce parcours est à la journée :<b> partez avant 13 h !</b><br/><br/>Réservation conseillée.</p>",
     tour = "... de Montclus à Goudargues",
     images = js.Array("assets/images/img2.jpg"),
     distance = "12 km",
@@ -89,7 +89,7 @@ class DescenteService(http: HttpService) extends Service {
   )
   val descentes = Seq(descente, descente1, descente2, descente3)
 
-  val informations = "* Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !\n Prix guichet : 7€"
+  val informations = "* Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"
   val tariffs = Seq(
     Price(
     name = "Kayak une place",

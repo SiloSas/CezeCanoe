@@ -29,6 +29,18 @@ class LangService(rootScope: RootScope) extends Service {
     rootScope.$emit("notifying")
   }
 
+  @JSExport
+  def setLang(string: String, lang: String): String = {
+    "(.lang_\\w*.)".r.replaceAllIn(
+      string.trim.split("(?=.lang_\\w*.)").find(_.indexOf("lang_" + lang) > -1) match {
+        case Some(presentationInLang) =>
+          presentationInLang
+        case _ =>
+          string.split("(?=.lang_\\w*.)").head
+      }, ""
+    )
+  }
+
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
     case Success(s) => Future.successful(s)
     case Failure(f) => Future.failed(f)

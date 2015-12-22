@@ -1,0 +1,53 @@
+@(message: String)
+
+@main("Admin") {
+
+    @*<md-sidenav class="md-sidenav-left md-whiteframe-z2" ng-click="directive.toggleLeft()" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">*@
+        @*<top-bar-content></top-bar-content>*@
+    @*</md-sidenav>*@
+    @*<div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">*@
+
+
+        @*<md-content class="height100p column large-12 padding0" id="mainContent" style="overflow-x: hidden; background: transparent">*@
+            @*<div>YO</div>*@
+            @*<div class="column large-12 paddingBottom50"></div>*@
+        @*</md-content>*@
+
+    @*</div>*@
+    <section layout="row" flex class="height100p" ng-cloak data-ng-controller="adminController">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar class="md-theme-indigo" style="background: #B4D5B8;">
+                <h1 class="md-toolbar-tools">Admin</h1>
+            </md-toolbar>
+            <md-content layout-padding >
+                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                    Close Sidenav Left
+                </md-button>
+                <h4 data-ng-click="show = 'descentes'">Descentes</h4>
+                <div data-ng-show="show == 'descentes'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes">
+                        <h5>{{descente.name}}</h5>
+                            <md-button class="md-fab md-mini float-right" ng-click="setDescente(descente)"><i class="fa fa-pencil"></i></md-button>
+                            <md-button class="md-fab md-mini float-right"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                </div>
+            </md-content>
+        </md-sidenav>
+        <md-content flex>
+            <md-toolbar md-scroll-shrink ng-if="true"  style="background: #B4D5B8;">
+            <div class="md-toolbar-tools" >
+            <md-button aria-label="menu" class="md-fab md-primary md-mini" ng-click="directive.toggleLeft()" hide-gt-md>
+                <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
+            </md-button>
+            <object data="assets/images/title.svg"
+            class="column medium-3 large-2 small-8 animated fadeIn"></object>
+                </div>
+            </md-toolbar>
+            <div layout="column" layout-fill layout-align="top center">
+                <div ng-include="formTemplate"></div>
+            </div>
+            <div flex></div>
+        </md-content>
+    </section>
+
+}

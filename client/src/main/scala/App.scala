@@ -1,3 +1,4 @@
+import Admin.AdminController
 import Booking.BookingController
 import Descentes.{DescenteServiceFactory, DescenteController, DescenteDirective}
 import Home.{TopBarContentDirective, TopBarDirective, HomeController, HomeArticleDirective}
@@ -25,6 +26,7 @@ object App extends JSApp {
     .controller[HomeController]
     .controller[DescenteController]
     .controller[BookingController]
+    .controller[AdminController]
     .directive[RoomMinDirective]
       .directive[SmartCropDirective]
       .directive[SliderDirective]

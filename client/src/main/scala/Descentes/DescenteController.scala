@@ -2,7 +2,7 @@ package Descentes
 
 import Lang.LangService
 import com.greencatsoft.angularjs.core.SceService
-import com.greencatsoft.angularjs.{AbstractController, Controller, injectable}
+import com.greencatsoft.angularjs.{Angular, AbstractController, Controller, injectable}
 import shared.{Price, Descente}
 
 import org.scalajs.dom.console
@@ -25,14 +25,14 @@ extends AbstractController[DescenteScope](descenteScope) {
   descenteService.findAll().onComplete {
     case Success(descentes) =>
         descenteScope.descentes = descentes.map { descente =>
-          val presentation: String = setLang(descente.presentation.toString, lang)
+          val presentation: String = langService.setLang(descente.presentation.toString, lang)
           descente.copy(presentation = $sce.trustAsHtml(presentation))
         }.toJSArray
       def updateDescentesScope(): Unit = {
         lang = langService.lang
         console.log("vfgf")
         descenteScope.descentes = descenteScope.descentes.map { descente =>
-          val presentation: String = setLang(descentes.filter(_.id == descente.id).head.presentation.toString, lang)
+          val presentation: String = langService.setLang(descentes.filter(_.id == descente.id).head.presentation.toString, lang)
           descente.copy(presentation = $sce.trustAsHtml(presentation))
         }
       }
@@ -42,16 +42,6 @@ extends AbstractController[DescenteScope](descenteScope) {
       println("miss")
   }
 
-  def setLang(string: String, lang: String): String = {
-    "(.lang_\\w*.)".r.replaceAllIn(
-      string.trim.split("(?=.lang_\\w*.)").find(_.indexOf("lang_" + lang) > -1) match {
-        case Some(presentationInLang) =>
-          presentationInLang
-        case _ =>
-          string.split("(?=.lang_\\w*.)").head
-      }, ""
-    )
-  }
 
   descenteService.findTariffs().onComplete {
     case Success(tariffs) =>

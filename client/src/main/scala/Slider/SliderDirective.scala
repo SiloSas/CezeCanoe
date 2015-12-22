@@ -138,7 +138,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
                 oldContainer.asInstanceOf[Html].classList.add("ng-hide")
                 oldContainer.asInstanceOf[Html].classList.remove("ng-hide-add")
                 container.asInstanceOf[Html].classList.remove("ng-hide-remove")
-              }, 50, false )
+              }, 900, false )
             }
           }
         }
