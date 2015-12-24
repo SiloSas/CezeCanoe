@@ -1,0 +1,15 @@
+@import "../componentsSettings/foundation";
+@import "../../../bower_components/foundation/scss/normalize";
+@import "../../../client/src/main/scala/Room/room";
+@import "../../../client/src/main/scala/Slider/slider";
+@import "../../../client/src/main/scala/Home/home";
+@import "../../../client/src/main/scala/Descentes/descente";
+
+body, html {
+  background: #B4D5B8 none repeat scroll;
+  background-size: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}

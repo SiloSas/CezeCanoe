@@ -1,13 +1,94 @@
-<md-input>
-    <label>name</label>
-    <input ng-model="descente.name" />
-</md-input>
-<div data-ng-repeat="presentation in descente.presentations" data-ng-bind-html="presentation.presentation"></div>
-<!--var id: String = js.native
-  var name: String = js.native
-  var presentation: js.Any = js.native
-  var tour: String = js.native
-  var images: js.Array[String] = js.native
-  var distance: String = js.native
-  var prices: js.Array[Price] = js.native
-  var time: String = js.native-->
+<form ng-submit="validate()">
+    <md-list>
+        <md-subheader>Description</md-subheader>
+        <md-list-item>
+            <md-input-container class="column large-12">
+                <label>name</label>
+                <input ng-model="descente.name" />
+            </md-input-container>
+        </md-list-item>
+        <md-list-item>
+            <textarea data-ng-repeat="presentation in descente.presentations | filter: {lang: $root.lang}"
+                      class="column large-12"
+                      data-ng-bind-html="presentation.presentation"></textarea>
+        </md-list-item>
+        <md-list-item>
+            <md-input-container class="column large-12">
+                <label>tour</label>
+                <input ng-model="descente.tour" />
+            </md-input-container>
+        </md-list-item>
+        <md-list-item>
+            <md-input-container class="column large-12">
+                <label>distance</label>
+                <input ng-model="descente.distance" />
+            </md-input-container>
+        </md-list-item>
+        <md-list-item>
+            <md-input-container class="column large-12">
+                <label>temps</label>
+                <input ng-model="descente.time" />
+            </md-input-container>
+        </md-list-item>
+        <md-devider></md-devider>
+        <md-subheader>Images</md-subheader>
+        <md-list-item>
+            <img src="{{image}}" data-ng-repeat="image in descente.images" class="column medium-6" />
+        </md-list-item>
+        <md-devider></md-devider>
+        <md-subheader>Tarifs</md-subheader>
+        <div ng-repeat="price in descente.prices" class="column large-12 zIndex1">
+            <div class="column md-whiteframe-z1 marginBottom10">
+            <p><md-input-container class="column large-12">
+                <label>{{price.name}}</label>
+                <input ng-model="price.price" />
+            </md-input-container></p>
+           <p> <md-checkbox
+                   class="column large-12"
+                    ng-model="price.isBookable"
+                    aria-label="price isBookable">
+                <span ng-if="price.isBookable">Ce tarif est reservable sur ce site web</span>
+                <span ng-if="!price.isBookable">Ce tarif n'est pas reservable sur ce site web</span>
+            </md-checkbox></p>
+            <p><md-checkbox
+                    class="column large-12 float-left"
+                    ng-model="price.isSupplement"
+                    aria-label="price isSupplement">
+                <span ng-if="price.isSupplement">Ce tarif est un supplément</span>
+                <span ng-if="!price.isSupplement">Ce tarif n'est pas un supplément</span>
+            </md-checkbox></p></div>
+            <md-devider></md-devider>
+        </div>
+        <md-subheader>Tarifs s'appliquant à toutes les déscentes</md-subheader>
+        <div ng-repeat="price in prices" class="column large-12">
+            <div class="md-whiteframe-z1 column large-12">
+                <md-list-item  class="column large-12">
+                    <md-input-container >
+                        <label>{{price.name}}</label>
+                        <input ng-model="price.price" type="number" />
+                    </md-input-container>
+                </md-list-item>
+                <div class="column large-12">
+                    <md-checkbox
+                        ng-model="price.isBookable"
+                        aria-label="price isBookable">
+                    <span ng-if="price.isBookable">Ce tarif est reservable sur ce site web</span>
+                    <span ng-if="!price.isBookable">Ce tarif n'est pas reservable sur ce site web</span>
+                </md-checkbox>
+                <md-checkbox
+                        ng-model="price.isSupplement"
+                        aria-label="price isSupplement">
+                    <span ng-if="price.isSupplement">Ce tarif est un supplément</span>
+                    <span ng-if="!price.isSupplement">Ce tarif n'est pas un supplément</span>
+                </md-checkbox>
+                    <md-button  ng-show="price.medias.length" ng-click="showImage = !showImage">Voir les images</md-button>
+                </div>
+                <md-list-item ng-if="showImage">
+                    <img ng-src="{{image}}" class="column large-6" data-ng-repeat="image in price.medias"/>
+                </md-list-item>
+                <md-devider ng-if="!$last"></md-devider>
+            </div>
+        </div>
+        <md-button type="submit">Valider</md-button>
+    </md-list>
+</form>
