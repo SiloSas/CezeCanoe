@@ -1,94 +1,84 @@
-<form ng-submit="validate()">
+<div>
     <md-list>
         <md-subheader>Description</md-subheader>
         <md-list-item>
-            <md-input-container class="column large-12">
+            <md-input-container class="column large-12" data-ng-repeat="versionedName in descente.name | filter: {lang: $root.lang}">
                 <label>name</label>
-                <input ng-model="descente.name" />
+                <input ng-model="versionedName.presentation" ng-change="controller.setNeedToSaveToTrue()"/>
             </md-input-container>
         </md-list-item>
+        <md-subheader>Présentation</md-subheader>
         <md-list-item>
             <textarea data-ng-repeat="presentation in descente.presentations | filter: {lang: $root.lang}"
                       class="column large-12"
+                      ng-change="controller.setNeedToSaveToTrue()"
+                      ng-model="presentation.presentation"
                       data-ng-bind-html="presentation.presentation"></textarea>
         </md-list-item>
         <md-list-item>
-            <md-input-container class="column large-12">
+            <md-input-container class="column large-12" data-ng-repeat="versionedTour in descente.tour | filter: {lang: $root.lang}">
                 <label>tour</label>
-                <input ng-model="descente.tour" />
+                <input ng-model="versionedTour.presentation"  ng-change="controller.setNeedToSaveToTrue()"/>
             </md-input-container>
         </md-list-item>
         <md-list-item>
-            <md-input-container class="column large-12">
+            <md-input-container class="column large-12" data-ng-repeat="versionedDistance in descente.distance | filter: {lang: $root.lang}">
                 <label>distance</label>
-                <input ng-model="descente.distance" />
+                <input ng-model="versionedDistance.presentation"  ng-change="controller.setNeedToSaveToTrue()"/>
             </md-input-container>
         </md-list-item>
         <md-list-item>
-            <md-input-container class="column large-12">
+            <md-input-container class="column large-12" data-ng-repeat="versionedTime in descente.time | filter: {lang: $root.lang}">
                 <label>temps</label>
-                <input ng-model="descente.time" />
+                <input ng-model="versionedTime.presentation"  ng-change="controller.setNeedToSaveToTrue()"/>
             </md-input-container>
         </md-list-item>
         <md-devider></md-devider>
         <md-subheader>Images</md-subheader>
-        <md-list-item>
-            <img src="{{image}}" data-ng-repeat="image in descente.images" class="column medium-6" />
-        </md-list-item>
+        <div class="column">
+           <span data-ng-repeat="image in descente.images" class="column medium-6 float-left">
+               <img src="{{image}}" class="width100p" />
+                <span class="md-primary md-fab md-button zIndex1" data-ng-click="controller.setNeedToSaveToTrue()">
+                    <i class="fa fa-download"></i>
+                    <input type="file"
+                           app-filereader="$parent.$parent.descente.images[$index]"
+                           class="absolute left0 height100p" style="opacity: 0"/>
+                </span> Modifier l'image {{image}}
+                <span class="md-primary md-fab md-button zIndex1" data-ng-click="descente.images.splice($index, 1); controller.setNeedToSaveToTrue()">
+                    <i class="fa fa-trash"></i>
+                </span>
+           </span>
+        </div>
+        <span class="md-primary md-fab md-button marginLeft40 zIndex1">
+            <i class="fa fa-download"></i>
+            <input type="file"
+                   app-filereader="$parent.newImage"
+                   class="absolute left0 height100p" style="opacity: 0"/>
+        </span> Ajouter une image
         <md-devider></md-devider>
         <md-subheader>Tarifs</md-subheader>
-        <div ng-repeat="price in descente.prices" class="column large-12 zIndex1">
-            <div class="column md-whiteframe-z1 marginBottom10">
-            <p><md-input-container class="column large-12">
-                <label>{{price.name}}</label>
-                <input ng-model="price.price" />
-            </md-input-container></p>
-           <p> <md-checkbox
-                   class="column large-12"
-                    ng-model="price.isBookable"
-                    aria-label="price isBookable">
-                <span ng-if="price.isBookable">Ce tarif est reservable sur ce site web</span>
-                <span ng-if="!price.isBookable">Ce tarif n'est pas reservable sur ce site web</span>
-            </md-checkbox></p>
-            <p><md-checkbox
-                    class="column large-12 float-left"
-                    ng-model="price.isSupplement"
-                    aria-label="price isSupplement">
-                <span ng-if="price.isSupplement">Ce tarif est un supplément</span>
-                <span ng-if="!price.isSupplement">Ce tarif n'est pas un supplément</span>
-            </md-checkbox></p></div>
-            <md-devider></md-devider>
-        </div>
-        <md-subheader>Tarifs s'appliquant à toutes les déscentes</md-subheader>
-        <div ng-repeat="price in prices" class="column large-12">
-            <div class="md-whiteframe-z1 column large-12">
-                <md-list-item  class="column large-12">
-                    <md-input-container >
-                        <label>{{price.name}}</label>
-                        <input ng-model="price.price" type="number" />
-                    </md-input-container>
-                </md-list-item>
-                <div class="column large-12">
-                    <md-checkbox
-                        ng-model="price.isBookable"
-                        aria-label="price isBookable">
-                    <span ng-if="price.isBookable">Ce tarif est reservable sur ce site web</span>
-                    <span ng-if="!price.isBookable">Ce tarif n'est pas reservable sur ce site web</span>
-                </md-checkbox>
-                <md-checkbox
-                        ng-model="price.isSupplement"
-                        aria-label="price isSupplement">
-                    <span ng-if="price.isSupplement">Ce tarif est un supplément</span>
-                    <span ng-if="!price.isSupplement">Ce tarif n'est pas un supplément</span>
-                </md-checkbox>
-                    <md-button  ng-show="price.medias.length" ng-click="showImage = !showImage">Voir les images</md-button>
-                </div>
-                <md-list-item ng-if="showImage">
-                    <img ng-src="{{image}}" class="column large-6" data-ng-repeat="image in price.medias"/>
-                </md-list-item>
-                <md-devider ng-if="!$last"></md-devider>
+        <div class="column large-12 padding-0">
+            <div ng-repeat="newPrice in descente.prices" class="column large-6 float-left zIndex1 md-whiteframe-z1">
+                <i ng-if="$index == 0">Tarif de référence pour les suppléments</i>
+                <span class="float-right md-fab md-warn md-mini md-button" data-ng-click="descente.prices.splice($index, 1)">
+                    <i class="fa fa-trash"></i>
+                </span>
+                <form class="column marginBottom10 tariff-form" ng-submit="validate()">
+                </form>
+                <md-devider></md-devider>
             </div>
         </div>
-        <md-button type="submit">Valider</md-button>
+        <md-subheader class="width100p float-left">Ajouter un tarifs</md-subheader>
+        <div class="column large-12 zIndex1" >
+            <span class="md-primary md-fab md-button zIndex1 marginLeft20"
+                  data-ng-click="addPrice = !addPrice; newPrice={name: controller.emptyVersionedStringArray(), isBookable: true} ">
+                <i class="fa" ng-class="{'fa-plus': !addPrice, 'fa-times': addPrice}"></i>
+            </span><span data-ng-show="!addPrice">Ajouter un tarif</span>
+            <form data-ng-if="addPrice" class="column md-whiteframe-z1 marginBottom10 tariff-form"
+                  ng-submit="descente.prices.push(newPrice); validate(); $parent.addPrice = false">
+            </form>
+            <md-devider></md-devider>
+        </div>
+        <div ng-include="'assets/templates/Admin/tariffsForm.html'"></div>
     </md-list>
-</form>
+</div>

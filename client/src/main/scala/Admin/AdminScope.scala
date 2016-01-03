@@ -11,30 +11,31 @@ trait AdminScope extends Scope {
   var validate: js.Function = js.native
   var setDescente: js.Function = js.native
   var setNewDescente: js.Function = js.native
-  var descentes: js.Array[Descente] = js.native
+  var descentes: js.Array[DescenteMutable] = js.native
   var prices: js.Array[Price] = js.native
+  var newImage: String = js.native
 }
 
 trait DescenteMutable extends js.Object {
   var id: String = js.native
-  var name: String = js.native
-  var presentations: js.Array[Presentation] = js.native
-  var tour: String = js.native
+  var name: js.Array[VersionedString] = js.native
+  var presentations: js.Array[VersionedString] = js.native
+  var tour: js.Array[VersionedString] = js.native
   var images: js.Array[String] = js.native
-  var distance: String = js.native
+  var distance: js.Array[VersionedString] = js.native
   var prices: js.Array[Price] = js.native
-  var time: String = js.native
+  var time: js.Array[VersionedString] = js.native
 }
 
 trait Price extends js.Object {
-  var name: String = js.native
+  var name: js.Array[VersionedString] = js.native
   var price: Double = js.native
   var isBookable: Boolean = js.native
   var medias: js.Array[String] = js.native
   var isSupplement: Boolean = js.native
 }
 
-trait Presentation extends js.Object {
+trait VersionedString extends js.Object {
   var lang: String = js.native
   var presentation: js.Any = js.native
 }

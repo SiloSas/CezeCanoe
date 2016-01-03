@@ -1,0 +1,52 @@
+<div class="column large-6 padding0">
+    <div data-ng-repeat="media in directive.medias"
+         ng-if="$index%2 == 0"
+         class=" column float-left paddingRight0 paddingLeft0">
+        <div class="float-left homeArticleMedia paddingBottom0 width100p relative">
+            <smart-crop
+                    image="{{media}}" class="width100p float-left relative"
+                    ng-if="$index%4 == 3 || $index%4 == 0"
+                    style="overflow: hidden" width="100%" height="0.41w"></smart-crop>
+            <smart-crop image="{{media}}"
+                        ng-if="$index%4 == 2 || $index%4 == 1"
+                        class="width100p float-left relative" style="overflow: hidden" width="100%" height="0.61w"></smart-crop>
+        </div>
+                    <span class="column float-left absolute zIndex5 left0 bottom0">
+                        <span class="md-primary md-fab md-button zIndex1">
+                            <i class="fa fa-download"></i>
+                            <input type="file"
+                                   app-filereader="media"
+                                   class="absolute left0 height100p" style="opacity: 0"/>
+                        </span> Modifier l'image {{image}}
+                        <span class="md-primary md-fab md-button zIndex1" data-ng-click="newPrice.medias.splice($index, 1)">
+                            <i class="fa fa-trash"></i>
+                        </span>
+                    </span>
+    </div>
+</div>
+<div class="column large-6 padding0">
+    <div data-ng-repeat="media in directive.medias"
+         ng-if="$index%2 == 1"
+         class=" column float-left paddingRight0 paddingLeft0">
+        <div class="float-left homeArticleMedia paddingBottom0 width100p relative">
+            <smart-crop
+                    image="{{media}}" class="width100p float-left relative"
+                    ng-if="$index%4 == 3 || $index%4 == 0"
+                    style="overflow: hidden" width="100%" height="0.41w"></smart-crop>
+            <smart-crop image="{{media}}"
+                        ng-if="$index%4 == 2 || $index%4 == 1"
+                        class="width100p float-left relative" style="overflow: hidden" width="100%" height="0.61w"></smart-crop>
+        </div>
+                      <span class="column float-left absolute zIndex5 left0 bottom0">
+                        <span class="md-primary md-fab md-button zIndex1">
+                            <i class="fa fa-download"></i>
+                            <input type="file"
+                                   app-filereader="media"
+                                   class="absolute left0 height100p" style="opacity: 0"/>
+                        </span> Modifier l'image {{image}}
+                        <span class="md-primary md-fab md-button zIndex1" data-ng-click="newPrice.medias.splice($index, 1)">
+                            <i class="fa fa-trash"></i>
+                        </span>
+                    </span>
+    </div>
+</div>

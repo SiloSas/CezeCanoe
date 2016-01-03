@@ -100,10 +100,17 @@ class SmartCropDirective(window: Window, smartCropService: SmartCropService, tim
           defineSize
           cropImage
         }
+
+        attrs.$observe("image", (newAttr: String) => {
+          image.src = newAttr
+          cropImage
+        } )
+
         window.addEventListener("resize", resize)
         scope.$on("$destroy", () => {
           window.removeEventListener("resize", resize)
         })
+
       }, 10)
     }
   }

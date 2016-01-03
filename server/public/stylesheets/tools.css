@@ -93,32 +93,32 @@
 /*z-index*/
 /* line 24, ../scss/tools.scss */
 .zIndex1 {
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 /* line 25, ../scss/tools.scss */
 .zIndex2 {
-  z-index: 2;
+  z-index: 2 !important;
 }
 
 /* line 26, ../scss/tools.scss */
 .zIndex3 {
-  z-index: 3;
+  z-index: 3 !important;
 }
 
 /* line 27, ../scss/tools.scss */
 .zIndex4 {
-  z-index: 4;
+  z-index: 4 !important;
 }
 
 /* line 28, ../scss/tools.scss */
 .zIndex5 {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 /* line 29, ../scss/tools.scss */
 .zIndex6 {
-  z-index: 6;
+  z-index: 6 !important;
 }
 
 /* line 30, ../scss/tools.scss */

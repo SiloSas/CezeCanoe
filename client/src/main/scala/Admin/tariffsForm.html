@@ -1,0 +1,19 @@
+<md-subheader class="width100p float-left">Tarifs s'appliquant à toutes les déscentes</md-subheader>
+<div ng-repeat="newPrice in prices" class="column large-6 float-left zIndex1 md-whiteframe-z1">
+    <span class="float-right md-fab md-warn md-mini md-button" data-ng-click="prices.splice($index, 1)">
+        <i class="fa fa-trash"></i>
+    </span>
+    <form class="column marginBottom10 tariff-form" ng-submit="controller.updatePrice(newPrice)">
+    </form>
+    <md-devider></md-devider>
+</div>
+<md-subheader class="width100p float-left">Ajouter un tarifs</md-subheader>
+<div class="column large-12 zIndex1" >
+            <span class="md-primary md-fab md-button zIndex1"
+                  data-ng-click="addPrice = !addPrice; newPrice = {name: controller.emptyVersionedStringArray(), medias: [], isBookable: true}">
+                <i class="fa" ng-class="{'fa-plus': !addPrice, 'fa-times': addPrice}"></i>
+            </span><span data-ng-show="!addPrice">Ajouter un tarif général</span>
+    <form data-ng-if="addPrice" class="column md-whiteframe-z1 marginBottom10 tariff-form"
+          ng-submit="controller.updatePrice(newPrice); $parent.addPrice = false">
+    </form>
+</div>

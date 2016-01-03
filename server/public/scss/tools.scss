@@ -21,12 +21,12 @@
 .BlackTrans{background: $blackTransparent}
 .transparent{background: $transparent!important;}
 /*z-index*/
-.zIndex1{z-index:1;}
-.zIndex2{z-index:2;}
-.zIndex3{z-index:3;}
-.zIndex4{z-index:4;}
-.zIndex5{z-index:5;}
-.zIndex6{z-index:6;}
+.zIndex1{z-index:1!important;}
+.zIndex2{z-index:2!important;;}
+.zIndex3{z-index:3!important;;}
+.zIndex4{z-index:4!important;;}
+.zIndex5{z-index:5!important;;}
+.zIndex6{z-index:6!important;;}
 .shadow { box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); }
 .rounded { border-radius: 3px; }
 .scrollAuto {overflow-y: auto}

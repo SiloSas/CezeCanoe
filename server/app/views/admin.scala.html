@@ -1,19 +1,6 @@
 @(message: String)
 
 @main("Admin") {
-
-    @*<md-sidenav class="md-sidenav-left md-whiteframe-z2" ng-click="directive.toggleLeft()" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">*@
-        @*<top-bar-content></top-bar-content>*@
-    @*</md-sidenav>*@
-    @*<div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">*@
-
-
-        @*<md-content class="height100p column large-12 padding0" id="mainContent" style="overflow-x: hidden; background: transparent">*@
-            @*<div>YO</div>*@
-            @*<div class="column large-12 paddingBottom50"></div>*@
-        @*</md-content>*@
-
-    @*</div>*@
     <section layout="row" flex class="height100p" ng-cloak data-ng-controller="adminController">
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
             <md-toolbar class="md-theme-indigo" style="background: #B4D5B8;">
@@ -26,12 +13,13 @@
                 <h4 data-ng-click="show = 'descentes'">Descentes <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'descentes'">
                     <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes">
-                        <h5>{{descente.name}}</h5>
+                        <h5 data-ng-repeat="versionedName in descente.name | filter: {lang: $root.lang}">{{versionedName.presentation}}</h5>
                             <md-button class="md-fab md-mini float-right" ng-click="setDescente(descente)"><i class="fa fa-pencil"></i></md-button>
-                            @*<md-button class="md-fab md-mini float-right"><i class="fa fa-trash"></i></md-button>*@
+                            <md-button class="md-fab md-mini float-right"><i class="fa fa-trash"></i></md-button>
                     </div>
-                    @*<md-button ng-click="setNewDescente()">Ajouter une descente</md-button>*@
+                    <md-button ng-click="setNewDescente()">Ajouter une descente</md-button>
                 </div>
+                <h4 data-ng-click="show = 'prices'; controller.setPrices()">Tarifs généraux <i class="float-right fa fa-eye"></i> </h4>
             </md-content>
         </md-sidenav>
         <md-content style="overflow: hidden; height: inherit" flex>
@@ -42,6 +30,15 @@
             </md-button>
             <object data="assets/images/title.svg"
             class="column medium-3 large-2 small-8 animated fadeIn"></object>
+                <md-button ng-click="validate()" class="md-fab md-mini md-primary" ng-show="controller.needToSave"><i class="fa fa-save"></i></md-button>
+                <span class="tooltip-trigger float-left relative">
+                    <md-button ng-click="controller.cancelChanges()" class="md-fab md-mini md-warn" ng-show="controller.needToSave">
+                        <i class="fa fa-refresh"></i>
+                    </md-button>
+                    <i class="tooltip-custom animated ">
+                        Annuler les modifications
+                    </i>
+                </span>
                 <div ng-init="$root.lang = '[lang_Fr]'">
                     <div data-ng-click="$root.lang = '[lang_Fr]'"> <h2>Fr</h2></div>
                     <div data-ng-click="$root.lang = '[lang_En]'"> <h2>En</h2></div>

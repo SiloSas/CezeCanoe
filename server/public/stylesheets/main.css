@@ -24529,3 +24529,40 @@ body, html {
   overflow: hidden;
   width: 100%;
 }
+
+/* line 17, ../scss/main.scss */
+.tooltip-custom {
+  display: none;
+  z-index: 99999;
+  animation: fadeIn 1s;
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  position: absolute;
+  font-weight: bold;
+  top: 65px;
+  margin-left: -20px;
+  font-size: 13px;
+  left: auto;
+  right: auto;
+  background: rgba(3, 54, 73, 0.75);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
+
+/* line 34, ../scss/main.scss */
+.tooltip-trigger:hover > .tooltip-custom {
+  display: block;
+}
+
+@media only screen and (max-width: 750px) {
+  /* line 39, ../scss/main.scss */
+  .tooltip-trigger:hover > .tooltip-custom {
+    display: none;
+  }
+
+  /* line 42, ../scss/main.scss */
+  .imageSlider {
+    vertical-align: top !important;
+  }
+}

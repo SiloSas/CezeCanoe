@@ -1,4 +1,4 @@
-import Admin.AdminController
+import Admin.{TariffFormDirective, TariffsImagesDirective, AdminController}
 import Booking.BookingController
 import Descentes.{DescenteServiceFactory, DescenteController, DescenteDirective}
 import Home.{TopBarContentDirective, TopBarDirective, HomeController, HomeArticleDirective}
@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSExport
 object App extends JSApp {
 
   override def main() {
-    val module = Angular.module("app", Seq("ngAnimate", "ngAria", "ngMaterial", "mm.foundation", "ngRoute", "ngMap", "smartCrop"))
+    val module = Angular.module("app", Seq("ngAnimate", "ngAria", "ngMaterial", "mm.foundation", "ngRoute", "ngMap", "smartCrop", "uploader"))
 
     module
     .factory[RoomServiceFactory]
@@ -37,6 +37,8 @@ object App extends JSApp {
       .directive[TopBarContentDirective]
       .directive[DescenteDirective]
       .directive[LangDirective]
+      .directive[TariffsImagesDirective]
+      .directive[TariffFormDirective]
     .config(RoutingConfig)
   }
 }
