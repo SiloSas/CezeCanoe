@@ -4,6 +4,7 @@ import com.greencatsoft.angularjs.core.Scope
 import shared.Descente
 
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSExport
 
 trait AdminScope extends Scope {
   var formTemplate: String = js.native
@@ -18,24 +19,41 @@ trait AdminScope extends Scope {
 
 trait DescenteMutable extends js.Object {
   var id: String = js.native
-  var name: js.Array[VersionedString] = js.native
-  var presentations: js.Array[VersionedString] = js.native
-  var tour: js.Array[VersionedString] = js.native
+  var name: js.Array[VersionedStringScope] = js.native
+  var presentations: js.Array[VersionedStringToBindScope] = js.native
+  var tour: js.Array[VersionedStringScope] = js.native
   var images: js.Array[String] = js.native
-  var distance: js.Array[VersionedString] = js.native
+  var distance: js.Array[VersionedStringScope] = js.native
   var prices: js.Array[Price] = js.native
-  var time: js.Array[VersionedString] = js.native
+  var time: js.Array[VersionedStringScope] = js.native
 }
 
 trait Price extends js.Object {
-  var name: js.Array[VersionedString] = js.native
+  var id: String = js.native
+  var name: js.Array[VersionedStringScope] = js.native
   var price: Double = js.native
   var isBookable: Boolean = js.native
   var medias: js.Array[String] = js.native
   var isSupplement: Boolean = js.native
 }
 
-trait VersionedString extends js.Object {
+trait VersionedStringScope extends js.Object {
+  var lang: String = js.native
+  var presentation: String = js.native
+}
+trait VersionedStringToBindScope extends js.Object {
   var lang: String = js.native
   var presentation: js.Any = js.native
 }
+
+@JSExport
+case class VersionedString (
+  var lang: String,
+  var presentation: String
+)
+
+@JSExport
+case class VersionedStringToBind (
+  var lang: String,
+  var presentation: js.Any
+)

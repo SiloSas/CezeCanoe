@@ -4,7 +4,10 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /admin                           controllers.Application.admin
+GET     /admin                      controllers.Application.admin
+GET     /descentes				    @Descentes.DescentesController.findAll
+POST    /upload                     @Descentes.DescentesController.uploadImage
+GET     /images/:fileName           @Descentes.DescentesController.getImage(fileName: String)
 GET	    /rooms						@Room.RoomController.findAll
 
 # Map static resources from the /public folder to the /assets URL path

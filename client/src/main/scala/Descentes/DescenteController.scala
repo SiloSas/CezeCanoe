@@ -19,23 +19,14 @@ import scala.util.matching.Regex
 class DescenteController(descenteScope: DescenteScope, $sce: SceService, descenteService: DescenteService, langService: LangService)
 extends AbstractController[DescenteScope](descenteScope) {
 
+  var lang = langService.lang
+  var descentesC = Seq.empty[Descente]
+  langService.get(descenteScope, () => lang = langService.lang)
   descenteService.findAll().onComplete {
     case Success(descentes) =>
-      var lang = langService.lang
-      descenteScope.descentes = descentes.map { descente =>
-          val presentation: String = langService.setLang(descente.presentation.toString, lang)
-          descente.copy(presentation = $sce.trustAsHtml(presentation))
-        }.toJSArray
-      def updateDescentesScope(): Unit = {
-        lang = langService.lang
-        console.log("vfgf")
-        descenteScope.descentes = descenteScope.descentes.map { descente =>
-          val presentation: String = langService.setLang(descentes.filter(_.id == descente.id).head.presentation.toString, lang)
-          descente.copy(presentation = $sce.trustAsHtml(presentation))
-        }
-      }
-
-      lang = langService.get(descenteScope, () => updateDescentesScope())
+      descentesC = descentes.toJSArray
+      descenteScope.descentes = descentes.toJSArray
+      console.log(descenteScope.descentes)
     case _ =>
       println("miss")
   }

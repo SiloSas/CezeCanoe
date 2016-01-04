@@ -11,8 +11,14 @@ import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
+class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, val descentesMethods: DescentesMethods)
   extends Controller {
+
+  def findAll() = Action.async {
+    descentesMethods.findAll map { descentes =>
+      Ok(write(descentes))
+    }
+  }
 
   def getImage(fileName: String) = Action {
     val imageFile = new File(Play.application().path().getPath + "/public/images/" + fileName)

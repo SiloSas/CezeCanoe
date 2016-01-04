@@ -1,40 +1,78 @@
 package Descentes
 
-import com.greencatsoft.angularjs.core.HttpService
+import Admin.{VersionedString, VersionedStringScope, VersionedStringToBindScope}
+import com.greencatsoft.angularjs.core.{HttpService, SceService}
 import com.greencatsoft.angularjs.{Factory, Service, injectable}
-import shared.{Descente, Price}
+import shared.{Descente, DescenteForBack, Price}
+import upickle.default._
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.{JSON, Object}
 import scala.util.{Failure, Success, Try}
-import scala.concurrent.ExecutionContext.Implicits.global
 
 @injectable("descenteService")
-class DescenteService(http: HttpService) extends Service {
+class DescenteService(http: HttpService, sce: SceService) extends Service {
   require(http != null, "Missing argument 'http'.")
+
+
+  val newName = VersionedString(lang = "Fr", presentation = "Les Rochers de St Gély")
+  val newName1 = VersionedString(lang = "En", presentation = "Les Rochers de St Gély")
+
+
+  /*val newNameEn = new Object().asInstanceOf[VersionedString]
+  newNameEn.lang = "En"
+  newNameEn.presentation = "Les Rochers de St Gély in English"
+
+  val names = Seq(newName, newNameEn).toJSArray
+
+  val presFr = new Object().asInstanceOf[VersionedStringToBind]
+  presFr.lang = "Fr"
+  presFr.presentation = sce.trustAsHtml( "<p>Sur ce parcours de <b>7 km</b> (2h non-stop) vous pouvez garder le canoë 3 ou 4 heures pour pique-niquer et" +
+    "vous baigner. Riche en faune et en flore, la rivière vous offrira un agréable moment de détente. Rendez-vous à notre " +
+    "base de Goudargues au centre du village,<br/>et <b>partez immédiatement de 9h à 16h !</b></p>")
+
+  val presEn = new Object().asInstanceOf[VersionedStringToBind]
+  presEn.lang = "En"
+  presEn.presentation = sce.trustAsHtml("<p>Discover the valley of the Ceze" +
+    "river between Goudargues and Cazernau all along this 7 km trip, with a duration of about 2 hours if you choose to do it without any stops." +
+    "You just have to show up in our base of Goudargues in the village center, then you can go immediately from 9am to 4pm !")
+
+  val presentations = Seq(presFr, presEn).toJSArray
+
+
+  val newTour = new Object().asInstanceOf[VersionedString]
+  newTour.lang = "Fr"
+  newTour.presentation = "...de Goudargues à Cazernau"
+
+  val tours = Seq(newTour).toJSArray
+
+
+
+  val newDistance = new Object().asInstanceOf[VersionedString]
+  newDistance.lang = "Fr"
+  newDistance.presentation = "7 km"
+
+  val distances = Seq(newDistance).toJSArray
 
 
   val descente = Descente(
     id = "1",
-    name = "[lang_Fr]Les Rochers de St Gély",
-    presentation = "[lang_Fr]<p>Sur ce parcours de <b>7 km</b> (2h non-stop) vous pouvez garder le canoë 3 ou 4 heures pour pique-niquer et " +
-      "vous baigner. Riche en faune et en flore, la rivière vous offrira un agréable moment de détente. Rendez-vous à notre " +
-      "base de Goudargues au centre du village,<br/>et <b>partez immédiatement de 9h à 16h !</b></p>" +
-      "[lang_En] <p>Discover the valley of the Ceze " +
-      "river between Goudargues and Cazernau all along this 7 km trip, with a duration of about 2 hours if you choose to do it without any stops. " +
-      "You just have to show up in our base of Goudargues in the village center, then you can go immediately from 9am to 4pm !",
-    tour = "[lang_Fr]...de Goudargues à Cazernau",
+    name = names,
+    presentation = presentations,
+    tour = tours,
     images = js.Array("assets/images/img1.jpg", "assets/images/img2.jpg"),
-    distance = "[lang_Fr]7 km",
-    prices = js.Array(Price(name = "[lang_Fr]adulte en canoë", price = 9.0, isBookable = true,
+    distance = distances,
+    prices = js.Array(Price(id = "1", name = names, price = 9.0, isBookable = true,
       medias = js.Array(), isSupplement = false),
-      Price(name = "[lang_Fr]enfant", price = 6.0, isBookable = true,
-        medias = js.Array(), isSupplement = false), Price(name = "[lang_Fr]prix adulte guichet", price = 9.80, isBookable = false,
+      Price(id = "1", name = names, price = 6.0, isBookable = true,
+        medias = js.Array(), isSupplement = false), Price(id = "1", name = names, price = 9.80, isBookable = false,
         medias = js.Array(), isSupplement = false)),
-    time = "[lang_Fr]parcours à la 1/2 journée"
-  )
-  val descente1 = Descente(
+    time = distances
+  )*/
+  /*val descente1 = Descente(
     id = "2",
     name ="[lang_Fr]Les Petites Gorges",
     presentation ="[lang_Fr]<p>Cette descente necessite une réservation. Merci. <br/><br/>Vous avez 1h30 de pagayage " +
@@ -86,32 +124,55 @@ class DescenteService(http: HttpService) extends Service {
         medias = js.Array(), isSupplement = false), Price(name = "[lang_Fr]prix adulte guichet", price = 19, isBookable = false,
         medias = js.Array(), isSupplement = false)),
     time = "[lang_Fr]parcours à la journée"
-  )
-  val descentes = Seq(descente, descente1, descente2, descente3)
+  )*/
+  val descentes = Seq.empty[Descente]
 
-  val informations = "[lang_Fr]* Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"
+ /* val informations = "[lang_Fr]* Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"
   val tariffs = Seq(
     Price(
-    name = "[lang_Fr]Kayak une place",
+      id = "1",
+    name = names,
     price = 4,
     isBookable = true,
     medias = js.Array("assets/images/kayak.jpg", "assets/images/kayak1.jpg"),
       isSupplement = true
     )
   )
-
+*/
+  def versionedStringToVersionedStringScope(versionedString: VersionedString): VersionedStringScope = {
+   val newVersionedString = new Object().asInstanceOf[VersionedStringScope]
+   newVersionedString.lang = versionedString.lang
+   newVersionedString.presentation = versionedString.presentation
+   newVersionedString
+ }
   @JSExport
   def findAll(): Future[Seq[Descente]] = /*flatten*/ {
-    Future(descentes)
     // Append a timestamp to prevent some old browsers from caching the result.
-   /* http.get[js.Any]("/rooms")
-      .map {JSON.stringify(_)}
-      .map { read[Seq[Room]] }*/
+    http.get[js.Any]("/descentes")
+      .map { JSON.stringify(_)}
+      .map { descentesString =>
+        read[Seq[DescenteForBack]](descentesString) map { descenteForBack =>
+          val presentation = descenteForBack.presentation.map { presentation =>
+            val pres = new Object().asInstanceOf[VersionedStringToBindScope]
+            pres.lang = presentation.lang
+            pres.presentation = sce.trustAsHtml(presentation.presentation)
+            pres
+          }
+          Descente(descenteForBack.id, descenteForBack.name.map(versionedStringToVersionedStringScope),
+            presentation, descenteForBack.tour.map(versionedStringToVersionedStringScope), descenteForBack.images,
+            descenteForBack.distance.map(versionedStringToVersionedStringScope), descenteForBack.prices.map { price =>
+              Price(price.id, name = price.name.map(versionedStringToVersionedStringScope), price.price, price.isBookable,
+              price.medias, price.isSupplement)
+            },
+            descenteForBack.time.map(versionedStringToVersionedStringScope))
+        }
+      }
   }
 
   @JSExport
   def findTariffs(): Future[Seq[Price]] = /*flatten*/ {
-    Future(tariffs)
+//    Future(tariffs)
+    Future(Seq.empty[Price])
     // Append a timestamp to prevent some old browsers from caching the result.
    /* http.get[js.Any]("/rooms")
       .map {JSON.stringify(_)}
@@ -142,7 +203,7 @@ class DescenteService(http: HttpService) extends Service {
 
 
 @injectable("descenteService")
-class DescenteServiceFactory(http: HttpService) extends Factory[DescenteService] {
+class DescenteServiceFactory(http: HttpService, sce: SceService) extends Factory[DescenteService] {
 
-  override def apply(): DescenteService = new DescenteService(http)
+  override def apply(): DescenteService = new DescenteService(http, sce: SceService)
 }

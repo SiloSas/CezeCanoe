@@ -19,7 +19,7 @@
     <div class="column large-12" data-ng-repeat="tariff in tariffs" ng-if="tariff.medias.length">
         <div class="column padding0">
             <div class="md-whiteframe-z1 float-left yellowThing column medium-6 marginTop0 large-6" style="top: 40px; z-index: 999999">
-                {{tariff.name}}: <span ng-if="tariff.isSupplement">+</span>{{tariff.price}} €
+                {{name = (tariff.name | filter: {'lang': controller.lang})[0].presentation}}: <span ng-if="tariff.isSupplement">+</span>{{tariff.price}} €
             </div>
         </div>
        <div data-ng-repeat="media in tariff.medias"

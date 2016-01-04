@@ -1,5 +1,6 @@
 package Booking
 
+import Admin.{VersionedStringScope, VersionedString}
 import Descentes.DescenteService
 import Lang.LangService
 import com.greencatsoft.angularjs.core.{RouteParams, SceService, Timeout}
@@ -7,6 +8,7 @@ import com.greencatsoft.angularjs.{AbstractController, injectable}
 import shared.Price
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExportAll
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.util.Success
@@ -17,23 +19,19 @@ class BookingController(bookingScope: BookingScope, routeParams: RouteParams, de
 timeout: Timeout, $sce: SceService, langService: LangService)
   extends AbstractController[BookingScope](bookingScope) {
 
-  case class BookingPrice(name: String, price: Double, numberToBook: Int, isSupplement: Boolean)
+  case class BookingPrice(id: String, name: js.Array[VersionedStringScope], price: Double, numberToBook: Int, isSupplement: Boolean)
   var totalPrice: Double = 0
   var pricesDetails: List[BookingPrice] = List.empty
+  var lang = langService.lang
+  langService.get(bookingScope, () => lang = langService.lang)
 
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
     case Success(maybeDescente) =>
       maybeDescente match {
         case Some(descente) =>
-          var lang = langService.lang
           timeout( () => {
-            def updateDescenteScope(): Unit = {
-              lang = langService.lang
-              bookingScope.descente = descente.copy(presentation = $sce.trustAsHtml(langService.setLang(descente.presentation.toString, lang)))
-            }
-            updateDescenteScope()
-            langService.get(bookingScope, () => updateDescenteScope())
+            bookingScope.descente = descente
           }, 0)
         case _ =>
           print("no descente for this id")
@@ -72,7 +70,7 @@ timeout: Timeout, $sce: SceService, langService: LangService)
             other
         }
       case _ =>
-        pricesDetails :+ BookingPrice(price.name, price.price, numberToBook, price.isSupplement)
+        pricesDetails :+ BookingPrice(price.id, price.name, price.price, numberToBook, price.isSupplement)
     }
   }
 }

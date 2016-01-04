@@ -61,48 +61,24 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     })
   }
 
-  def stringToVersionedString(string: String): js.Array[VersionedString] = {
-    val langRegex = "(.lang_\\w*.)".r
-    val array = string.trim.split("(?=.lang_\\w*.)").toSeq.filter(_.nonEmpty).toJSArray.map { presentation =>
-      console.log(presentation)
-      val newPresentation = new Object().asInstanceOf[VersionedString]
-      val lang = langRegex.findAllIn(presentation).next()
-      newPresentation.lang = lang
-      val pre = langRegex.replaceAllIn(presentation, "")
-      newPresentation.presentation = $sce.trustAsHtml(pre)
-      newPresentation
-    }
-    if(array.length < langs.length) {
-      langs.map { lang =>
-        if (array.filter(_.lang == "[lang_" + lang + "]").length == 0) {
-          val newPresentation = new Object().asInstanceOf[VersionedString]
-          newPresentation.lang = "[lang_" + lang + "]"
-          newPresentation.presentation = array.head.presentation
-          console.log(newPresentation)
-          array.push(newPresentation)
-        }
-      }
-    }
-    array
-  }
   def descenteToMutableDesente(descente: Descente): DescenteMutable = {
     val newDescente = new Object().asInstanceOf[DescenteMutable]
     newDescente.id = descente.id
-    newDescente.name = stringToVersionedString(descente.name)
-    newDescente.presentations = stringToVersionedString(descente.presentation.toString)
-    newDescente.distance = stringToVersionedString(descente.distance)
+    newDescente.name = descente.name
+    newDescente.presentations = descente.presentation
+    newDescente.distance = descente.distance
     newDescente.images = descente.images
     newDescente.prices = descente.prices map { price =>
       val newPrice = new Object().asInstanceOf[Price]
       newPrice.isBookable = price.isBookable
       newPrice.isSupplement = price.isSupplement
       newPrice.medias = price.medias
-      newPrice.name = stringToVersionedString(price.name)
+      newPrice.name = price.name
       newPrice.price = price.price
       newPrice
     }
-    newDescente.time = stringToVersionedString(descente.time)
-    newDescente.tour = stringToVersionedString(descente.tour)
+    newDescente.time = descente.time
+    newDescente.tour = descente.tour
     newDescente
   }
 
@@ -114,13 +90,11 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
 
   def mutableDescenteToDescente(descenteMutable: DescenteMutable): Descente = {
     val descente = descenteMutable
-    val newPresentation = versionedStringArrayToString(descente.presentations)
     val newPrices = descente.prices map { price =>
-      Price(versionedStringArrayToString(price.name), price.price, price.isBookable, price.medias, price.isSupplement)
+      Price(price.id, price.name, price.price, price.isBookable, price.medias, price.isSupplement)
     }
-    Descente(id = descente.id, name = versionedStringArrayToString(descente.name), presentation = newPresentation,
-      tour = versionedStringArrayToString(descente.tour), images = descente.images,
-      distance = versionedStringArrayToString(descente.distance), prices = newPrices, time = versionedStringArrayToString(descente.time))
+    Descente(id = descente.id, name = descente.name, presentation = descente.presentations,
+      tour = descente.tour, images = descente.images, distance = descente.distance, prices = newPrices, time = descente.time)
   }
 
   descenteService.findTariffs().onComplete {
@@ -130,7 +104,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         newPrice.isBookable = price.isBookable
         newPrice.isSupplement = price.isSupplement
         newPrice.medias = price.medias
-        newPrice.name = stringToVersionedString(price.name)
+        newPrice.name = price.name
         newPrice.price = price.price
         newPrice
       }.toJSArray
@@ -167,9 +141,17 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     newPrice.medias.push(newMedia)
   }
 
-  def emptyVersionedStringArray(): js.Array[VersionedString] = {
+  def emptyVersionedStringArray(): js.Array[VersionedStringScope] = {
     langs.toJSArray.map { lang =>
-      val newPresentation = new Object().asInstanceOf[VersionedString]
+      val newPresentation = new Object().asInstanceOf[VersionedStringScope]
+      newPresentation.lang = lang
+      newPresentation.presentation = ""
+      newPresentation
+    }
+  }
+  def emptyVersionedStringToBindArray(): js.Array[VersionedStringToBindScope] = {
+    langs.toJSArray.map { lang =>
+      val newPresentation = new Object().asInstanceOf[VersionedStringToBindScope]
       newPresentation.lang = "[lang_"+lang+"]"
       newPresentation.presentation = $sce.trustAsHtml("")
       newPresentation
@@ -182,7 +164,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       val newDescente = new Object().asInstanceOf[DescenteMutable]
       newDescente.id = UUID.randomUUID().toString
       newDescente.name = emptyVersionedStringArray()
-      newDescente.presentations = emptyVersionedStringArray()
+      newDescente.presentations = emptyVersionedStringToBindArray()
       newDescente.distance = emptyVersionedStringArray()
       newDescente.images = Seq.empty[String].toJSArray
       newDescente.prices = Seq.empty[Price].toJSArray
