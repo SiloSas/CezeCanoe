@@ -6,10 +6,12 @@ import javax.inject.Inject
 
 import play.Play
 import play.api.db.slick.DatabaseConfigProvider
+import play.api.libs.json.JsObject
 import play.api.mvc.{Action, _}
 import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, val descentesMethods: DescentesMethods)
   extends Controller {
@@ -17,6 +19,17 @@ class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConf
   def findAll() = Action.async {
     descentesMethods.findAll map { descentes =>
       Ok(write(descentes))
+    }
+  }
+
+  def save() = process(descentesMethods.save)
+
+  def process(updater: DescenteWithPrice => Future[Int]) = Action.async(parse.json) { request =>
+    val data = request.body.as[JsObject]
+
+    val a = updater(read[DescenteWithPrice](data.toString()))
+    a.map { result =>
+      Ok(write(result))
     }
   }
 

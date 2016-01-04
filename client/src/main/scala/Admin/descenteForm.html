@@ -2,7 +2,7 @@
     <md-list>
         <md-subheader>Description</md-subheader>
         <md-list-item>
-            <md-input-container class="column large-12" data-ng-repeat="versionedName in descente.name | filter: {lang: $root.lang}">
+            <md-input-container class="column large-12" data-ng-repeat="versionedName in descente.name | filter: {'lang': $root.lang}">
                 <label>name</label>
                 <input ng-model="versionedName.presentation" ng-change="controller.setNeedToSaveToTrue()"/>
             </md-input-container>
@@ -37,7 +37,10 @@
         <md-subheader>Images</md-subheader>
         <div class="column">
            <span data-ng-repeat="image in descente.images" class="column medium-6 float-left">
-               <img src="{{image}}" class="width100p" />
+               <smart-crop
+                       image="{{image}}" class="width100p float-left relative"
+                       style="overflow: hidden" width="100%" height="0.4w">
+               </smart-crop>
                 <span class="md-primary md-fab md-button zIndex1" data-ng-click="controller.setNeedToSaveToTrue()">
                     <i class="fa fa-download"></i>
                     <input type="file"

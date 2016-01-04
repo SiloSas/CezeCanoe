@@ -10,11 +10,11 @@ case class Descente(id: String, name: js.Array[VersionedStringScope], presentati
                     images: js.Array[String], distance: js.Array[VersionedStringScope], prices: js.Array[Price], time: js.Array[VersionedStringScope])
 
 @JSExportAll
-case class DescenteForBack(id: String, name: js.Array[VersionedString], presentation: js.Array[VersionedString], tour: js.Array[VersionedString],
-                    images: js.Array[String], distance: js.Array[VersionedString], prices: js.Array[PriceForBack], time: js.Array[VersionedString])
+case class DescenteForBack(id: String, name: Seq[VersionedString], presentation: Seq[VersionedString], tour: Seq[VersionedString],
+                    images: Seq[String], distance: Seq[VersionedString], prices: Seq[PriceForBack], time: Seq[VersionedString])
 
 @JSExportAll
 case class Price(id: String, name: js.Array[VersionedStringScope], price: Double, isBookable: Boolean, medias: js.Array[String], isSupplement: Boolean)
 
 @JSExportAll
-case class PriceForBack(id: String, name: js.Array[VersionedString], price: Double, isBookable: Boolean, medias: js.Array[String], isSupplement: Boolean)
+case class PriceForBack(id: String, name: Seq[VersionedString], price: Double, isBookable: Boolean, medias: Seq[String], isSupplement: Boolean)

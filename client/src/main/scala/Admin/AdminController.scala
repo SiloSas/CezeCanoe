@@ -7,7 +7,7 @@ import Lang.LangService
 import com.greencatsoft.angularjs.core.{Timeout, SceService}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.{console, alert}
-import shared.{Descente, Price}
+import shared.{PriceForBack, DescenteForBack, Descente, Price}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
@@ -26,16 +26,16 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   adminScope.descente = new Object().asInstanceOf[DescenteMutable]
   var needToSave = false
   val langs = langService.getAvailableLang()
-  var initDescentes = Seq.empty[Descente]
-  getDescentes
+  var initDescentes = Vector.empty[Descente]
+  getDescentes()
 
-  def getDescentes: Unit = {
+  def getDescentes(): Unit = {
     descenteService.findAll().onComplete {
       case Success(descentes) =>
-        initDescentes = descentes
+        initDescentes = descentes.toVector
         timeout(() => {
-          adminScope.descentes = initDescentes.map { descente =>
-            descenteToMutableDesente(descente)
+          adminScope.descentes = descentes.map {
+            descenteToMutableDesente
           }.toJSArray
         })
       case Failure(t: Throwable) =>
@@ -46,19 +46,24 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   def setNeedToSaveToTrue(): Unit = {
     needToSave = true
   }
+
   def cancelChanges(): Unit = {
     needToSave = false
-    timeout(() => {
-      adminScope.descentes = initDescentes.map { descente =>
-        descenteToMutableDesente(descente)
-      }.toJSArray
-      val descenteInEdit = adminScope.descentes.filter(_.id == adminScope.descente.id)
-      console.log(descenteInEdit)
-      if (adminScope.formTemplate == "assets/templates/Admin/descenteForm.html" && descenteInEdit.nonEmpty ) {
-        console.log( descenteInEdit.head)
-        adminScope.descente = descenteInEdit.head
-      }
-    })
+    descenteService.findAll().onComplete {
+      case Success(descentes) =>
+        timeout(() => {
+          adminScope.descentes = descentes.map {
+            descenteToMutableDesente
+          }.toJSArray
+          val descenteInEdit = adminScope.descentes.filter(_.id == adminScope.descente.id)
+          if (adminScope.formTemplate == "assets/templates/Admin/descenteForm.html" && descenteInEdit.nonEmpty ) {
+            console.log( descenteInEdit.head)
+            adminScope.descente = descenteInEdit.head
+          }
+        })
+      case Failure(t: Throwable) =>
+        println("adminController.FindAllDescentes: fail")
+    }
   }
 
   def descenteToMutableDesente(descente: Descente): DescenteMutable = {
@@ -79,6 +84,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     }
     newDescente.time = descente.time
     newDescente.tour = descente.tour
+    console.log(newDescente)
     newDescente
   }
 
@@ -88,13 +94,31 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     } mkString ","
   }
 
-  def mutableDescenteToDescente(descenteMutable: DescenteMutable): Descente = {
+  def versionedStringScopeToVersionedString(versionedStringScope: VersionedStringScope): VersionedString = {
+    VersionedString(versionedStringScope.lang, versionedStringScope.presentation)
+  }
+  def versionedStringToBindScopeToVersionedString(versionedStringToBindScope: VersionedStringToBindScope): VersionedString = {
+    VersionedString(versionedStringToBindScope.lang, versionedStringToBindScope.presentation.toString)
+  }
+  
+  def mutableDescenteToDescenteForBack(descenteMutable: DescenteMutable): DescenteForBack = {
     val descente = descenteMutable
-    val newPrices = descente.prices map { price =>
-      Price(price.id, price.name, price.price, price.isBookable, price.medias, price.isSupplement)
+    val newPrices = descente.prices.toSeq map { price =>
+      PriceForBack(id = price.id,
+        name = price.name.toSeq map versionedStringScopeToVersionedString,
+        price = price.price,
+        isBookable = price.isBookable,
+        medias = price.medias.toSeq,
+        isSupplement = price.isSupplement)
     }
-    Descente(id = descente.id, name = descente.name, presentation = descente.presentations,
-      tour = descente.tour, images = descente.images, distance = descente.distance, prices = newPrices, time = descente.time)
+    DescenteForBack(id = descente.id,
+      name = descente.name.toSeq map versionedStringScopeToVersionedString,
+      presentation = descente.presentations.toSeq map versionedStringToBindScopeToVersionedString,
+      tour = descente.tour.toSeq map versionedStringScopeToVersionedString,
+      images = descente.images.toSeq,
+      distance = descente.distance.toSeq map versionedStringScopeToVersionedString,
+      prices = newPrices ,
+      time = descente.time.toSeq map versionedStringScopeToVersionedString)
   }
 
   descenteService.findTariffs().onComplete {
@@ -152,13 +176,17 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   def emptyVersionedStringToBindArray(): js.Array[VersionedStringToBindScope] = {
     langs.toJSArray.map { lang =>
       val newPresentation = new Object().asInstanceOf[VersionedStringToBindScope]
-      newPresentation.lang = "[lang_"+lang+"]"
+      newPresentation.lang = lang
       newPresentation.presentation = $sce.trustAsHtml("")
       newPresentation
     }
   }
 
   adminScope.setNewDescente = () => {
+    setNewDescente
+  }
+
+  def setNewDescente: Unit = {
     if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
     else {
       val newDescente = new Object().asInstanceOf[DescenteMutable]
@@ -173,10 +201,18 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       adminScope.descente = newDescente
       adminScope.formTemplate = "assets/templates/Admin/descenteForm.html"
       adminScope.validate = () => {
-        //mutableDescenteToDescente(adminScope.descente)
-        console.log(adminScope.descente)
-        adminScope.descentes += adminScope.descente
-        adminScope.setNewDescente
+        mutableDescenteToDescenteForBack(adminScope.descente)
+        descenteService.add(mutableDescenteToDescenteForBack(adminScope.descente)) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+              adminScope.descentes += adminScope.descente
+              setNewDescente
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
       }
     }
   }

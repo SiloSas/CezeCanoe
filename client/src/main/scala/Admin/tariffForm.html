@@ -28,7 +28,7 @@
         <span ng-if="!newPrice.isSupplement">Ce tarif n'est pas un supplément</span>
     </md-checkbox>
     <i ng-if="newPrice.isSupplement && formTemplate.indexOf('descenteForm.html') > -1">
-        Ce tarrif est un supplément, il revient à {{newPrice.price + descente.prices[0].price}} € sur cette descente
+        Ce tarif est un supplément, il revient à {{newPrice.price + descente.prices[0].price}} € sur cette descente
     </i>
 </p>
 <p>

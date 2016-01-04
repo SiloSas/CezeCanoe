@@ -25,6 +25,36 @@ class DescentesMethods @Inject()(protected val dbConfigProvider: DatabaseConfigP
     }
   }
 
+  def save(descenteWithPrices: DescenteWithPrice): Future[Int] = {
+    val descente = descenteWithPricesToDescente(descenteWithPrices)
+    val descentePrices = descenteWithPrices.prices
+    descentePrices.map { price =>
+      db.run(for {
+        foundPrice <- prices.filter(_.id === price.id).result.headOption
+        result <- foundPrice.map(DBIO.successful).getOrElse(prices returning prices.map(_.id) += price)
+      } yield result match {
+        case savePrice: Price =>
+          descentePriceRelations += DescentePriceRelation(descenteId = descente.id, priceId = savePrice.id)
+        case id: String =>
+          prices.filter(_.id === price.id).update(price)
+          descentePriceRelations += DescentePriceRelation(descenteId = descente.id, priceId = price.id)
+      })
+    }
+    db.run(descentes += descente)
+  }
+
+  def descenteWithPricesToDescente(descenteWithPrices: DescenteWithPrice): Descente = {
+    Descente(
+      id = descenteWithPrices.id,
+      name = descenteWithPrices.name,
+      presentation = descenteWithPrices.presentation,
+      tour = descenteWithPrices.tour,
+      images = descenteWithPrices.images,
+      distance = descenteWithPrices.distance,
+      time = descenteWithPrices.time
+    )
+  }
+
   def descentesAndPricesToDescentesWithPrices(descentesAndOptionalPrice: Seq[(Descente, Option[(DescentePriceRelation, Price)])]):
   Seq[DescenteWithPrice] = {
     val groupedByDescente = descentesAndOptionalPrice.groupBy(_._1)

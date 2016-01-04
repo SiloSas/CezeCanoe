@@ -13,7 +13,7 @@
                 <h4 data-ng-click="show = 'descentes'">Descentes <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'descentes'">
                     <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes">
-                        <h5 data-ng-repeat="versionedName in descente.name | filter: {lang: $root.lang}">{{versionedName.presentation}}</h5>
+                        <h5>{{name = (descente.name | filter: {'lang': $root.lang})[0].presentation}}</h5>
                             <md-button class="md-fab md-mini float-right" ng-click="setDescente(descente)"><i class="fa fa-pencil"></i></md-button>
                             <md-button class="md-fab md-mini float-right"><i class="fa fa-trash"></i></md-button>
                     </div>
@@ -39,9 +39,9 @@
                         Annuler les modifications
                     </i>
                 </span>
-                <div ng-init="$root.lang = '[lang_Fr]'">
-                    <div data-ng-click="$root.lang = '[lang_Fr]'"> <h2>Fr</h2></div>
-                    <div data-ng-click="$root.lang = '[lang_En]'"> <h2>En</h2></div>
+                <div ng-init="$root.lang = 'Fr'">
+                    <div data-ng-click="$root.lang = 'Fr'"> <h2>Fr</h2></div>
+                    <div data-ng-click="$root.lang = 'En'"> <h2>En</h2></div>
                 </div>
                 </div>
             </md-toolbar>

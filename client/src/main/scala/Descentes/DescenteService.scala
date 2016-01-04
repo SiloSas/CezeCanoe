@@ -12,6 +12,8 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
 import scala.scalajs.js.{JSON, Object}
 import scala.util.{Failure, Success, Try}
+import org.scalajs.dom.console
+import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 
 @injectable("descenteService")
 class DescenteService(http: HttpService, sce: SceService) extends Service {
@@ -145,6 +147,7 @@ class DescenteService(http: HttpService, sce: SceService) extends Service {
    newVersionedString.presentation = versionedString.presentation
    newVersionedString
  }
+
   @JSExport
   def findAll(): Future[Seq[Descente]] = /*flatten*/ {
     // Append a timestamp to prevent some old browsers from caching the result.
@@ -157,15 +160,27 @@ class DescenteService(http: HttpService, sce: SceService) extends Service {
             pres.lang = presentation.lang
             pres.presentation = sce.trustAsHtml(presentation.presentation)
             pres
-          }
-          Descente(descenteForBack.id, descenteForBack.name.map(versionedStringToVersionedStringScope),
-            presentation, descenteForBack.tour.map(versionedStringToVersionedStringScope), descenteForBack.images,
-            descenteForBack.distance.map(versionedStringToVersionedStringScope), descenteForBack.prices.map { price =>
-              Price(price.id, name = price.name.map(versionedStringToVersionedStringScope), price.price, price.isBookable,
-              price.medias, price.isSupplement)
-            },
-            descenteForBack.time.map(versionedStringToVersionedStringScope))
+          }.toJSArray
+          Descente(descenteForBack.id, descenteForBack.name.map(versionedStringToVersionedStringScope).toJSArray,
+            presentation, descenteForBack.tour.map(versionedStringToVersionedStringScope).toJSArray, descenteForBack.images.toJSArray,
+            descenteForBack.distance.map(versionedStringToVersionedStringScope).toJSArray, descenteForBack.prices.map { price =>
+              Price(price.id, name = price.name.map(versionedStringToVersionedStringScope).toJSArray, price.price, price.isBookable,
+              price.medias.toJSArray, price.isSupplement)
+            }.toJSArray,
+            descenteForBack.time.map(versionedStringToVersionedStringScope).toJSArray)
         }
+      }
+  }
+
+
+  @JSExport
+  def add(descente: DescenteForBack): Future[String] = /*flatten*/ {
+    console.log(descente.toString)
+    console.log(write(descente))
+    http.post[js.Any](s"/descentes", write(descente))
+      .map { p =>
+        console.log(p)
+        JSON.stringify(p)
       }
   }
 

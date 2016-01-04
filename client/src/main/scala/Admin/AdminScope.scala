@@ -41,6 +41,7 @@ trait VersionedStringScope extends js.Object {
   var lang: String = js.native
   var presentation: String = js.native
 }
+
 trait VersionedStringToBindScope extends js.Object {
   var lang: String = js.native
   var presentation: js.Any = js.native

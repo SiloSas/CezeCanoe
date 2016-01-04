@@ -6,6 +6,7 @@
 GET     /                           controllers.Application.index
 GET     /admin                      controllers.Application.admin
 GET     /descentes				    @Descentes.DescentesController.findAll
+POST    /descentes				    @Descentes.DescentesController.save
 POST    /upload                     @Descentes.DescentesController.uploadImage
 GET     /images/:fileName           @Descentes.DescentesController.getImage(fileName: String)
 GET	    /rooms						@Room.RoomController.findAll

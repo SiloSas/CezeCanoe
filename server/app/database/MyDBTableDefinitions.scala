@@ -1,18 +1,20 @@
 package database
 
-import Descentes.{DescentePriceRelation, Price, VersionedString, Descente}
+import Descentes._
 import shared.Room
 import MyPostgresDriver.api._
 import upickle.default._
 
 trait MyDBTableDefinitions {
 
-  def stringToSet(string: String): Array[String] = {
-    string.split(",").map(_.trim).filter(_.nonEmpty)
+  def stringToSet(string: String): Seq[String] = {
+    if (string.nonEmpty)  string.split(",").map(_.trim).filter(_.nonEmpty)
+    else Seq.empty[String]
   }
 
   def stringToVersionedString(string: String): Seq[VersionedString] = {
-    read[Array[VersionedString]](string)
+    println("a: " + string)
+    read[Seq[VersionedString]](string)
   }
 
   
@@ -41,11 +43,11 @@ trait MyDBTableDefinitions {
 
     def * = (id, name, presentation, tour, images, distance, time).shaped <> (
       { case (id, name, presentation, tour, images, distance, time) =>
-        Descente(id, stringToVersionedString(name), stringToVersionedString(presentation), stringToVersionedString(tour),
+        DescenteWithPrice(id, stringToVersionedString(name), stringToVersionedString(presentation), stringToVersionedString(tour),
           stringToSet(images), stringToVersionedString(distance), stringToVersionedString(time))
       }, { descente: Descente =>
-      Some((descente.id, descente.name.mkString(","), descente.presentation.mkString(","), 
-        descente.tour.mkString(","), descente.images.mkString(","), descente.distance.mkString(","), descente.time.mkString(",")))
+      Some((descente.id,  write(descente.name),  write(descente.presentation),
+        write(descente.tour), descente.images.mkString(","),  write(descente.distance), write(descente.time)))
     })
   }
   lazy val descentes = TableQuery[Descentes]
@@ -60,9 +62,9 @@ trait MyDBTableDefinitions {
 
     def * = (id, name, price, isBookable, medias, isSupplement).shaped <> (
       { case (id, name, price, isBookable, medias, isSupplement) =>
-        Price(id, read[Array[VersionedString]](name), price, isBookable, stringToSet(medias), isSupplement)
+        Price(id, read[Seq[VersionedString]](name), price, isBookable, stringToSet(medias), isSupplement)
       }, { price: Price =>
-      Some((price.id, price.name.mkString(","), price.price, price.isBookable, price.medias.mkString(","), price.isSupplement))
+      Some((price.id, write(price.name), price.price, price.isBookable,  write(price.medias), price.isSupplement))
     })
   }
   lazy val prices = TableQuery[Prices]
