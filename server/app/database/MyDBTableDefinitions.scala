@@ -1,6 +1,7 @@
 package database
 
 import Descentes._
+import administration.UserActor.User
 import shared.Room
 import MyPostgresDriver.api._
 import upickle.default._
@@ -63,7 +64,7 @@ trait MyDBTableDefinitions {
 
     def * = (id, name, price, isBookable, medias, isSupplement).shaped <> (
       { case (id, name, price, isBookable, medias, isSupplement) =>
-        Price(id, read[Seq[VersionedString]](name), price, isBookable, stringToSet(medias), isSupplement)
+        Price(id, read[Seq[VersionedString]](name), price, isBookable, read[Seq[String]](medias), isSupplement)
       }, { price: Price =>
       Some((price.id, write(price.name), price.price, price.isBookable,  write(price.medias), price.isSupplement))
     })
@@ -82,5 +83,14 @@ trait MyDBTableDefinitions {
     })
   }
   lazy val informations = TableQuery[Informations]
+
+  class Users(tag: Tag) extends Table[User](tag, "users") {
+    def id = column[Int]("userid", O.PrimaryKey)
+    def login = column[String]("login")
+    def password = column[String]("password")
+
+    def * = login <> (User, User.unapply)
+  }
+  lazy val users = TableQuery[Users]
 
 }

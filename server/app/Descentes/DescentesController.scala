@@ -4,6 +4,7 @@ import java.io.{ByteArrayOutputStream, File}
 import javax.imageio.ImageIO
 import javax.inject.Inject
 
+import administration.Authenticated
 import play.Play
 import play.api.db.slick.DatabaseConfigProvider
 import play.api.libs.json.JsObject
@@ -33,13 +34,13 @@ class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConf
 
   def save() = process(descentesMethods.save)
   def update() = process(descentesMethods.update)
-  def delete(id: String) = Action.async { request =>
+  def delete(id: String) = Authenticated.async { request =>
     descentesMethods.delete(id) map { result =>
       Ok(write(result))
     }
   }
 
-  def process(updater: DescenteWithPrice => Future[Int]) = Action.async(parse.json) { request =>
+  def process(updater: DescenteWithPrice => Future[Int]) = Authenticated.async(parse.json) { request =>
     val data = request.body.as[JsObject]
 
     val a = updater(read[DescenteWithPrice](data.toString()))
@@ -64,7 +65,7 @@ class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConf
     }
   }
 
-  def uploadImage = Action(parse.multipartFormData) { request =>
+  def uploadImage = Authenticated(parse.multipartFormData) { request =>
     request.body.file("picture").map { image =>
       image.contentType match {
         case Some(fileExtension)  =>

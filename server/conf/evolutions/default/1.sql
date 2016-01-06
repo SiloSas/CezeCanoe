@@ -57,8 +57,17 @@ CREATE TABLE informations (
 INSERT INTO informations(id, information) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb32ae', '[{"lang": "Fr", "presentation": "Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"}]');
 
+
+CREATE TABLE users (
+  id                        SERIAL PRIMARY KEY,
+  login                     VARCHAR(50),
+  password                  VARCHAR(100)
+);
+INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrHuWzrknBqJE8f.8BO7fu.W.d5u0W5r3t.');
+
 # --- !Downs
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS descentes;
 DROP TABLE IF EXISTS informations;
 DROP TABLE IF EXISTS tariffs;
+DROP TABLE IF EXISTS users;

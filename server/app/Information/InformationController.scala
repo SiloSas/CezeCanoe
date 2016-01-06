@@ -5,6 +5,7 @@ import javax.imageio.ImageIO
 import javax.inject.Inject
 
 import Descentes.{Information, Price}
+import administration.Authenticated
 import play.Play
 import play.api.db.slick.DatabaseConfigProvider
 import play.api.libs.json.JsObject
@@ -35,13 +36,13 @@ class InformationController @Inject()(protected val dbConfigProvider: DatabaseCo
 
   def save() = process(informationsMethods.save)
   def update() = process(informationsMethods.update)
-  def delete(id: String) = Action.async { request =>
+  def delete(id: String) = Authenticated.async { request =>
     informationsMethods.delete(id) map { result =>
       Ok(write(result))
     }
   }
 
-  def process(updater: Information => Future[Int]) = Action.async(parse.json) { request =>
+  def process(updater: Information => Future[Int]) = Authenticated.async(parse.json) { request =>
     val data = request.body.as[JsObject]
 
     val a = updater(read[Information](data.toString()))

@@ -12,7 +12,6 @@
     <md-checkbox
             class="column large-12"
             ng-model="newPrice.isBookable"
-            ng-init="newPrice.isBookable = true"
             ng-change="changed = true"
             aria-label="newPrice isBookable">
         <span ng-if="newPrice.isBookable">Ce tarif est reservable sur ce site web</span>
@@ -23,7 +22,6 @@
     <md-checkbox
             class="column large-12 float-left"
             ng-model="newPrice.isSupplement"
-            ng-init="newPrice.isSupplement = false"
             ng-change="changed = true"
             aria-label="newPrice isSupplement">
         <span ng-if="newPrice.isSupplement">Ce tarif est un supplément</span>
