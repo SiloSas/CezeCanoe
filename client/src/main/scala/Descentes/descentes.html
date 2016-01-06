@@ -8,13 +8,30 @@
 <b class="column large-12"><i>Payez votre descente en ligne pour profiter des prix web. Paiement sécurisé, CB, Visa, MasterCard.
     Ou bien réservez simplement par téléphone au 04 66 82 37 88</i></b>
 <img src="assets/images/parcours.png" class="width100p float-left"/>
-<div class="descente paddindTop40">
-    <descente ng-repeat="descente in descentes"
-              class="column large-6 descente"
-              ng-class="{'paddingTop40': $index%2 == 1, 'top-40': $index%2 == 0 && $index != 0}">
-    </descente>
-    <div class="md-whiteframe-z1 float-left yellowThing yellowThing-bottom column medium-10 margin10 large-4 top-40">
-        {{informations}}
+<div class="descente paddindTop40" size>
+    <span data-ng-if="directive.width < 1024">
+        <descente ng-repeat="descente in descentes"
+                  class="column large-6 descente">
+        </descente>
+    </span>
+    <span data-ng-if="directive.width > 1024 || !directive.width">
+        <span class="column large-6" style="position: inherit">
+            <descente ng-repeat="descente in descentes"
+                      ng-if="$index%2 == 0"
+                      style="position: inherit"
+                      class="column padding0 descente">
+            </descente>
+        </span>
+        <span class="column large-6 paddingTop40" style="position: inherit">
+            <descente ng-repeat="descente in descentes"
+                      ng-if="$index%2 == 1"
+                      style="position: inherit"
+                      class="column padding0 descente">
+            </descente>
+        </span>
+    </span>
+    <div class="md-whiteframe-z1 float-left yellowThing yellowThing-bottom column medium-10 margin10 large-4" data-ng-repeat="information in informations">
+        <span data-ng-bind-html="informationToDisplay = (information.information | filter: {'lang': controller.lang})[0].presentation"></span>
     </div>
     <div class="column large-12" data-ng-repeat="tariff in tariffs" ng-if="tariff.medias.length">
         <div class="column padding0">

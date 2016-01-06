@@ -100,16 +100,18 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   def versionedStringToBindScopeToVersionedString(versionedStringToBindScope: VersionedStringToBindScope): VersionedString = {
     VersionedString(versionedStringToBindScope.lang, versionedStringToBindScope.presentation.toString)
   }
+
+  def stringUuid(): String = UUID.randomUUID().toString
   
   def mutableDescenteToDescenteForBack(descenteMutable: DescenteMutable): DescenteForBack = {
     val descente = descenteMutable
-    val newPrices = descente.prices.toSeq map { price =>
+    val newPrices: Array[PriceForBack] = descente.prices.toArray.map { price =>
       PriceForBack(id = price.id,
-        name = price.name.toSeq map versionedStringScopeToVersionedString,
-        price = price.price,
-        isBookable = price.isBookable,
-        medias = price.medias.toSeq,
-        isSupplement = price.isSupplement)
+          name = price.name.toSeq map versionedStringScopeToVersionedString,
+          price = price.price,
+          isBookable = price.isBookable,
+          medias = price.medias.toSeq,
+          isSupplement = price.isSupplement)
     }
     DescenteForBack(id = descente.id,
       name = descente.name.toSeq map versionedStringScopeToVersionedString,
@@ -117,7 +119,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       tour = descente.tour.toSeq map versionedStringScopeToVersionedString,
       images = descente.images.toSeq,
       distance = descente.distance.toSeq map versionedStringScopeToVersionedString,
-      prices = newPrices ,
+      prices = newPrices.toSeq,
       time = descente.time.toSeq map versionedStringScopeToVersionedString)
   }
 
@@ -142,10 +144,16 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       adminScope.descente = descente
       adminScope.formTemplate = "assets/templates/Admin/descenteForm.html"
       adminScope.validate = () => {
-        console.log("validate")
-        needToSave = false
-        /*mutableDescenteToDescente(adminScope.descente)
-      }*/
+        mutableDescenteToDescenteForBack(adminScope.descente)
+        descenteService.update(mutableDescenteToDescenteForBack(adminScope.descente)) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
       }
     }
   }
@@ -186,6 +194,40 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     setNewDescente
   }
 
+  def deleteDescente(id: String): Unit = {
+    descenteService.delete(id) onComplete {
+      case Success(string) =>
+        timeout( () => {
+          val descente = adminScope.descentes.filter(_.id == id).head
+          adminScope.descentes.splice(adminScope.descentes.indexOf(descente), 1)
+        })
+      case Failure(t: Throwable) =>
+        console.log("cannot delete")
+    }
+  }
+
+  def setVersionedText(versionedStrings: Seq[VersionedStringScope]): js.Array[VersionedStringScope] = {
+    var refText = ""
+    versionedStrings.find(_.presentation.trim.length > 0) match {
+      case Some(versionedString) =>
+        refText = versionedString.presentation
+      case _ =>
+        console.log("no ref")
+    }
+    versionedStrings.map { versionedString =>
+      if (versionedString.presentation.trim.length > 0) refText = versionedString.presentation
+      else versionedString.presentation = refText
+      versionedString
+    }.toJSArray
+  }
+
+  def setVersionedDescenteTexts(): Unit = {
+    adminScope.descente.name = setVersionedText(adminScope.descente.name.toSeq)
+    adminScope.descente.distance = setVersionedText(adminScope.descente.distance.toSeq)
+    adminScope.descente.time = setVersionedText(adminScope.descente.time.toSeq)
+    adminScope.descente.tour = setVersionedText(adminScope.descente.tour.toSeq)
+  }
+
   def setNewDescente: Unit = {
     if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
     else {
@@ -221,6 +263,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     console.log(adminScope.descente.images)
     if (adminScope.descente.images.indexOf(adminScope.newImage) == -1) {
       adminScope.descente.images += adminScope.newImage
+      needToSave = true
     }
   })
 

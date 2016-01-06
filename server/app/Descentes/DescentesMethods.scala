@@ -14,33 +14,20 @@ class DescentesMethods @Inject()(protected val dbConfigProvider: DatabaseConfigP
   with MyDBTableDefinitions {
 
   def findAll: Future[Seq[DescenteWithPrice]] = {
-
-    val query = for {
-      descente <- descentes joinLeft
-        (descentePriceRelations join prices on (_.priceId === _.id)) on (_.id === _._1.descenteId)
-    } yield descente
-
-    db.run(query.result) map { descentesAndOptionalPrice =>
-      descentesAndPricesToDescentesWithPrices(descentesAndOptionalPrice)
-    }
+    db.run(descentes.result)
+  }
+  def find(id: String): Future[Option[DescenteWithPrice]] = {
+    db.run(descentes.filter(_.id === id).result.headOption)
   }
 
   def save(descenteWithPrices: DescenteWithPrice): Future[Int] = {
-    val descente = descenteWithPricesToDescente(descenteWithPrices)
-    val descentePrices = descenteWithPrices.prices
-    descentePrices.map { price =>
-      db.run(for {
-        foundPrice <- prices.filter(_.id === price.id).result.headOption
-        result <- foundPrice.map(DBIO.successful).getOrElse(prices returning prices.map(_.id) += price)
-      } yield result match {
-        case savePrice: Price =>
-          descentePriceRelations += DescentePriceRelation(descenteId = descente.id, priceId = savePrice.id)
-        case id: String =>
-          prices.filter(_.id === price.id).update(price)
-          descentePriceRelations += DescentePriceRelation(descenteId = descente.id, priceId = price.id)
-      })
-    }
-    db.run(descentes += descente)
+    db.run(descentes += descenteWithPrices)
+  }
+  def update(descenteWithPrices: DescenteWithPrice): Future[Int] = {
+    db.run(descentes.filter(_.id === descenteWithPrices.id).update(descenteWithPrices))
+  }
+  def delete(id: String): Future[Int] = {
+    db.run(descentes.filter(_.id === id).delete)
   }
 
   def descenteWithPricesToDescente(descenteWithPrices: DescenteWithPrice): Descente = {

@@ -32,27 +32,28 @@ trait MyDBTableDefinitions {
   lazy val rooms = TableQuery[Rooms]
   
   
-  class Descentes(tag: Tag) extends Table[Descente](tag, "descentes") {
+  class Descentes(tag: Tag) extends Table[DescenteWithPrice](tag, "descentes") {
     def id = column[String]("id")
     def name = column[String]("name")
     def presentation = column[String]("presentation")
     def tour = column[String]("tour")
     def images = column[String]("images")
     def distance = column[String]("distance")
+    def prices = column[String]("prices")
     def time = column[String]("time")
 
-    def * = (id, name, presentation, tour, images, distance, time).shaped <> (
-      { case (id, name, presentation, tour, images, distance, time) =>
+    def * = (id, name, presentation, tour, images, distance, prices, time).shaped <> (
+      { case (id, name, presentation, tour, images, distance, prices, time) =>
         DescenteWithPrice(id, stringToVersionedString(name), stringToVersionedString(presentation), stringToVersionedString(tour),
-          stringToSet(images), stringToVersionedString(distance), stringToVersionedString(time))
-      }, { descente: Descente =>
+          stringToSet(images), stringToVersionedString(distance), read[Seq[Price]](prices), stringToVersionedString(time))
+      }, { descente: DescenteWithPrice =>
       Some((descente.id,  write(descente.name),  write(descente.presentation),
-        write(descente.tour), descente.images.mkString(","),  write(descente.distance), write(descente.time)))
+        write(descente.tour), descente.images.mkString(","),  write(descente.distance), write(descente.prices), write(descente.time)))
     })
   }
   lazy val descentes = TableQuery[Descentes]
   
-  class Prices(tag: Tag) extends Table[Price](tag, "prices") {
+  class Tariffs(tag: Tag) extends Table[Price](tag, "tariffs") {
     def id = column[String]("id")
     def name = column[String]("name")
     def price = column[Double]("price")
@@ -67,14 +68,19 @@ trait MyDBTableDefinitions {
       Some((price.id, write(price.name), price.price, price.isBookable,  write(price.medias), price.isSupplement))
     })
   }
-  lazy val prices = TableQuery[Prices]
+  lazy val tariffs = TableQuery[Tariffs]
 
-  class DescentePriceRelations(tag: Tag) extends Table[DescentePriceRelation](tag, "descentepricerelations") {
-      def descenteId = column[String]("descenteid")
-      def priceId = column[String]("priceid")
+  class Informations(tag: Tag) extends Table[Information](tag, "informations") {
+      def id = column[String]("id")
+      def information = column[String]("information")
 
-    def * = (descenteId, priceId) <> ((DescentePriceRelation.apply _).tupled, DescentePriceRelation.unapply)
+    def * = (id, information).shaped <> (
+      { case (id, information) =>
+        Information(id, read[Seq[VersionedString]](information))
+      }, { information: Information =>
+          Some(information.id, write(information.information))
+    })
   }
-  lazy val descentePriceRelations = TableQuery[DescentePriceRelations]
+  lazy val informations = TableQuery[Informations]
 
 }

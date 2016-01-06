@@ -1,9 +1,10 @@
 import Admin.{TariffFormDirective, TariffsImagesDirective, AdminController}
 import Booking.BookingController
-import Descentes.{DescenteServiceFactory, DescenteController, DescenteDirective}
+import Descentes.{fullSliderDirective, DescenteServiceFactory, DescenteController, DescenteDirective}
 import Home.{TopBarContentDirective, TopBarDirective, HomeController, HomeArticleDirective}
 import Lang.{LangDirective, LangServiceFactory}
 import Room.{RoomController, RoomMinDirective}
+import Size.SizeDirective
 import Slider.{SliderContentDirective, SliderDirective}
 import VideoPlayer.VideoPlayerDirective
 import com.greencatsoft.angularjs._
@@ -39,6 +40,8 @@ object App extends JSApp {
       .directive[LangDirective]
       .directive[TariffsImagesDirective]
       .directive[TariffFormDirective]
+      .directive[SizeDirective]
+      .directive[fullSliderDirective]
     .config(RoutingConfig)
   }
 }

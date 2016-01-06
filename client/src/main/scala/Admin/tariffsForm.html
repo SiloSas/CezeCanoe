@@ -10,7 +10,9 @@
 <md-subheader class="width100p float-left">Ajouter un tarifs</md-subheader>
 <div class="column large-12 zIndex1" >
             <span class="md-primary md-fab md-button zIndex1"
-                  data-ng-click="addPrice = !addPrice; newPrice = {name: controller.emptyVersionedStringArray(), medias: [], isBookable: true}">
+                  data-ng-click="addPrice = !addPrice;
+                  newPrice={name: controller.emptyVersionedStringArray(),
+                  isBookable: true, isSupplement: false, medias: []}">
                 <i class="fa" ng-class="{'fa-plus': !addPrice, 'fa-times': addPrice}"></i>
             </span><span data-ng-show="!addPrice">Ajouter un tarif général</span>
     <form data-ng-if="addPrice" class="column md-whiteframe-z1 marginBottom10 tariff-form"

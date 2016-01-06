@@ -24509,13 +24509,18 @@ top-bar-content > * > .md-button:hover {
   top: -40px;
 }
 
+/* line 33, ../../../client/src/main/scala/Descentes/descente.scss */
+descente.absolute {
+  z-index: 999999;
+}
+
 @media (max-width: 600px) {
-  /* line 34, ../../../client/src/main/scala/Descentes/descente.scss */
+  /* line 38, ../../../client/src/main/scala/Descentes/descente.scss */
   .descente.top-40 {
     top: 0;
   }
 
-  /* line 37, ../../../client/src/main/scala/Descentes/descente.scss */
+  /* line 41, ../../../client/src/main/scala/Descentes/descente.scss */
   .descente.paddingTop40 {
     padding-top: 0;
   }
@@ -24555,13 +24560,59 @@ body, html {
   display: block;
 }
 
+/* line 39, ../scss/main.scss */
+.slider {
+  background: #E8DDCB;
+  text-align: center;
+}
+
+/* line 44, ../scss/main.scss */
+.chevron::before {
+  vertical-align: middle;
+  border-style: solid;
+  border-color: #031634;
+  border-width: 0.15em 0.15em 0 0;
+  content: '';
+  display: inline-block;
+  height: 4.5em;
+  left: 0.20em;
+  position: relative;
+  top: 0.20em;
+  transform: rotate(-45deg);
+  width: 4.5em;
+}
+
+/* line 58, ../scss/main.scss */
+.imageSlider {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* line 62, ../scss/main.scss */
+.chevron.right:before {
+  left: -1.9em;
+  transform: rotate(45deg);
+}
+
+/* line 67, ../scss/main.scss */
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* line 72, ../scss/main.scss */
+.chevron.left:before {
+  left: 0.95em;
+  transform: rotate(-135deg);
+}
+
 @media only screen and (max-width: 750px) {
-  /* line 39, ../scss/main.scss */
+  /* line 78, ../scss/main.scss */
   .tooltip-trigger:hover > .tooltip-custom {
     display: none;
   }
 
-  /* line 42, ../scss/main.scss */
+  /* line 81, ../scss/main.scss */
   .imageSlider {
     vertical-align: top !important;
   }

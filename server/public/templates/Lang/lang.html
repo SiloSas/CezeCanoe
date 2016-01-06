@@ -1,1 +1,1 @@
-<md-button class="md-fab md-primary" ng-click="directive.setlang('En')">En</md-button> <div data-ng-click="directive.setlang('Fr')">Fr</div>
+<md-button class="md-fab md-primary" ng-class="{'md-hue-1': directive.currentLang == 'En'}" ng-click="directive.setNewLang('En')">En</md-button> <md-button class="md-fab md-primary" ng-class="{'md-hue-1': directive.currentLang == 'Fr'}" ng-click="directive.setNewLang('Fr')">Fr</md-button>

@@ -35,6 +35,45 @@ body, html {
   display: block;
 }
 
+
+.slider {
+  background: #E8DDCB;
+  text-align: center;
+}
+
+.chevron::before {
+  vertical-align: middle;
+  border-style: solid;
+  border-color: #031634;
+  border-width: 0.15em 0.15em 0 0;
+  content: '';
+  display: inline-block;
+  height: 4.5em;
+  left: 0.20em;
+  position: relative;
+  top: 0.20em;
+  transform: rotate(-45deg);
+  width: 4.5em;
+}
+.imageSlider {
+  max-height: 100%;
+  max-width: 100%;
+}
+.chevron.right:before {
+  left: -1.9em;
+  transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.chevron.left:before {
+  left: 0.95em;
+  transform: rotate(-135deg);
+}
+
 @media only screen and (max-width: 750px) {
   .tooltip-trigger:hover >.tooltip-custom {
     display: none;

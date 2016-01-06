@@ -1,7 +1,7 @@
 package Descentes
 
 import Lang.LangService
-import com.greencatsoft.angularjs.core.SceService
+import com.greencatsoft.angularjs.core.{Timeout, SceService}
 import com.greencatsoft.angularjs.{Angular, AbstractController, Controller, injectable}
 import shared.{Price, Descente}
 
@@ -16,7 +16,8 @@ import scala.util.matching.Regex
 
 @JSExportAll
 @injectable("descenteController")
-class DescenteController(descenteScope: DescenteScope, $sce: SceService, descenteService: DescenteService, langService: LangService)
+class DescenteController(descenteScope: DescenteScope, $sce: SceService, descenteService: DescenteService,
+                         langService: LangService, timeout: Timeout)
 extends AbstractController[DescenteScope](descenteScope) {
 
   var lang = langService.lang
@@ -24,9 +25,10 @@ extends AbstractController[DescenteScope](descenteScope) {
   langService.get(descenteScope, () => lang = langService.lang)
   descenteService.findAll().onComplete {
     case Success(descentes) =>
-      descentesC = descentes.toJSArray
-      descenteScope.descentes = descentes.toJSArray
-      console.log(descenteScope.descentes)
+      timeout( () => {
+        descentesC = descentes.toJSArray
+        descenteScope.descentes = descentes.toJSArray
+      })
     case _ =>
       println("miss")
   }
@@ -38,5 +40,14 @@ extends AbstractController[DescenteScope](descenteScope) {
     case _ =>
       println("miss")
   }
-  descenteScope.informations = "* Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !\n Prix guichet : 7€"
+
+  descenteService.findInformations().onComplete {
+    case Success(informations) =>
+      timeout( () => {
+        console.log(informations)
+        descenteScope.informations = informations.toJSArray
+      })
+    case _ =>
+      println("miss get informations")
+  }
 }

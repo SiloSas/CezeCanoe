@@ -63,10 +63,10 @@
         <div class="column large-12 padding-0">
             <div ng-repeat="newPrice in descente.prices" class="column large-6 float-left zIndex1 md-whiteframe-z1">
                 <i ng-if="$index == 0">Tarif de référence pour les suppléments</i>
-                <span class="float-right md-fab md-warn md-mini md-button" data-ng-click="descente.prices.splice($index, 1)">
+                <span class="float-right md-fab md-warn md-mini md-button" data-ng-click="descente.prices.splice($index, 1); controller.setNeedToSaveToTrue();">
                     <i class="fa fa-trash"></i>
                 </span>
-                <form class="column marginBottom10 tariff-form" ng-submit="validate()">
+                <form class="column marginBottom10 tariff-form" ng-submit="controller.setNeedToSaveToTrue();">
                 </form>
                 <md-devider></md-devider>
             </div>
@@ -74,11 +74,14 @@
         <md-subheader class="width100p float-left">Ajouter un tarifs</md-subheader>
         <div class="column large-12 zIndex1" >
             <span class="md-primary md-fab md-button zIndex1 marginLeft20"
-                  data-ng-click="addPrice = !addPrice; newPrice={name: controller.emptyVersionedStringArray(), isBookable: true} ">
+                  data-ng-click="addPrice = !addPrice;
+                  newPrice={name: controller.emptyVersionedStringArray(),
+                  isBookable: true, isSupplement: false, medias: []} ">
                 <i class="fa" ng-class="{'fa-plus': !addPrice, 'fa-times': addPrice}"></i>
-            </span><span data-ng-show="!addPrice">Ajouter un tarif</span>
-            <form data-ng-if="addPrice" class="column md-whiteframe-z1 marginBottom10 tariff-form"
-                  ng-submit="descente.prices.push(newPrice); validate(); $parent.addPrice = false">
+            </span>
+            <span data-ng-show="!addPrice">Ajouter un tarif</span>
+            <form data-ng-show="addPrice" class="column md-whiteframe-z1 marginBottom10 tariff-form"
+                  ng-submit="newPrice.id = controller.stringUuid(); descente.prices.push(newPrice); controller.setNeedToSaveToTrue(); $parent.addPrice = false">
             </form>
             <md-devider></md-devider>
         </div>

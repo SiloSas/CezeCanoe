@@ -22,7 +22,22 @@ class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConf
     }
   }
 
+  def find(id: String) = Action.async {
+    descentesMethods.find(id) map {
+      case Some(descente) =>
+        Ok(write(descente))
+      case _ =>
+        NotFound
+    }
+  }
+
   def save() = process(descentesMethods.save)
+  def update() = process(descentesMethods.update)
+  def delete(id: String) = Action.async { request =>
+    descentesMethods.delete(id) map { result =>
+      Ok(write(result))
+    }
+  }
 
   def process(updater: DescenteWithPrice => Future[Int]) = Action.async(parse.json) { request =>
     val data = request.body.as[JsObject]

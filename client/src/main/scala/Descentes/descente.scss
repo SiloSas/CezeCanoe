@@ -30,6 +30,10 @@
   top: -40px
 }
 
+descente.absolute {
+  z-index: 999999;
+}
+
 @media (max-width: 600px) {
   .descente.top-40 {
     top: 0;

@@ -27,15 +27,10 @@ timeout: Timeout, $sce: SceService, langService: LangService)
 
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
-    case Success(maybeDescente) =>
-      maybeDescente match {
-        case Some(descente) =>
+    case Success(descente) =>
           timeout( () => {
             bookingScope.descente = descente
           }, 0)
-        case _ =>
-          print("no descente for this id")
-      }
     case _ =>
       print("find descente by id error")
   }

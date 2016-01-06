@@ -7,6 +7,17 @@ GET     /                           controllers.Application.index
 GET     /admin                      controllers.Application.admin
 GET     /descentes				    @Descentes.DescentesController.findAll
 POST    /descentes				    @Descentes.DescentesController.save
+PUT     /descentes				    @Descentes.DescentesController.update
+DELETE  /descentes/:id   			@Descentes.DescentesController.delete(id: String)
+GET     /descentes/:id   			@Descentes.DescentesController.find(id: String)
+GET     /prices				        @Prices.PricesController.findAll
+POST    /prices				        @Prices.PricesController.save
+PUT     /prices				        @Prices.PricesController.update
+DELETE  /prices/:id   			    @Prices.PricesController.delete(id: String)
+GET     /informations				@Information.InformationController.findAll
+POST    /informations				@Information.InformationController.save
+PUT     /informations				@Information.InformationController.update
+DELETE  /informations/:id   		@Information.InformationController.delete(id: String)
 POST    /upload                     @Descentes.DescentesController.uploadImage
 GET     /images/:fileName           @Descentes.DescentesController.getImage(fileName: String)
 GET	    /rooms						@Room.RoomController.findAll

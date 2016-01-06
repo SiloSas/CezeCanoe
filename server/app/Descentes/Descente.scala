@@ -12,5 +12,6 @@ case class DescentePriceRelation(descenteId: String, priceId: String)
 case class DescenteWithPrice(id: String, name: Seq[VersionedString], presentation: Seq[VersionedString], tour: Seq[VersionedString],
                              images: Seq[String], distance: Seq[VersionedString], prices: Seq[Price], time: Seq[VersionedString])
 
+case class Information(id: String, information: Seq[VersionedString])
 
 case class VersionedString(lang: String, presentation: String)

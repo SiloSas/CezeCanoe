@@ -18,3 +18,9 @@ case class Price(id: String, name: js.Array[VersionedStringScope], price: Double
 
 @JSExportAll
 case class PriceForBack(id: String, name: Seq[VersionedString], price: Double, isBookable: Boolean, medias: Seq[String], isSupplement: Boolean)
+
+@JSExportAll
+case class  Information(id: String, information: js.Array[VersionedStringToBindScope])
+
+@JSExportAll
+case class  InformationForBack(id: String, information: Seq[VersionedString])
