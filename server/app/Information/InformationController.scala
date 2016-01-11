@@ -8,7 +8,7 @@ import Descentes.{Information, Price}
 import administration.Authenticated
 import play.Play
 import play.api.db.slick.DatabaseConfigProvider
-import play.api.libs.json.JsObject
+import play.api.libs.json.{JsArray, JsObject}
 import play.api.mvc.{Action, _}
 import upickle.default._
 
@@ -31,6 +31,20 @@ class InformationController @Inject()(protected val dbConfigProvider: DatabaseCo
         Ok(write(information))
       case _ =>
         NotFound
+    }
+  }
+
+  def findHomeImages() = Action.async {
+    informationsMethods.findHomeImages() map { images =>
+      println(images.head.images)
+        Ok(images.head.images)
+    }
+  }
+  def updateHomeImages() = Authenticated.async(parse.json) { request =>
+    val data = request.body.as[JsArray]
+    println("yoyoyo" + data.toString())
+    informationsMethods.updateHomeImages(data.toString()) map { images =>
+        Ok(write(images))
     }
   }
 

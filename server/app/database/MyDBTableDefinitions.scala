@@ -2,7 +2,7 @@ package database
 
 import Descentes._
 import administration.UserActor.User
-import shared.Room
+import shared.{Room}
 import MyPostgresDriver.api._
 import upickle.default._
 
@@ -46,10 +46,10 @@ trait MyDBTableDefinitions {
     def * = (id, name, presentation, tour, images, distance, prices, time).shaped <> (
       { case (id, name, presentation, tour, images, distance, prices, time) =>
         DescenteWithPrice(id, stringToVersionedString(name), stringToVersionedString(presentation), stringToVersionedString(tour),
-          stringToSet(images), stringToVersionedString(distance), read[Seq[Price]](prices), stringToVersionedString(time))
+          read[Seq[String]](images), stringToVersionedString(distance), read[Seq[Price]](prices), stringToVersionedString(time))
       }, { descente: DescenteWithPrice =>
       Some((descente.id,  write(descente.name),  write(descente.presentation),
-        write(descente.tour), descente.images.mkString(","),  write(descente.distance), write(descente.prices), write(descente.time)))
+        write(descente.tour), write(descente.images),  write(descente.distance), write(descente.prices), write(descente.time)))
     })
   }
   lazy val descentes = TableQuery[Descentes]
@@ -84,6 +84,21 @@ trait MyDBTableDefinitions {
   }
   lazy val informations = TableQuery[Informations]
 
+  class Articles(tag: Tag) extends Table[ArticleForBack](tag, "articles") {
+      def id = column[String]("id")
+      def content = column[String]("content")
+      def media = column[String]("media")
+      def yellowThing = column[String]("yellowthing")
+
+    def * = (id, content, media, yellowThing).shaped <> (
+      { case (id, content, media, yellowThing) =>
+        ArticleForBack(id, read[Seq[VersionedString]](content), media, read[Seq[VersionedString]](yellowThing))
+      }, { article: ArticleForBack =>
+          Some(article.id, write(article.content), article.media, write(article.yellowThing))
+    })
+  }
+  lazy val articles = TableQuery[Articles]
+
   class Users(tag: Tag) extends Table[User](tag, "users") {
     def id = column[Int]("userid", O.PrimaryKey)
     def login = column[String]("login")
@@ -92,5 +107,13 @@ trait MyDBTableDefinitions {
     def * = login <> (User, User.unapply)
   }
   lazy val users = TableQuery[Users]
+
+  class HomeImages(tag: Tag) extends Table[Images](tag, "homeimages") {
+    def images = column[String]("images")
+
+    def * = images <> (Images, Images.unapply)
+  }
+  lazy val homeimages = TableQuery[HomeImages]
+  case class Images(images: String)
 
 }

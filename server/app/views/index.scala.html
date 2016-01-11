@@ -21,9 +21,8 @@
   class="column large-3 medium-6 animated bounceInLeft absolute left0"
   id="title"
   style="z-index: 9999; animation-delay: 0.5s"></object>
-  <md-content class="height100p column large-12 padding0" id="mainContent" style="overflow-x: hidden; background: transparent">
-    <lang class="absolute right"></lang>
-    <slider images="assets/images/img1.jpg, assets/images/img2.jpg, assets/images/img3.jpg" class="width100p"></slider>
+  <md-content class="height100p column large-12 padding0" id="mainContent" ng-controller="mainController"  style="overflow-x: hidden; background: transparent">
+    <slider images="{{images}}" class="width100p"></slider>
     <h1 style="z-index: 99999; top:50%" class="column medium-6 medium-offset-3 animated bounceInLeft absolute">
       <b class=" textColorWhite" >
         La Cèze et ses Gorges<br/>
@@ -33,6 +32,7 @@
     <md-toolbar ng-if="true" id="middleBar" class="transparent md-sticky" style="top: -32px; z-index: 9999;" hide-md hide-sm>
       <div class="md-toolbar-tools">
         <top-bar-content class="width100p"></top-bar-content>
+        <lang></lang>
       </div>
     </md-toolbar>
     <div data-ng-view=""></div>

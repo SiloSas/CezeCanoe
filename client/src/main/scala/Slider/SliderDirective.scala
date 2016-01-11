@@ -65,13 +65,13 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
     elements.headOption.map(_.asInstanceOf[Html]) foreach { element =>
 
-      var images: js.Array[String] = element.getAttribute("images").split(",").toSeq.toJSArray
+      var images: js.Array[String] = element.getAttribute("images").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
       val imageContainer = element.getElementsByTagName("img").item(0).asInstanceOf[Image]
       val imageContainer1 = element.getElementsByTagName("img").item(1).asInstanceOf[Image]
       val slide = element.getElementsByTagName("li").item(0).asInstanceOf[Html]
       val slide1 = element.getElementsByTagName("li").item(1).asInstanceOf[Html]
       var activeSlide = 0
-      var play = true
+      var play = false
       var imagesToDraw: Seq[ImageToDraw] = Seq.empty[ImageToDraw]
       var index = 0
       var imagesLength = images.length
@@ -85,7 +85,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         index = index + 1
         if (activeSlide == 0) activeSlide = 1
         else activeSlide = 0
-        if (index >= imagesLength - 1) {
+        if (index >= imagesLength) {
           index = 0
         }
         console.log(index)
@@ -132,15 +132,19 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         images = element.getAttribute("images").replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
         imagesLength = images.length
         if (images.length > 1) {
+          console.log(images)
           imageContainer.src = images(0)
           imageContainer1.src = images(1)
           changeImage(imageContainer, slide, slide1)
-          timeout(fn = () => {
-            next()
-          },
-            delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
-            invokeApply = false
-          )
+          if (!play) {
+            play = true
+            timeout(fn = () => {
+              next()
+            },
+              delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
+              invokeApply = false
+            )
+          }
         } else {
           imageContainer.src = images.head
           changeImage(imageContainer, slide, js.undefined)
@@ -190,13 +194,22 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
 
 
 
-      def doChange() = {
+      def doChange(): Unit = {
         imagesToDraw = Seq.empty[ImageToDraw]
         setNewHeight(element.clientWidth * 0.4, element)
         if (images.length > 1) {
           imageContainer.src = images.head
           imageContainer1.src = images.tail.head
           changeImage(imageContainer, slide, slide1)
+          if (!play) {
+            play = true
+            timeout(fn = () => {
+              next()
+            },
+              delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
+              invokeApply = false
+            )
+          }
         } else {
           imageContainer.src = images.head
           changeImage(imageContainer, slide, js.undefined)
@@ -208,6 +221,11 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         clearTimeout(timer)
         timer = setTimeout(50)(doChange())
       }
+      attrs.$observe("images", (newImages: String) => {
+        images = newImages.replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
+        imagesLength = images.length
+        doChange()
+      })
 
       window.addEventListener("resize", changeHeight)
       scope.$on("$destroy", () => {

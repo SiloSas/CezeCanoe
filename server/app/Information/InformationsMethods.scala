@@ -30,4 +30,10 @@ class InformationsMethods @Inject()(protected val dbConfigProvider: DatabaseConf
   def delete(id: String): Future[Int] = {
     db.run(informations.filter(_.id === id).delete)
   }
+  def findHomeImages(): Future[Seq[Images]] = {
+    db.run(homeimages.result)
+  }
+  def updateHomeImages(images: String): Future[Int] = {
+    db.run(homeimages.update(Images(images = images)))
+  }
 }

@@ -1,7 +1,7 @@
 import Admin.{TariffFormDirective, TariffsImagesDirective, AdminController}
 import Booking.BookingController
 import Descentes.{fullSliderDirective, DescenteServiceFactory, DescenteController, DescenteDirective}
-import Home.{TopBarContentDirective, TopBarDirective, HomeController, HomeArticleDirective}
+import Home._
 import Lang.{LangDirective, LangServiceFactory}
 import Room.{RoomController, RoomMinDirective}
 import Size.SizeDirective
@@ -23,11 +23,13 @@ object App extends JSApp {
     .factory[RoomServiceFactory]
     .factory[DescenteServiceFactory]
     .factory[LangServiceFactory]
+    .factory[HomeServiceFactory]
     .controller[RoomController]
     .controller[HomeController]
     .controller[DescenteController]
     .controller[BookingController]
     .controller[AdminController]
+    .controller[MainController]
     .directive[RoomMinDirective]
       .directive[SmartCropDirective]
       .directive[SliderDirective]

@@ -21,7 +21,19 @@
                     </div>
                     <md-button ng-click="setNewDescente()">Ajouter une descente</md-button>
                 </div>
+                <h4 data-ng-click="show = 'articles'">Articles <i class="float-right fa fa-eye"></i> </h4>
+                <div data-ng-show="show == 'articles'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="article in articles">
+                        <h5>{{article.id}}</h5>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.setArticle(article)"><i class="fa fa-pencil"></i></md-button>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.deleteArticle(article.id)"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                    <md-button ng-click="controller.setNewArticle()">Ajouter un article</md-button>
+                </div>
                 <h4 data-ng-click="show = 'prices'; controller.setPrices()">Tarifs généraux <i class="float-right fa fa-eye"></i> </h4>
+                <h4 data-ng-click="show = 'images'; controller.setImages()">Images du slider<i class="float-right fa fa-eye"></i> </h4>
             </md-content>
         </md-sidenav>
         <md-content style="overflow: hidden; height: inherit" flex>

@@ -3,11 +3,15 @@ package Admin
 import java.util.UUID
 
 import Descentes.DescenteService
+import Home.HomeService
 import Lang.LangService
 import com.greencatsoft.angularjs.core.{Timeout, SceService}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.{console, alert}
-import shared.{PriceForBack, DescenteForBack, Descente, Price}
+import shared.Descente
+import shared.DescenteForBack
+import shared.PriceForBack
+import shared._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
@@ -19,7 +23,7 @@ import scala.util.{Failure, Success}
 @JSExportAll
 @injectable("adminController")
 class AdminController(adminScope: AdminScope, descenteService: DescenteService, $sce: SceService,
-                      langService: LangService, timeout: Timeout)
+                      langService: LangService, timeout: Timeout, homeService: HomeService)
   extends AbstractController[AdminScope](adminScope) {
 
   // init var & scope
@@ -77,6 +81,13 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       distance = descente.distance.toSeq map versionedStringScopeToVersionedString,
       prices = newPrices.toSeq,
       time = descente.time.toSeq map versionedStringScopeToVersionedString)
+  }
+  def mutableArticleToArticleForBack(articleMutable: ArticleMutable): ArticleForBack = {
+    val article = articleMutable
+    ArticleForBack(id = article.id,
+      content = article.content.toSeq map versionedStringToBindScopeToVersionedString,
+      media = article.media,
+      yellowThing = article.yellowThing.toSeq map versionedStringScopeToVersionedString)
   }
 
   def priceToPriceForBack(price: Price): PriceForBack = {
@@ -302,6 +313,139 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         }
       case Failure(t: Throwable) =>
         console.log("error delete price:" + t)
+    }
+  }
+
+  //articles
+  getArticles
+
+  def setArticle(article: ArticleMutable): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.article = article
+      console.log(adminScope.article)
+      adminScope.formTemplate = "assets/templates/Admin/articleForm.html"
+      adminScope.validate = () => {
+        mutableArticleToArticleForBack(adminScope.article)
+        homeService.update(mutableArticleToArticleForBack(adminScope.article)) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+  def setNewArticle(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val article = new Object().asInstanceOf[ArticleMutable]
+      article.id = stringUuid()
+      article.content = emptyVersionedStringToBindArray()
+      article.media = ""
+      article.yellowThing = emptyVersionedStringArray()
+      adminScope.article = article
+      console.log(adminScope.article)
+      adminScope.formTemplate = "assets/templates/Admin/articleForm.html"
+      adminScope.validate = () => {
+        mutableArticleToArticleForBack(adminScope.article)
+        homeService.post(mutableArticleToArticleForBack(adminScope.article)) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def getArticles: Unit = {
+    homeService.findAll().onComplete {
+      case Success(articles) =>
+        adminScope.articles = articles.map { article =>
+          val newArticle = new Object().asInstanceOf[ArticleMutable]
+          newArticle.id = article.id
+          newArticle.content = article.content
+          newArticle.media = article.media
+          newArticle.yellowThing = article.yellowThing
+          newArticle
+        }.toJSArray
+      case Failure(t: Throwable) =>
+        println("failure find article = ", throw(t))
+    }
+  }
+
+  def updateArticle(article: ArticleMutable): Unit = {
+    if(adminScope.articles.indexOf(article) == -1)  {
+      homeService.post(mutableArticleToArticleForBack(article)) onComplete {
+        case Success(int) =>
+          timeout( () => {
+            adminScope.articles += article
+          })
+        case Failure(t: Throwable) =>
+          console.log("error add tariff")
+      }
+    }
+    else {
+      homeService.update(mutableArticleToArticleForBack(article)) onComplete {
+        case Success(int) =>
+          console.log("youhou")
+        case Failure(t: Throwable) =>
+          console.log("error update tariff")
+      }
+    }
+  }
+
+  def deleteArticle(id: String): Unit = {
+    homeService.delete(id) onComplete {
+      case Success(int) =>
+        adminScope.articles.find(_.id == id) match {
+          case Some(article) =>
+            timeout( () => {
+              adminScope.articles.splice(adminScope.articles.indexOf(article), 1)
+            })
+          case _ =>
+            console.log("no article for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete article:" + t)
+    }
+  }
+
+  //images
+  getImages()
+  def getImages(): Unit = {
+    homeService.findHomeImages().onComplete {
+      case Success(images) =>
+        timeout( () => {
+          adminScope.images = images.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get images")
+    }
+  }
+
+  def setImages(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/homeImages.html"
+      adminScope.validate = () => {
+        homeService.updateImages(adminScope.images.toSeq) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
     }
   }
 

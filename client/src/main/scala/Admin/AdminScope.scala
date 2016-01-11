@@ -1,7 +1,7 @@
 package Admin
 
 import com.greencatsoft.angularjs.core.Scope
-import shared.Descente
+import shared.{Article, Descente}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
@@ -15,6 +15,17 @@ trait AdminScope extends Scope {
   var descentes: js.Array[DescenteMutable] = js.native
   var prices: js.Array[Price] = js.native
   var newImage: String = js.native
+  var articles: js.Array[ArticleMutable] = js.native
+  var article: ArticleMutable = js.native
+  var images: js.Array[String] = js.native
+}
+
+
+trait ArticleMutable extends js.Object {
+  var id: String = js.native
+  var content: js.Array[VersionedStringToBindScope] = js.native
+  var media: String = js.native
+  var yellowThing: js.Array[VersionedStringScope] = js.native
 }
 
 trait DescenteMutable extends js.Object {

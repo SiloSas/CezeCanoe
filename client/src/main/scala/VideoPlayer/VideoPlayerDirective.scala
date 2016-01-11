@@ -40,7 +40,7 @@ class VideoPlayerDirective(timeout: Timeout, window: Window) extends ElementDire
               size.height = height.toInt
             } else {
               val percent = height.replace("%", "").toInt
-              size.height = getParentHeight(element) * percent / 100
+              size.height = getParentHeight(element.parentNode.asInstanceOf[Html]) * percent / 100
             }
           } else {
             size.height = 500
