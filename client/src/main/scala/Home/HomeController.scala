@@ -3,7 +3,7 @@ package Home
 import Admin.VersionedStringToBindScope
 import Lang.LangService
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import com.greencatsoft.angularjs.core.{Timeout, SceService}
+import com.greencatsoft.angularjs.core.{LocationProvider, Location, Timeout, SceService}
 import shared.Article
 import org.scalajs.dom.console
 import scala.scalajs.js
@@ -15,7 +15,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 @JSExportAll
 @injectable("homeController")
-class HomeController(scope: HomeScope, homeService: HomeService, $sce: SceService, timeout: Timeout, sceService: SceService, langService: LangService)
+class HomeController(scope: HomeScope, homeService: HomeService, $sce: SceService, timeout: Timeout, sceService: SceService,
+                     langService: LangService, location: Location)
   extends AbstractController[HomeScope](scope) {
 
 
@@ -29,6 +30,30 @@ class HomeController(scope: HomeScope, homeService: HomeService, $sce: SceServic
       })
     case Failure(t: Throwable) =>
       console.log("error get articles")
+  }
+  var current = initCurrent()
+
+  def initCurrent(): Int = {
+    location.path() match {
+      case descentes if descentes.indexOf("descentes") > -1 =>
+        1
+      case services if services.indexOf("services") > -1 =>
+        2
+      case contact if contact.indexOf("contact") > -1 =>
+        3
+      case occasions if occasions.indexOf("occasions") > -1 =>
+        5
+      case _ =>
+        0
+    }
+  }
+  scope.$on("$locationChangeSuccess", () => {
+    current = initCurrent()
+  })
+  def setCurrent(int: Int): Unit = {
+    timeout( () => {
+      current = int
+    })
   }
 
 

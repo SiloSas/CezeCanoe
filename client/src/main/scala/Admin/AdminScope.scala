@@ -1,5 +1,7 @@
 package Admin
 
+import ArticleWithSlider.{ArticleWithSliderForBack, ArticleWithSlider}
+import Booking.BookingForm
 import com.greencatsoft.angularjs.core.Scope
 import shared.{Article, Descente}
 
@@ -18,6 +20,11 @@ trait AdminScope extends Scope {
   var articles: js.Array[ArticleMutable] = js.native
   var article: ArticleMutable = js.native
   var images: js.Array[String] = js.native
+  var bookings: js.Array[BookingForm] = js.native
+  var services: js.Array[ArticleWithSlider] = js.native
+  var service: ArticleWithSliderMutable = js.native
+  var occasions: js.Array[ArticleWithSlider] = js.native
+  var occasion: ArticleWithSliderMutable = js.native
 }
 
 
@@ -27,11 +34,16 @@ trait ArticleMutable extends js.Object {
   var media: String = js.native
   var yellowThing: js.Array[VersionedStringScope] = js.native
 }
+trait ArticleWithSliderMutable extends js.Object {
+  var id: String = js.native
+  var content: js.Array[VersionedStringToBindScope] = js.native
+  var images: js.Array[String] = js.native
+}
 
 trait DescenteMutable extends js.Object {
   var id: String = js.native
   var name: js.Array[VersionedStringScope] = js.native
-  var presentations: js.Array[VersionedStringToBindScope] = js.native
+  var presentations: js.Array[VersionedStringScope] = js.native
   var tour: js.Array[VersionedStringScope] = js.native
   var images: js.Array[String] = js.native
   var distance: js.Array[VersionedStringScope] = js.native

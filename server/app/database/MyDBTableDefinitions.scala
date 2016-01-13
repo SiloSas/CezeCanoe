@@ -1,6 +1,8 @@
 package database
 
+import BookingBack.{BookingDetail, BookingFormClient, BookingForm}
 import Descentes._
+import Services.ArticleWithSlider
 import administration.UserActor.User
 import shared.{Room}
 import MyPostgresDriver.api._
@@ -115,5 +117,50 @@ trait MyDBTableDefinitions {
   }
   lazy val homeimages = TableQuery[HomeImages]
   case class Images(images: String)
+
+
+
+  class Booking(tag: Tag) extends Table[BookingForm](tag, "booking") {
+    def id = column[String]("id")
+    def descentId = column[String]("descentid")
+    def clientForm = column[String]("clientform")
+    def details = column[String]("details")
+
+    def * = (id, descentId, clientForm, details).shaped <> (
+      { case (id, descentId, clientForm, details) =>
+        BookingForm(id, descentId, read[BookingFormClient](clientForm), read[Seq[BookingDetail]](details))
+      }, { bookingForm: BookingForm =>
+      Some(bookingForm.id, bookingForm.descentId, write(bookingForm.bookingFormClient), write(bookingForm.details))
+    })
+  }
+  lazy val booking = TableQuery[Booking]
+
+  class Services(tag: Tag) extends Table[ArticleWithSlider](tag, "services") {
+    def id = column[String]("id")
+    def content = column[String]("content")
+    def images = column[String]("images")
+
+    def * = (id, content, images).shaped <> (
+      { case (id, content, images) =>
+        ArticleWithSlider(id, read[Seq[VersionedString]](content), read[Seq[String]](images))
+      }, { article: ArticleWithSlider =>
+      Some(article.id, write(article.content), write(article.images))
+    })
+  }
+  lazy val services = TableQuery[Services]
+
+  class Occasions(tag: Tag) extends Table[ArticleWithSlider](tag, "occasions") {
+    def id = column[String]("id")
+    def content = column[String]("content")
+    def images = column[String]("images")
+
+    def * = (id, content, images).shaped <> (
+      { case (id, content, images) =>
+        ArticleWithSlider(id, read[Seq[VersionedString]](content), read[Seq[String]](images))
+      }, { article: ArticleWithSlider =>
+      Some(article.id, write(article.content), write(article.images))
+    })
+  }
+  lazy val occasions = TableQuery[Occasions]
 
 }

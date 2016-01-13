@@ -17,14 +17,32 @@ object RoutingConfig extends Config {
         route = Route(
           templateUrl = "/assets/templates/Descentes/descentes.html",
           controller = "descenteController",
-          title = "Room"))
+          title = "Descentes"))
+      .when(
+        path = "/services",
+        route = Route(
+          templateUrl = "/assets/templates/ServicesPage/servicePage.html",
+          controller = "servicesController",
+          title = "Services"))
+      .when(
+        path = "/occasions",
+        route = Route(
+          templateUrl = "/assets/templates/Occasions/occasions.html",
+          controller = "occasionController",
+          title = "Occasions"))
 
       .when(
         path = "/booking/:id",
         route = Route(
           templateUrl = "/assets/templates/Booking/booking.html",
           controller = "bookingController",
-          title = "Room"))
+          title = "Booking"))
+      .when(
+        path = "/contact",
+        route = Route(
+          templateUrl = "/assets/templates/Contact/contact.html",
+          controller = "contactController",
+          title = "Contact"))
 
   }
 }

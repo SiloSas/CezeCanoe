@@ -1,15 +1,1 @@
-<img src="{{image}}" data-ng-repeat="image in images" />
-<span class="tooltip-trigger float-left relative">
-    <span class="md-primary md-fab md-button zIndex1">
-        <i class="fa fa-download"></i>
-        <input type="file"
-               app-filereader="newMedia"
-               ng-model="newMedia"
-               class="absolute left0 height100p" style="opacity: 0"/>
-    </span>
-    <i class="tooltip-custom animated ">
-        Ajouter une images
-    </i>
-</span>
-<input data-ng-if="newMedia" ng-model="newMedia"  class="ng-hide"
-       ng-init="images.push(newMedia); $parent.newMedia = false; controller.needToSave = true" />
+<img src="{{image}}" data-ng-repeat="image in images"> <span class="tooltip-trigger float-left relative"> <span class="md-primary md-fab md-button zIndex1"> <i class="fa fa-download"></i> <input type="file" app-filereader="newMedia" ng-model="newMedia" class="absolute left0 height100p" style="opacity: 0"> </span> <i class="tooltip-custom animated"> Ajouter une images </i> </span> <input data-ng-if="newMedia" ng-model="newMedia" class="ng-hide" ng-init="images.push(newMedia); $parent.newMedia = false; controller.needToSave = true">

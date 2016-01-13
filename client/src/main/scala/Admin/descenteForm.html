@@ -9,11 +9,13 @@
         </md-list-item>
         <md-subheader>Présentation</md-subheader>
         <md-list-item>
-            <textarea data-ng-repeat="presentation in descente.presentations | filter: {lang: $root.lang}"
-                      class="column large-12"
-                      ng-change="controller.setNeedToSaveToTrue()"
-                      ng-model="presentation.presentation"
-                      data-ng-bind-html="presentation.presentation"></textarea>
+            <div data-ng-repeat="presentation in descente.presentations | filter: {lang: $root.lang}"
+                 text-angular="text-angular"
+                 ta-disabled='disabled'
+                 name="presentation"
+                  class="column large-12"
+                  ng-change="controller.setNeedToSaveToTrue()"
+                  ng-model="presentation.presentation"></div>
         </md-list-item>
         <md-list-item>
             <md-input-container class="column large-12" data-ng-repeat="versionedTour in descente.tour | filter: {lang: $root.lang}">

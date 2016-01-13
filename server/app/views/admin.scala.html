@@ -10,6 +10,7 @@
                 <md-button ng-click="close()" class="md-primary" hide-gt-md>
                     Close Sidenav Left
                 </md-button>
+                <h4 data-ng-click="show = ''; formTemplate = false">Réservations<i class="float-right fa fa-eye"></i> </h4>
                 <h4 data-ng-click="show = 'descentes'">Descentes <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'descentes'">
                     <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes">
@@ -21,7 +22,8 @@
                     </div>
                     <md-button ng-click="setNewDescente()">Ajouter une descente</md-button>
                 </div>
-                <h4 data-ng-click="show = 'articles'">Articles <i class="float-right fa fa-eye"></i> </h4>
+                <h4 data-ng-click="show = 'prices'; controller.setPrices()">Tarifs généraux <i class="float-right fa fa-eye"></i> </h4>
+                <h4 data-ng-click="show = 'articles'">Articles (home)<i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'articles'">
                     <div class="column md-whiteframe-z1" data-ng-repeat="article in articles">
                         <h5>{{article.id}}</h5>
@@ -32,7 +34,28 @@
                     </div>
                     <md-button ng-click="controller.setNewArticle()">Ajouter un article</md-button>
                 </div>
-                <h4 data-ng-click="show = 'prices'; controller.setPrices()">Tarifs généraux <i class="float-right fa fa-eye"></i> </h4>
+                <h4 data-ng-click="show = 'services'">Services <i class="float-right fa fa-eye"></i> </h4>
+                <div data-ng-show="show == 'services'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="service in services">
+                        <h5>{{service.id}}</h5>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.setService(service)"><i class="fa fa-pencil"></i></md-button>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.deleteService(service.id)"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                    <md-button ng-click="controller.setNewService()">Ajouter un service</md-button>
+                </div>
+                <h4 data-ng-click="show = 'occasions'">Occasions <i class="float-right fa fa-eye"></i> </h4>
+                <div data-ng-show="show == 'occasions'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="occasion in occasions">
+                        <h5>{{occasion.id}}</h5>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.setOccasion(occasion)"><i class="fa fa-pencil"></i></md-button>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.deleteOccasion(occasion.id)"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                    <md-button ng-click="controller.setNewOccasion()">Ajouter un occasion</md-button>
+                </div>
                 <h4 data-ng-click="show = 'images'; controller.setImages()">Images du slider<i class="float-right fa fa-eye"></i> </h4>
             </md-content>
         </md-sidenav>
@@ -61,6 +84,41 @@
             </md-toolbar>
             <md-content layout="column" layout-fill layout-align="top center">
                 <div ng-include="formTemplate" class="column"></div>
+                <div data-ng-show="!formTemplate" class="column">
+                    <div class="column">
+                        <md-datepicker class="column large-6" ng-model="dateFilter" md-placeholder="Filtrer les réservations par date"></md-datepicker>
+                    </div>
+                    <span data-ng-repeat="booking in bookings"
+                    data-ng-show="!dateFilter || (dateFilter | date : 'dd-MM-yyyy') == (booking.bookingFormClient$1.date$1 | date : 'dd-MM-yyyy')"
+                    class="md-whiteframe-z1 column large-6 padding50 float-left">
+                        Formulaire de reservation n°{{booking.id$1}} - {{controller.computePrice(booking.descentId$1, booking.details$1)}} €
+                        <i class="fa fa-eye" data-ng-click="showDetails = !showDetails"></i>
+                        <span data-ng-show="showDetails"><h4>Description</h4>
+                        <p>Date: {{booking.bookingFormClient$1.date$1 | date : 'dd-MM-yyyy'}}</p>
+                        <p>Heure: {{booking.bookingFormClient$1.startTime$1 | date : 'hh:mm a'}}</p>
+                        <p>Descente: {{descenteName = (descentes | filter: {'id' :  booking.descentId$1})[0].name[0].presentation}}</p>
+                        <p>Nom: {{booking.bookingFormClient$1.name$1}} Prenom: {{booking.bookingFormClient$1.firstName$1}}</p>
+                        <p><i class="fa fa-phone"></i> {{booking.bookingFormClient$1.phoneNumber$1}}</p>
+                        <p>Adresse: {{booking.bookingFormClient$1.address$1}}</p>
+                        <p><i class="fa fa-envelope"></i> {{booking.bookingFormClient$1.email$1}}</p>
+                        <h4>Details</h4>
+                        <span data-ng-repeat="detail in booking.details$1">
+                            <p>Nombre de
+                            {{PriceName = (descentePriceName = (descentePrice = (descentes | filter: {'id' :  booking.descentId$1})[0].prices) |
+                                filter: {'id': detail.priceId$1})[0].name[0].presentation}}
+                            {{PriceGeneralName = (prices | filter : {'id': detail.priceId$1})[0].name[0].presentation}}
+                                : {{detail.number$1}}
+                                <br>
+                                <b>Sous-total:
+                                    <span>
+                                        {{controller.computePrice(booking.descentId$1, [detail])}}
+                                    </span>
+                                </b>
+                            </p>
+                        </span>
+                        <p><b>Total: {{controller.computePrice(booking.descentId$1, booking.details$1)}}</b></p></span>
+                    </span>
+                </div>
                 <div class="column large-12 paddingBottom50 marginBottom30"></div>
             </md-content>
         </md-content>

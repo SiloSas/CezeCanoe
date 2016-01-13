@@ -7,7 +7,7 @@ import shared.{Price, Descente}
 
 import org.scalajs.dom.console
 import scala.scalajs.js
-import scala.scalajs.js.Any
+import scala.scalajs.js.{Object, Any}
 import scala.scalajs.js.annotation.JSExportAll
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.util.Success
@@ -22,12 +22,17 @@ extends AbstractController[DescenteScope](descenteScope) {
 
   var lang = langService.lang
   var descentesC = Seq.empty[Descente]
+  descenteScope.descentes = new js.Array[Descente]
   langService.get(descenteScope, () => lang = langService.lang)
   descenteService.findAll().onComplete {
     case Success(descentes) =>
       timeout( () => {
         descentesC = descentes.toJSArray
-        descenteScope.descentes = descentes.toJSArray
+        descentes.map { descente =>
+          timeout( () => {
+            descenteScope.descentes.push(descente)
+          })
+        }
       })
     case _ =>
       println("miss")

@@ -63,26 +63,23 @@
 }
 
 top-bar-content > * > .md-button {
-  border-radius: 0;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 136, 203, 1)!important;
+  background-color: #3B8686 !important;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  border: solid rgba(57, 33, 0, 1) 2px;
+  box-shadow: 0 1px 4px #79BD9A;
   cursor: pointer !important;
-  color: #FFC13D!important;
+  color: #E5EEC1!important;
   font: normal normal normal 20px/1.4em arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
   line-height: 43px
 }
 
-top-bar-content > * > .md-button:hover {
-            background-color: rgba(255, 193, 61, 1)!important;
-            border-color: rgba(57, 33, 0, 1);
+top-bar-content > * > .md-button:hover, top-bar-content > * > .md-button.current {
+            background-color: #E5EEC1!important;
             transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-            color: #545454!important;
+            color: #3B8686!important;
           }
 @media (max-width: 600px) {
   .bigger-right {

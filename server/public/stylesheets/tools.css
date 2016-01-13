@@ -59,7 +59,7 @@
 /*Colors*/
 /* line 16, ../scss/tools.scss */
 .primCol {
-  background-color: #581030 !important;
+  background-color: #B4D5B8 !important;
   color: #ffffff !important;
 }
 
@@ -76,7 +76,7 @@
 
 /* line 20, ../scss/tools.scss */
 .button.active {
-  background: #581030;
+  background: #B4D5B8;
   color: #ffffff !important;
 }
 
@@ -164,7 +164,7 @@
 
 /* line 39, ../scss/tools.scss */
 .textPrimColor {
-  color: #581030;
+  color: #B4D5B8;
 }
 
 /*effects*/

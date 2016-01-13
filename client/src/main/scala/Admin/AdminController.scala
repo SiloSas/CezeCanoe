@@ -2,9 +2,13 @@ package Admin
 
 import java.util.UUID
 
+import ArticleWithSlider.{ArticleWithSlider, ArticleWithSliderForBack}
+import Booking.{BookingDetail, BookingFormClient, BookingForm, BookingService}
 import Descentes.DescenteService
 import Home.HomeService
 import Lang.LangService
+import Occasions.OccasionService
+import ServicesPage.ServicesService
 import com.greencatsoft.angularjs.core.{Timeout, SceService}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.{console, alert}
@@ -12,18 +16,19 @@ import shared.Descente
 import shared.DescenteForBack
 import shared.PriceForBack
 import shared._
+import upickle.default._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.scalajs.js.Object
+import scala.scalajs.js.{JSON, Object}
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
 
 
 @JSExportAll
 @injectable("adminController")
-class AdminController(adminScope: AdminScope, descenteService: DescenteService, $sce: SceService,
-                      langService: LangService, timeout: Timeout, homeService: HomeService)
+class AdminController(adminScope: AdminScope, descenteService: DescenteService, $sce: SceService, servicesService: ServicesService,
+                      langService: LangService, timeout: Timeout, homeService: HomeService, bookingService: BookingService, occasionService: OccasionService)
   extends AbstractController[AdminScope](adminScope) {
 
   // init var & scope
@@ -75,7 +80,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     }
     DescenteForBack(id = descente.id,
       name = descente.name.toSeq map versionedStringScopeToVersionedString,
-      presentation = descente.presentations.toSeq map versionedStringToBindScopeToVersionedString,
+      presentation = descente.presentations.toSeq map versionedStringScopeToVersionedString,
       tour = descente.tour.toSeq map versionedStringScopeToVersionedString,
       images = descente.images.toSeq,
       distance = descente.distance.toSeq map versionedStringScopeToVersionedString,
@@ -103,11 +108,17 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     val newDescente = new Object().asInstanceOf[DescenteMutable]
     newDescente.id = descente.id
     newDescente.name = descente.name
-    newDescente.presentations = descente.presentation
+    newDescente.presentations = descente.presentation map {a =>
+      val b =new js.Object().asInstanceOf[VersionedStringScope]
+      b.presentation = a.presentation.toString
+      b.lang = a.lang
+      b
+    }
     newDescente.distance = descente.distance
     newDescente.images = descente.images
     newDescente.prices = descente.prices map { price =>
       val newPrice = new Object().asInstanceOf[Price]
+      newPrice.id = price.id
       newPrice.isBookable = price.isBookable
       newPrice.isSupplement = price.isSupplement
       newPrice.medias = price.medias
@@ -200,7 +211,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       val newDescente = new Object().asInstanceOf[DescenteMutable]
       newDescente.id = UUID.randomUUID().toString
       newDescente.name = emptyVersionedStringArray()
-      newDescente.presentations = emptyVersionedStringToBindArray()
+      newDescente.presentations = emptyVersionedStringArray()
       newDescente.distance = emptyVersionedStringArray()
       newDescente.images = Seq.empty[String].toJSArray
       newDescente.prices = Seq.empty[Price].toJSArray
@@ -449,7 +460,230 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     }
   }
 
+  //Booking
+  adminScope.bookings = js.Array[BookingForm]()
+  getBooking()
+  def getBooking(): Unit = {
+    bookingService.get().onComplete {
+      case Success(bookings) =>
+        timeout( () => {
+          console.log(bookings)
+          val test = bookings.toJSArray.map{booking =>
+            BookingForm(booking.id, booking.descentId, BookingFormClient(booking.bookingFormClient.startTime, booking.bookingFormClient.date,
+              booking.bookingFormClient.name, booking.bookingFormClient.firstName, booking.bookingFormClient.address,
+              booking.bookingFormClient.phoneNumber, booking.bookingFormClient.email), booking.details)
+          }
+          adminScope.bookings = test
+        })
+      case _ =>
+        console.log("error get bookings")
+    }
+  }
 
+  def computePrice(descenteId: String, prices: js.Array[BookingDetail]): Double = {
+    console.log("yo")
+    adminScope.descentes.find(_.id == descenteId) match {
+      case Some(descente) =>
+        console.log(1)
+        var priceRef = 0.0
+        var total = 0.0
+        descente.prices.headOption match {
+          case Some(price) =>
+            priceRef = price.price
+          case _ =>
+            priceRef = 0.0
+        }
+        prices.foreach {price =>
+          console.log(descente.prices)
+          descente.prices.find(_.id == price.priceId) match {
+            case Some(descentPriceSupplement) if descentPriceSupplement.isSupplement =>
+              total = total + (descentPriceSupplement.price + priceRef) * price.number
+            case Some(descentPrice) =>
+              console.log("yo1")
+              total = total + descentPrice.price * price.number
+            case _ =>
+              adminScope.prices.find(_.id == price.priceId) match {
+                case Some(descentPriceSupplement) if descentPriceSupplement.isSupplement =>
+                  total = total + (descentPriceSupplement.price + priceRef) * price.number
+                case Some(descentPrice) =>
+                  total = total + descentPrice.price * price.number
+                case _ =>
+                  total = total
+              }
+          }
+        }
+        total
+    }
+  }
+
+  // Services
+
+  getServices()
+  def getServices(): Unit = {
+    servicesService.findAll().onComplete {
+      case Success(services) =>
+        timeout( () => {
+          adminScope.services = services.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get services")
+    }
+  }
+
+  def setService(service: ArticleWithSlider): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val newService = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newService.id = service.id
+      newService.content = service.content
+      newService.images = service.images
+      adminScope.service = newService
+      console.log(newService)
+      adminScope.formTemplate = "assets/templates/Admin/servicesForm.html"
+      adminScope.validate = () => {
+        val articleToPost = ArticleWithSliderForBack(id = adminScope.service.id, content = adminScope.service.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.service.images)
+        servicesService.update(articleToPost) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def setNewService(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/servicesForm.html"
+      val newService = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newService.id = UUID.randomUUID().toString
+      newService.content = emptyVersionedStringToBindArray()
+      newService.images = Seq.empty[String].toJSArray
+      adminScope.service = newService
+      adminScope.validate = () => {
+      val articleToPost = ArticleWithSliderForBack(id = adminScope.service.id, content = adminScope.service.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.service.images)
+        postService(articleToPost)
+      }
+    }
+  }
+
+  def postService(articleWithSlider: ArticleWithSliderForBack): Unit = {
+    servicesService.post(articleWithSlider) onComplete {
+      case Success(int) =>
+        timeout ( () => {
+          needToSave = false
+          console.log("success")
+        })
+      case _ =>
+        console.log("error post service")
+    }
+  }
+
+  def deleteService(id: String): Unit = {
+    servicesService.delete(id) onComplete {
+      case Success(int) =>
+        adminScope.services.find(_.id == id) match {
+          case Some(service) =>
+            timeout( () => {
+              adminScope.services.splice(adminScope.services.indexOf(service), 1)
+            })
+          case _ =>
+            console.log("no service for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete service:" + t)
+    }
+  }
+  // Occasions
+
+  getOccasions()
+  def getOccasions(): Unit = {
+    occasionService.findAll().onComplete {
+      case Success(occasions) =>
+        timeout( () => {
+          adminScope.occasions = occasions.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get occasions")
+    }
+  }
+
+  def setOccasion(occasion: ArticleWithSlider): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val newOccasion = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newOccasion.id = occasion.id
+      newOccasion.content = occasion.content
+      newOccasion.images = occasion.images
+      adminScope.occasion = newOccasion
+      console.log(newOccasion)
+      adminScope.formTemplate = "assets/templates/Admin/occasionForm.html"
+      adminScope.validate = () => {
+        val articleToPost = ArticleWithSliderForBack(id = adminScope.occasion.id, content = adminScope.occasion.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.occasion.images)
+        occasionService.update(articleToPost) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def setNewOccasion(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/occasionForm.html"
+      val newOccasion = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newOccasion.id = UUID.randomUUID().toString
+      newOccasion.content = emptyVersionedStringToBindArray()
+      newOccasion.images = Seq.empty[String].toJSArray
+      adminScope.occasion = newOccasion
+      adminScope.validate = () => {
+      val articleToPost = ArticleWithSliderForBack(id = adminScope.occasion.id, content = adminScope.occasion.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.occasion.images)
+        postOccasion(articleToPost)
+      }
+    }
+  }
+
+  def postOccasion(articleWithSlider: ArticleWithSliderForBack): Unit = {
+    occasionService.post(articleWithSlider) onComplete {
+      case Success(int) =>
+        timeout ( () => {
+          needToSave = false
+          console.log("success")
+        })
+      case _ =>
+        console.log("error post occasion")
+    }
+  }
+
+  def deleteOccasion(id: String): Unit = {
+    occasionService.delete(id) onComplete {
+      case Success(int) =>
+        adminScope.occasions.find(_.id == id) match {
+          case Some(occasion) =>
+            timeout( () => {
+              adminScope.occasions.splice(adminScope.occasions.indexOf(occasion), 1)
+            })
+          case _ =>
+            console.log("no occasion for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete occasion:" + t)
+    }
+  }
   // listeners
 
   adminScope.$watch("newImage", () => {

@@ -16,7 +16,10 @@
         <b class="column large-6 descentePrices float-left"
            ng-class="{'smallerPrice': $last}"
            data-ng-repeat="price in descente.prices">{{price.price}}€/ {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}</b>
-        <md-button class="md-raised md-primary md-hue-1 float-right" href="#/booking/{{descente.id}}">Réserver</md-button>
+        <md-button class="md-raised md-primary md-hue-1 float-right" href="#/booking/{{descente.id}}">
+            <span data-ng-show="controller.lang == 'Fr'">Réserver</span>
+            <span data-ng-show="controller.lang == 'En'">Book</span>
+        </md-button>
     </div>
 </div>
 <div ng-if="fullSlider" class="height100p width100p float-left absolute left0 right0" style="z-index: 999999" full-slider="{{descente.images.length - 1}}">

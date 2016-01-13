@@ -54,28 +54,31 @@ class fullSliderDirective(timeout: Timeout) extends AttributeDirective {
     else index = 0
   }
 
+  var scope = new js.Object().asInstanceOf[fullSliderParent]
+
+  val eventKeyPress = (event: Event) => {
+    val keyEvent = event.asInstanceOf[KeyboardEvent]
+    if (keyEvent.keyCode == 37) timeout(() => {prevIndex()})
+    if (keyEvent.keyCode == 39) timeout(() => {nextIndex()})
+    if (keyEvent.keyCode == 27) {
+      timeout(() => {
+        scope.$parent.fullSlider = false
+      }, 0, true)
+    }
+
+  }
+  window.addEventListener("keydown", eventKeyPress)
+
   override def link(scopeType: ScopeType, elements: Seq[Element], attributes: Attributes): Unit ={
       elements.map{_.asInstanceOf[Html]}.foreach { element =>
         timeout ( () => {
           index = 0
+          scope = scopeType.asInstanceOf[fullSliderParent]
           maxIndex = element.getAttribute("full-slider").toString.toInt
           console.log(document.getElementById("mainContent").scrollTop)
           console.log( element.parentElement.getBoundingClientRect().top)
           document.getElementById("mainContent").scrollTop = element.getBoundingClientRect().top + document.getElementById("mainContent").scrollTop
         })
-        val eventKeyPress = (event: Event) => {
-          val keyEvent = event.asInstanceOf[KeyboardEvent]
-          if (keyEvent.keyCode == 37) timeout(() => {prevIndex()})
-          if (keyEvent.keyCode == 39) timeout(() => {nextIndex()})
-          if (keyEvent.keyCode == 27) {
-            timeout(() => {
-              scopeType.asInstanceOf[fullSliderParent].$parent.fullSlider = false
-            }, 0, true)
-          }
-
-        }
-        window.addEventListener("keydown", eventKeyPress)
-        scopeType.$on("destroy",  () => window.removeEventListener("keydown", eventKeyPress))
       }
   }
 

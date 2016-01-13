@@ -61,7 +61,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -1656,7 +1656,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -1856,7 +1856,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -1959,9 +1959,9 @@ select {
   padding: 0.875rem 1.5rem 0.875rem 0.875rem;
   font-size: 0.8125rem;
   transition: opacity 300ms ease-out;
-  background-color: #581030;
-  border-color: #4c0e29;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #91c197;
+  color: #142e2e;
 }
 /* line 115, ../../../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box .close {
@@ -2002,8 +2002,8 @@ select {
 }
 /* line 122, ../../../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.secondary {
-  background-color: #24008E;
-  border-color: #1f007a;
+  background-color: #3B8686;
+  border-color: #337373;
   color: #FFFFFF;
 }
 /* line 123, ../../../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
@@ -2016,7 +2016,7 @@ select {
 .alert-box.info {
   background-color: #a0d3e8;
   border-color: #74bfdd;
-  color: #0c0030;
+  color: #142e2e;
 }
 /* line 125, ../../../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.alert-close {
@@ -2085,7 +2085,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -2769,7 +2769,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -2870,8 +2870,8 @@ select {
   list-style: none;
   border-style: solid;
   border-width: 1px;
-  background-color: #8359ff;
-  border-color: #6a37ff;
+  background-color: #9cd3d3;
+  border-color: #82c8c8;
   border-radius: 3px;
 }
 /* line 122, ../../../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
@@ -2881,7 +2881,7 @@ select {
   font-size: 0.6875rem;
   line-height: 0.6875rem;
   text-transform: uppercase;
-  color: #581030;
+  color: #B4D5B8;
 }
 /* line 68, ../../../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
@@ -2889,7 +2889,7 @@ select {
 }
 /* line 70, ../../../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs > * a {
-  color: #581030;
+  color: #B4D5B8;
 }
 /* line 75, ../../../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs > *.current {
@@ -3002,7 +3002,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -3156,7 +3156,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -3268,14 +3268,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -3283,13 +3283,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -3401,16 +3401,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -3418,12 +3418,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -3431,7 +3431,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -3439,7 +3439,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -4175,7 +4175,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -4287,14 +4287,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -4302,13 +4302,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -4420,16 +4420,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -4437,12 +4437,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -4450,7 +4450,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -4458,7 +4458,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -4619,7 +4619,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -5016,7 +5016,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -5474,7 +5474,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -5702,7 +5702,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -5885,7 +5885,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -6039,7 +6039,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -6151,14 +6151,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -6166,13 +6166,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -6284,16 +6284,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -6301,12 +6301,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -6314,7 +6314,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -6322,7 +6322,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -7066,7 +7066,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -7268,7 +7268,7 @@ select {
 }
 /* line 168, ../../../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
 .icon-bar > *:hover {
-  background: #581030;
+  background: #B4D5B8;
 }
 /* line 170, ../../../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
 .icon-bar > * label {
@@ -7442,7 +7442,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -7617,7 +7617,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -7974,7 +7974,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -8143,7 +8143,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -8248,8 +8248,8 @@ select {
   margin-bottom: inherit;
   padding: 0.25rem 0.5rem 0.25rem;
   font-size: 0.6875rem;
-  background-color: #581030;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  color: #333333;
 }
 /* line 96, ../../../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label.radius {
@@ -8276,7 +8276,7 @@ select {
 }
 /* line 102, ../../../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label.secondary {
-  background-color: #24008E;
+  background-color: #3B8686;
   color: #FFFFFF;
 }
 /* line 103, ../../../bower_components/foundation/scss/foundation/components/_labels.scss */
@@ -8347,7 +8347,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -8521,7 +8521,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -9015,7 +9015,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -9149,14 +9149,14 @@ ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus, ul.p
 }
 /* line 68, ../../../bower_components/foundation/scss/foundation/components/_pagination.scss */
 ul.pagination li.current a, ul.pagination li.current button {
-  background: #581030;
+  background: #B4D5B8;
   color: #FFFFFF;
   font-weight: bold;
   cursor: default;
 }
 /* line 74, ../../../bower_components/foundation/scss/foundation/components/_pagination.scss */
 ul.pagination li.current a:hover, ul.pagination li.current a:focus, ul.pagination li.current button:hover, ul.pagination li.current button:focus {
-  background: #581030;
+  background: #B4D5B8;
 }
 /* line 136, ../../../bower_components/foundation/scss/foundation/components/_pagination.scss */
 ul.pagination li {
@@ -9237,7 +9237,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -9365,10 +9365,10 @@ select {
 .panel.callout {
   border-style: solid;
   border-width: 1px;
-  border-color: #f3bdd5;
+  border-color: #d7e9d9;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
-  background: #fbeaf2;
+  background: #fbfcfb;
   color: #333333;
 }
 /* line 54, ../../../bower_components/foundation/scss/foundation/components/_panels.scss */
@@ -9394,7 +9394,7 @@ select {
 }
 /* line 83, ../../../bower_components/foundation/scss/foundation/components/_panels.scss */
 .panel.callout a:not(.button) {
-  color: #581030;
+  color: #B4D5B8;
 }
 /* line 88, ../../../bower_components/foundation/scss/foundation/components/_panels.scss */
 .panel.radius {
@@ -9463,7 +9463,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -9677,7 +9677,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -9780,13 +9780,13 @@ select {
 }
 /* line 61, ../../../bower_components/foundation/scss/foundation/components/_progress-bars.scss */
 .progress .meter {
-  background: #581030;
+  background: #B4D5B8;
   height: 100%;
   display: block;
 }
 /* line 64, ../../../bower_components/foundation/scss/foundation/components/_progress-bars.scss */
 .progress.secondary .meter {
-  background: #24008E;
+  background: #3B8686;
   height: 100%;
   display: block;
 }
@@ -9881,7 +9881,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -10019,12 +10019,12 @@ select {
 }
 /* line 146, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.radius .range-slider-handle {
-  background: #581030;
+  background: #B4D5B8;
   border-radius: 3px;
 }
 /* line 115, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.radius .range-slider-handle:hover {
-  background: #4d0e2a;
+  background: #96c49b;
 }
 /* line 148, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.round {
@@ -10033,12 +10033,12 @@ select {
 }
 /* line 150, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.round .range-slider-handle {
-  background: #581030;
+  background: #B4D5B8;
   border-radius: 1000px;
 }
 /* line 115, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.round .range-slider-handle:hover {
-  background: #4d0e2a;
+  background: #96c49b;
 }
 /* line 152, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.disabled, .range-slider[disabled] {
@@ -10048,13 +10048,13 @@ select {
 }
 /* line 154, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.disabled .range-slider-handle, .range-slider[disabled] .range-slider-handle {
-  background: #581030;
+  background: #B4D5B8;
   cursor: default;
   opacity: 0.7;
 }
 /* line 115, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider.disabled .range-slider-handle:hover, .range-slider[disabled] .range-slider-handle:hover {
-  background: #4d0e2a;
+  background: #96c49b;
 }
 
 /* line 157, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
@@ -10062,7 +10062,7 @@ select {
   display: inline-block;
   position: absolute;
   height: 0.875rem;
-  background: #24008d;
+  background: #3a8585;
 }
 
 /* line 163, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
@@ -10077,11 +10077,11 @@ select {
   cursor: pointer;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  background: #581030;
+  background: #B4D5B8;
 }
 /* line 115, ../../../bower_components/foundation/scss/foundation/components/_range-slider.scss */
 .range-slider-handle:hover {
-  background: #4d0e2a;
+  background: #96c49b;
 }
 
 /* line 347, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
@@ -10146,7 +10146,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -10300,7 +10300,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -12082,7 +12082,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -12192,18 +12192,18 @@ select {
 /* line 75, ../../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li a:not(.button) {
   display: block;
-  color: #581030;
+  color: #B4D5B8;
   margin: 0;
   padding: 0.4375rem 0.875rem;
 }
 /* line 80, ../../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
   background: rgba(0, 0, 0, 0.025);
-  color: #bf2368;
+  color: #cbe2cd;
 }
 /* line 87, ../../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.active > a:first-child:not(.button) {
-  color: #bf2368;
+  color: #cbe2cd;
   font-weight: normal;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
@@ -12217,7 +12217,7 @@ select {
 }
 /* line 101, ../../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.heading {
-  color: #581030;
+  color: #B4D5B8;
   font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -12285,7 +12285,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -12439,7 +12439,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -12551,14 +12551,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -12566,13 +12566,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -12684,16 +12684,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -12701,12 +12701,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -12714,7 +12714,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -12722,7 +12722,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -12883,7 +12883,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -13243,7 +13243,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -13380,7 +13380,7 @@ select {
 .sub-nav li.active a {
   border-radius: 3px;
   font-weight: normal;
-  background: #581030;
+  background: #B4D5B8;
   padding: 0.1875rem 1rem;
   cursor: default;
   color: #FFFFFF;
@@ -13389,7 +13389,7 @@ select {
 .sub-nav dt.active a:hover,
 .sub-nav dd.active a:hover,
 .sub-nav li.active a:hover {
-  background: #4c0e29;
+  background: #91c197;
 }
 
 /* line 347, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
@@ -13454,7 +13454,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -13601,7 +13601,7 @@ select {
 }
 /* line 102, ../../../bower_components/foundation/scss/foundation/components/_switches.scss */
 .switch input:checked + label {
-  background: #581030;
+  background: #B4D5B8;
 }
 /* line 106, ../../../bower_components/foundation/scss/foundation/components/_switches.scss */
 .switch input:checked + label:after {
@@ -13632,7 +13632,7 @@ select {
 }
 /* line 155, ../../../bower_components/foundation/scss/foundation/components/_switches.scss */
 .switch input:checked + label {
-  background: #581030;
+  background: #B4D5B8;
 }
 /* line 118, ../../../bower_components/foundation/scss/foundation/components/_switches.scss */
 .switch.large label {
@@ -13759,7 +13759,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -13974,7 +13974,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -14128,7 +14128,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -15848,7 +15848,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -15952,7 +15952,7 @@ select {
 }
 /* line 48, ../../../bower_components/foundation/scss/foundation/components/_thumbs.scss */
 .th:hover, .th:focus {
-  box-shadow: 0 0 6px 1px rgba(88, 16, 48, 0.5);
+  box-shadow: 0 0 6px 1px rgba(180, 213, 184, 0.5);
 }
 /* line 63, ../../../bower_components/foundation/scss/foundation/components/_thumbs.scss */
 .th.radius {
@@ -16021,7 +16021,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -16123,8 +16123,8 @@ select {
 }
 /* line 44, ../../../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .has-tip:hover, .has-tip:focus {
-  border-bottom: dotted 1px #280716;
-  color: #581030;
+  border-bottom: dotted 1px #3f7146;
+  color: #B4D5B8;
 }
 /* line 50, ../../../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .has-tip.tip-left, .has-tip.tip-right {
@@ -16177,8 +16177,8 @@ select {
 }
 /* line 95, ../../../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .tooltip.opened {
-  color: #581030 !important;
-  border-bottom: dotted 1px #280716 !important;
+  color: #B4D5B8 !important;
+  border-bottom: dotted 1px #3f7146 !important;
 }
 
 /* line 101, ../../../bower_components/foundation/scss/foundation/components/_tooltips.scss */
@@ -16284,7 +16284,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -16438,7 +16438,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -18033,7 +18033,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -18145,14 +18145,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -18160,13 +18160,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -18278,16 +18278,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -18295,12 +18295,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -18308,7 +18308,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -18316,7 +18316,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -18477,7 +18477,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -18631,7 +18631,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -18743,14 +18743,14 @@ button, .button {
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   transition: background-color 300ms ease-out;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -18758,13 +18758,13 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 223, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -18876,16 +18876,16 @@ button.round, .button.round {
 }
 /* line 240, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
   cursor: default;
   opacity: 0.7;
   box-shadow: none;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -18893,12 +18893,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #581030;
+  background-color: #B4D5B8;
 }
 /* line 241, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
   cursor: default;
   opacity: 0.7;
@@ -18906,7 +18906,7 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
@@ -18914,7 +18914,7 @@ button.disabled.secondary:hover, button.disabled.secondary:focus, button[disable
 }
 /* line 178, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #24008E;
+  background-color: #3B8686;
 }
 /* line 242, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
@@ -19819,13 +19819,13 @@ meta.foundation-mq-topbar {
   font-size: 0.8125rem;
   padding-right: 15px;
   padding-left: 15px;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
@@ -19833,13 +19833,13 @@ meta.foundation-mq-topbar {
 }
 /* line 325, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > a.button.secondary:hover, .top-bar-section ul li > a.button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > a.button.secondary:hover, .top-bar-section ul li > a.button.secondary:focus {
@@ -19892,13 +19892,13 @@ meta.foundation-mq-topbar {
   font-size: 0.8125rem;
   padding-right: 15px;
   padding-left: 15px;
-  background-color: #581030;
-  border-color: #460d26;
-  color: #FFFFFF;
+  background-color: #B4D5B8;
+  border-color: #82b988;
+  color: #333333;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > button:hover, .top-bar-section ul li > button:focus {
-  background-color: #460d26;
+  background-color: #82b988;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > button:hover, .top-bar-section ul li > button:focus {
@@ -19906,13 +19906,13 @@ meta.foundation-mq-topbar {
 }
 /* line 337, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > button.secondary {
-  background-color: #24008E;
-  border-color: #1d0072;
+  background-color: #3B8686;
+  border-color: #2f6b6b;
   color: #FFFFFF;
 }
 /* line 161, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > button.secondary:hover, .top-bar-section ul li > button.secondary:focus {
-  background-color: #1d0072;
+  background-color: #2f6b6b;
 }
 /* line 167, ../../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .top-bar-section ul li > button.secondary:hover, .top-bar-section ul li > button.secondary:focus {
@@ -19968,12 +19968,12 @@ meta.foundation-mq-topbar {
 }
 /* line 354, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li.active > a {
-  background: #581030;
+  background: #B4D5B8;
   color: #FFFFFF;
 }
 /* line 357, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li.active > a:hover {
-  background: #4c0e29;
+  background: #91c197;
   color: #FFFFFF;
 }
 /* line 365, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -20172,11 +20172,11 @@ meta.foundation-mq-topbar {
     padding: 0 15px;
     line-height: 45px;
     color: #FFFFFF;
-    background: #581030;
+    background: #B4D5B8;
   }
   /* line 519, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li.active:not(.has-form) a:not(.button):hover {
-    background: #4c0e29;
+    background: #91c197;
     color: #FFFFFF;
   }
   /* line 531, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -20315,7 +20315,7 @@ meta.foundation-mq-topbar {
   }
   /* line 666, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .no-js .top-bar-section ul li:active > a {
-    background: #581030;
+    background: #B4D5B8;
     color: #FFFFFF;
   }
   /* line 674, ../../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -20401,7 +20401,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -20751,13 +20751,13 @@ td {
 /* Default Link Styles */
 /* line 217, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a {
-  color: #581030;
+  color: #B4D5B8;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 222, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #4c0e29;
+  color: #91c197;
 }
 /* line 230, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -20879,10 +20879,10 @@ code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #333333;
-  background-color: #ad91ff;
+  background-color: #bde2e2;
   border-width: 1px;
   border-style: solid;
-  border-color: #8f69ff;
+  border-color: #a0d5d5;
   padding: 0.125rem 0.3125rem 0.0625rem;
 }
 
@@ -21252,7 +21252,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -21406,7 +21406,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -21756,13 +21756,13 @@ td {
 /* Default Link Styles */
 /* line 217, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a {
-  color: #581030;
+  color: #B4D5B8;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 222, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #4c0e29;
+  color: #91c197;
 }
 /* line 230, ../../../bower_components/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -21884,10 +21884,10 @@ code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #333333;
-  background-color: #ad91ff;
+  background-color: #bde2e2;
   border-width: 1px;
   border-style: solid;
-  border-color: #8f69ff;
+  border-color: #a0d5d5;
   padding: 0.125rem 0.3125rem 0.0625rem;
 }
 
@@ -22797,7 +22797,7 @@ body {
 
 /* line 396, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 body {
-  background: #581030;
+  background: #B4D5B8;
   color: #222;
   padding: 0;
   margin: 0;
@@ -24425,50 +24425,47 @@ slider {
 
 /* line 65, ../../../client/src/main/scala/Home/home.scss */
 top-bar-content > * > .md-button {
-  border-radius: 0;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #0088cb !important;
+  background-color: #3B8686 !important;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  border: solid #392100 2px;
+  box-shadow: 0 1px 4px #79BD9A;
   cursor: pointer !important;
-  color: #FFC13D !important;
+  color: #E5EEC1 !important;
   font: normal normal normal 20px/1.4em arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
   line-height: 43px;
 }
 
-/* line 81, ../../../client/src/main/scala/Home/home.scss */
-top-bar-content > * > .md-button:hover {
-  background-color: #ffc13d !important;
-  border-color: #392100;
+/* line 79, ../../../client/src/main/scala/Home/home.scss */
+top-bar-content > * > .md-button:hover, top-bar-content > * > .md-button.current {
+  background-color: #E5EEC1 !important;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-  color: #545454 !important;
+  color: #3B8686 !important;
 }
 
 @media (max-width: 600px) {
-  /* line 88, ../../../client/src/main/scala/Home/home.scss */
+  /* line 85, ../../../client/src/main/scala/Home/home.scss */
   .bigger-right {
     height: 100%;
     left: 0;
     z-index: 9999;
   }
 
-  /* line 94, ../../../client/src/main/scala/Home/home.scss */
+  /* line 91, ../../../client/src/main/scala/Home/home.scss */
   .yellowThing-bottom {
     margin-top: 0px;
   }
 
-  /* line 97, ../../../client/src/main/scala/Home/home.scss */
+  /* line 94, ../../../client/src/main/scala/Home/home.scss */
   .bigger-left {
     height: 100%;
     right: 0;
     z-index: 9999;
   }
 
-  /* line 103, ../../../client/src/main/scala/Home/home.scss */
+  /* line 100, ../../../client/src/main/scala/Home/home.scss */
   .smaller-left {
     margin-top: 0;
   }
@@ -24535,7 +24532,37 @@ body, html {
   width: 100%;
 }
 
-/* line 17, ../scss/main.scss */
+/* line 16, ../scss/main.scss */
+.md-datepicker-input-container {
+  width: 60% !important;
+}
+
+/* line 19, ../scss/main.scss */
+.md-datepicker-input {
+  width: 100%;
+}
+
+/* line 22, ../scss/main.scss */
+.btn-group {
+  float: left;
+}
+
+/* line 25, ../scss/main.scss */
+.ta-toolbar {
+  width: 100%;
+  float: left;
+}
+
+/* line 29, ../scss/main.scss */
+.ta-text {
+  min-height: 300px;
+  float: left;
+  width: 100%;
+  border: 1px solid #B4D5B8;
+  margin: 5px;
+}
+
+/* line 36, ../scss/main.scss */
 .tooltip-custom {
   display: none;
   z-index: 99999;
@@ -24555,18 +24582,18 @@ body, html {
   color: white;
 }
 
-/* line 34, ../scss/main.scss */
+/* line 53, ../scss/main.scss */
 .tooltip-trigger:hover > .tooltip-custom {
   display: block;
 }
 
-/* line 39, ../scss/main.scss */
+/* line 58, ../scss/main.scss */
 .slider {
   background: #E8DDCB;
   text-align: center;
 }
 
-/* line 44, ../scss/main.scss */
+/* line 63, ../scss/main.scss */
 .chevron::before {
   vertical-align: middle;
   border-style: solid;
@@ -24582,38 +24609,2592 @@ body, html {
   width: 4.5em;
 }
 
-/* line 58, ../scss/main.scss */
+/* line 77, ../scss/main.scss */
 .imageSlider {
   max-height: 100%;
   max-width: 100%;
 }
 
-/* line 62, ../scss/main.scss */
+/* line 81, ../scss/main.scss */
 .chevron.right:before {
   left: -1.9em;
   transform: rotate(45deg);
 }
 
-/* line 67, ../scss/main.scss */
+/* line 86, ../scss/main.scss */
 .chevron.bottom:before {
   top: 0;
   transform: rotate(135deg);
 }
 
-/* line 72, ../scss/main.scss */
+/* line 91, ../scss/main.scss */
 .chevron.left:before {
   left: 0.95em;
   transform: rotate(-135deg);
 }
 
 @media only screen and (max-width: 750px) {
-  /* line 78, ../scss/main.scss */
+  /* line 97, ../scss/main.scss */
   .tooltip-trigger:hover > .tooltip-custom {
     display: none;
   }
 
-  /* line 81, ../scss/main.scss */
+  /* line 100, ../scss/main.scss */
   .imageSlider {
     vertical-align: top !important;
   }
+}
+/* line 108, ../scss/main.scss */
+.flag-icon, .flag-icon-background {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon {
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon:before {
+  content: "\00a0";
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon.flag-icon-squared {
+  width: 1em;
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ad {
+  background-image: url(../flags/4x3/ad.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ad.flag-icon-squared {
+  background-image: url(../flags/1x1/ad.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ae {
+  background-image: url(../flags/4x3/ae.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ae.flag-icon-squared {
+  background-image: url(../flags/1x1/ae.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-af {
+  background-image: url(../flags/4x3/af.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-af.flag-icon-squared {
+  background-image: url(../flags/1x1/af.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ag {
+  background-image: url(../flags/4x3/ag.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ag.flag-icon-squared {
+  background-image: url(../flags/1x1/ag.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ai {
+  background-image: url(../flags/4x3/ai.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ai.flag-icon-squared {
+  background-image: url(../flags/1x1/ai.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-al {
+  background-image: url(../flags/4x3/al.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-al.flag-icon-squared {
+  background-image: url(../flags/1x1/al.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-am {
+  background-image: url(../flags/4x3/am.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-am.flag-icon-squared {
+  background-image: url(../flags/1x1/am.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ao {
+  background-image: url(../flags/4x3/ao.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ao.flag-icon-squared {
+  background-image: url(../flags/1x1/ao.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-aq {
+  background-image: url(../flags/4x3/aq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-aq.flag-icon-squared {
+  background-image: url(../flags/1x1/aq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ar {
+  background-image: url(../flags/4x3/ar.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ar.flag-icon-squared {
+  background-image: url(../flags/1x1/ar.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-as {
+  background-image: url(../flags/4x3/as.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-as.flag-icon-squared {
+  background-image: url(../flags/1x1/as.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-at {
+  background-image: url(../flags/4x3/at.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-at.flag-icon-squared {
+  background-image: url(../flags/1x1/at.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-au {
+  background-image: url(../flags/4x3/au.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-au.flag-icon-squared {
+  background-image: url(../flags/1x1/au.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-aw {
+  background-image: url(../flags/4x3/aw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-aw.flag-icon-squared {
+  background-image: url(../flags/1x1/aw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ax {
+  background-image: url(../flags/4x3/ax.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ax.flag-icon-squared {
+  background-image: url(../flags/1x1/ax.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-az {
+  background-image: url(../flags/4x3/az.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-az.flag-icon-squared {
+  background-image: url(../flags/1x1/az.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ba {
+  background-image: url(../flags/4x3/ba.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ba.flag-icon-squared {
+  background-image: url(../flags/1x1/ba.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bb {
+  background-image: url(../flags/4x3/bb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bb.flag-icon-squared {
+  background-image: url(../flags/1x1/bb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bd {
+  background-image: url(../flags/4x3/bd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bd.flag-icon-squared {
+  background-image: url(../flags/1x1/bd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-be {
+  background-image: url(../flags/4x3/be.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-be.flag-icon-squared {
+  background-image: url(../flags/1x1/be.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bf {
+  background-image: url(../flags/4x3/bf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bf.flag-icon-squared {
+  background-image: url(../flags/1x1/bf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bg {
+  background-image: url(../flags/4x3/bg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bg.flag-icon-squared {
+  background-image: url(../flags/1x1/bg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bh {
+  background-image: url(../flags/4x3/bh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bh.flag-icon-squared {
+  background-image: url(../flags/1x1/bh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bi {
+  background-image: url(../flags/4x3/bi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bi.flag-icon-squared {
+  background-image: url(../flags/1x1/bi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bj {
+  background-image: url(../flags/4x3/bj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bj.flag-icon-squared {
+  background-image: url(../flags/1x1/bj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bl {
+  background-image: url(../flags/4x3/bl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bl.flag-icon-squared {
+  background-image: url(../flags/1x1/bl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bm {
+  background-image: url(../flags/4x3/bm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bm.flag-icon-squared {
+  background-image: url(../flags/1x1/bm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bn {
+  background-image: url(../flags/4x3/bn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bn.flag-icon-squared {
+  background-image: url(../flags/1x1/bn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bo {
+  background-image: url(../flags/4x3/bo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bo.flag-icon-squared {
+  background-image: url(../flags/1x1/bo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bq {
+  background-image: url(../flags/4x3/bq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bq.flag-icon-squared {
+  background-image: url(../flags/1x1/bq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-br {
+  background-image: url(../flags/4x3/br.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-br.flag-icon-squared {
+  background-image: url(../flags/1x1/br.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bs {
+  background-image: url(../flags/4x3/bs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bs.flag-icon-squared {
+  background-image: url(../flags/1x1/bs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bt {
+  background-image: url(../flags/4x3/bt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bt.flag-icon-squared {
+  background-image: url(../flags/1x1/bt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bv {
+  background-image: url(../flags/4x3/bv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bv.flag-icon-squared {
+  background-image: url(../flags/1x1/bv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bw {
+  background-image: url(../flags/4x3/bw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bw.flag-icon-squared {
+  background-image: url(../flags/1x1/bw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-by {
+  background-image: url(../flags/4x3/by.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-by.flag-icon-squared {
+  background-image: url(../flags/1x1/by.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bz {
+  background-image: url(../flags/4x3/bz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-bz.flag-icon-squared {
+  background-image: url(../flags/1x1/bz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ca {
+  background-image: url(../flags/4x3/ca.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ca.flag-icon-squared {
+  background-image: url(../flags/1x1/ca.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cc {
+  background-image: url(../flags/4x3/cc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cc.flag-icon-squared {
+  background-image: url(../flags/1x1/cc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cd {
+  background-image: url(../flags/4x3/cd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cd.flag-icon-squared {
+  background-image: url(../flags/1x1/cd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cf {
+  background-image: url(../flags/4x3/cf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cf.flag-icon-squared {
+  background-image: url(../flags/1x1/cf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cg {
+  background-image: url(../flags/4x3/cg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cg.flag-icon-squared {
+  background-image: url(../flags/1x1/cg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ch {
+  background-image: url(../flags/4x3/ch.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ch.flag-icon-squared {
+  background-image: url(../flags/1x1/ch.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ci {
+  background-image: url(../flags/4x3/ci.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ci.flag-icon-squared {
+  background-image: url(../flags/1x1/ci.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ck {
+  background-image: url(../flags/4x3/ck.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ck.flag-icon-squared {
+  background-image: url(../flags/1x1/ck.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cl {
+  background-image: url(../flags/4x3/cl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cl.flag-icon-squared {
+  background-image: url(../flags/1x1/cl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cm {
+  background-image: url(../flags/4x3/cm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cm.flag-icon-squared {
+  background-image: url(../flags/1x1/cm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cn {
+  background-image: url(../flags/4x3/cn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cn.flag-icon-squared {
+  background-image: url(../flags/1x1/cn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-co {
+  background-image: url(../flags/4x3/co.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-co.flag-icon-squared {
+  background-image: url(../flags/1x1/co.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cr {
+  background-image: url(../flags/4x3/cr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cr.flag-icon-squared {
+  background-image: url(../flags/1x1/cr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cu {
+  background-image: url(../flags/4x3/cu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cu.flag-icon-squared {
+  background-image: url(../flags/1x1/cu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cv {
+  background-image: url(../flags/4x3/cv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cv.flag-icon-squared {
+  background-image: url(../flags/1x1/cv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cw {
+  background-image: url(../flags/4x3/cw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cw.flag-icon-squared {
+  background-image: url(../flags/1x1/cw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cx {
+  background-image: url(../flags/4x3/cx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cx.flag-icon-squared {
+  background-image: url(../flags/1x1/cx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cy {
+  background-image: url(../flags/4x3/cy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cy.flag-icon-squared {
+  background-image: url(../flags/1x1/cy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cz {
+  background-image: url(../flags/4x3/cz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-cz.flag-icon-squared {
+  background-image: url(../flags/1x1/cz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-de {
+  background-image: url(../flags/4x3/de.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-de.flag-icon-squared {
+  background-image: url(../flags/1x1/de.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dj {
+  background-image: url(../flags/4x3/dj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dj.flag-icon-squared {
+  background-image: url(../flags/1x1/dj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dk {
+  background-image: url(../flags/4x3/dk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dk.flag-icon-squared {
+  background-image: url(../flags/1x1/dk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dm {
+  background-image: url(../flags/4x3/dm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dm.flag-icon-squared {
+  background-image: url(../flags/1x1/dm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-do {
+  background-image: url(../flags/4x3/do.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-do.flag-icon-squared {
+  background-image: url(../flags/1x1/do.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dz {
+  background-image: url(../flags/4x3/dz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-dz.flag-icon-squared {
+  background-image: url(../flags/1x1/dz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ec {
+  background-image: url(../flags/4x3/ec.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ec.flag-icon-squared {
+  background-image: url(../flags/1x1/ec.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ee {
+  background-image: url(../flags/4x3/ee.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ee.flag-icon-squared {
+  background-image: url(../flags/1x1/ee.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eg {
+  background-image: url(../flags/4x3/eg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eg.flag-icon-squared {
+  background-image: url(../flags/1x1/eg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eh {
+  background-image: url(../flags/4x3/eh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eh.flag-icon-squared {
+  background-image: url(../flags/1x1/eh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-er {
+  background-image: url(../flags/4x3/er.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-er.flag-icon-squared {
+  background-image: url(../flags/1x1/er.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-es {
+  background-image: url(../flags/4x3/es.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-es.flag-icon-squared {
+  background-image: url(../flags/1x1/es.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-et {
+  background-image: url(../flags/4x3/et.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-et.flag-icon-squared {
+  background-image: url(../flags/1x1/et.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fi {
+  background-image: url(../flags/4x3/fi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fi.flag-icon-squared {
+  background-image: url(../flags/1x1/fi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fj {
+  background-image: url(../flags/4x3/fj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fj.flag-icon-squared {
+  background-image: url(../flags/1x1/fj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fk {
+  background-image: url(../flags/4x3/fk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fk.flag-icon-squared {
+  background-image: url(../flags/1x1/fk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fm {
+  background-image: url(../flags/4x3/fm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fm.flag-icon-squared {
+  background-image: url(../flags/1x1/fm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fo {
+  background-image: url(../flags/4x3/fo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fo.flag-icon-squared {
+  background-image: url(../flags/1x1/fo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fr {
+  background-image: url(../flags/4x3/fr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-fr.flag-icon-squared {
+  background-image: url(../flags/1x1/fr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ga {
+  background-image: url(../flags/4x3/ga.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ga.flag-icon-squared {
+  background-image: url(../flags/1x1/ga.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb {
+  background-image: url(../flags/4x3/gb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb.flag-icon-squared {
+  background-image: url(../flags/1x1/gb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gd {
+  background-image: url(../flags/4x3/gd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gd.flag-icon-squared {
+  background-image: url(../flags/1x1/gd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ge {
+  background-image: url(../flags/4x3/ge.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ge.flag-icon-squared {
+  background-image: url(../flags/1x1/ge.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gf {
+  background-image: url(../flags/4x3/gf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gf.flag-icon-squared {
+  background-image: url(../flags/1x1/gf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gg {
+  background-image: url(../flags/4x3/gg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gg.flag-icon-squared {
+  background-image: url(../flags/1x1/gg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gh {
+  background-image: url(../flags/4x3/gh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gh.flag-icon-squared {
+  background-image: url(../flags/1x1/gh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gi {
+  background-image: url(../flags/4x3/gi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gi.flag-icon-squared {
+  background-image: url(../flags/1x1/gi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gl {
+  background-image: url(../flags/4x3/gl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gl.flag-icon-squared {
+  background-image: url(../flags/1x1/gl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gm {
+  background-image: url(../flags/4x3/gm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gm.flag-icon-squared {
+  background-image: url(../flags/1x1/gm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gn {
+  background-image: url(../flags/4x3/gn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gn.flag-icon-squared {
+  background-image: url(../flags/1x1/gn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gp {
+  background-image: url(../flags/4x3/gp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gp.flag-icon-squared {
+  background-image: url(../flags/1x1/gp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gq {
+  background-image: url(../flags/4x3/gq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gq.flag-icon-squared {
+  background-image: url(../flags/1x1/gq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gr {
+  background-image: url(../flags/4x3/gr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gr.flag-icon-squared {
+  background-image: url(../flags/1x1/gr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gs {
+  background-image: url(../flags/4x3/gs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gs.flag-icon-squared {
+  background-image: url(../flags/1x1/gs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gt {
+  background-image: url(../flags/4x3/gt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gt.flag-icon-squared {
+  background-image: url(../flags/1x1/gt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gu {
+  background-image: url(../flags/4x3/gu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gu.flag-icon-squared {
+  background-image: url(../flags/1x1/gu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gw {
+  background-image: url(../flags/4x3/gw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gw.flag-icon-squared {
+  background-image: url(../flags/1x1/gw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gy {
+  background-image: url(../flags/4x3/gy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gy.flag-icon-squared {
+  background-image: url(../flags/1x1/gy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hk {
+  background-image: url(../flags/4x3/hk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hk.flag-icon-squared {
+  background-image: url(../flags/1x1/hk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hm {
+  background-image: url(../flags/4x3/hm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hm.flag-icon-squared {
+  background-image: url(../flags/1x1/hm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hn {
+  background-image: url(../flags/4x3/hn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hn.flag-icon-squared {
+  background-image: url(../flags/1x1/hn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hr {
+  background-image: url(../flags/4x3/hr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hr.flag-icon-squared {
+  background-image: url(../flags/1x1/hr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ht {
+  background-image: url(../flags/4x3/ht.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ht.flag-icon-squared {
+  background-image: url(../flags/1x1/ht.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hu {
+  background-image: url(../flags/4x3/hu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-hu.flag-icon-squared {
+  background-image: url(../flags/1x1/hu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-id {
+  background-image: url(../flags/4x3/id.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-id.flag-icon-squared {
+  background-image: url(../flags/1x1/id.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ie {
+  background-image: url(../flags/4x3/ie.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ie.flag-icon-squared {
+  background-image: url(../flags/1x1/ie.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-il {
+  background-image: url(../flags/4x3/il.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-il.flag-icon-squared {
+  background-image: url(../flags/1x1/il.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-im {
+  background-image: url(../flags/4x3/im.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-im.flag-icon-squared {
+  background-image: url(../flags/1x1/im.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-in {
+  background-image: url(../flags/4x3/in.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-in.flag-icon-squared {
+  background-image: url(../flags/1x1/in.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-io {
+  background-image: url(../flags/4x3/io.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-io.flag-icon-squared {
+  background-image: url(../flags/1x1/io.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-iq {
+  background-image: url(../flags/4x3/iq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-iq.flag-icon-squared {
+  background-image: url(../flags/1x1/iq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ir {
+  background-image: url(../flags/4x3/ir.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ir.flag-icon-squared {
+  background-image: url(../flags/1x1/ir.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-is {
+  background-image: url(../flags/4x3/is.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-is.flag-icon-squared {
+  background-image: url(../flags/1x1/is.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-it {
+  background-image: url(../flags/4x3/it.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-it.flag-icon-squared {
+  background-image: url(../flags/1x1/it.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-je {
+  background-image: url(../flags/4x3/je.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-je.flag-icon-squared {
+  background-image: url(../flags/1x1/je.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jm {
+  background-image: url(../flags/4x3/jm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jm.flag-icon-squared {
+  background-image: url(../flags/1x1/jm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jo {
+  background-image: url(../flags/4x3/jo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jo.flag-icon-squared {
+  background-image: url(../flags/1x1/jo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jp {
+  background-image: url(../flags/4x3/jp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-jp.flag-icon-squared {
+  background-image: url(../flags/1x1/jp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ke {
+  background-image: url(../flags/4x3/ke.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ke.flag-icon-squared {
+  background-image: url(../flags/1x1/ke.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kg {
+  background-image: url(../flags/4x3/kg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kg.flag-icon-squared {
+  background-image: url(../flags/1x1/kg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kh {
+  background-image: url(../flags/4x3/kh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kh.flag-icon-squared {
+  background-image: url(../flags/1x1/kh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ki {
+  background-image: url(../flags/4x3/ki.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ki.flag-icon-squared {
+  background-image: url(../flags/1x1/ki.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-km {
+  background-image: url(../flags/4x3/km.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-km.flag-icon-squared {
+  background-image: url(../flags/1x1/km.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kn {
+  background-image: url(../flags/4x3/kn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kn.flag-icon-squared {
+  background-image: url(../flags/1x1/kn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kp {
+  background-image: url(../flags/4x3/kp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kp.flag-icon-squared {
+  background-image: url(../flags/1x1/kp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kr {
+  background-image: url(../flags/4x3/kr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kr.flag-icon-squared {
+  background-image: url(../flags/1x1/kr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kw {
+  background-image: url(../flags/4x3/kw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kw.flag-icon-squared {
+  background-image: url(../flags/1x1/kw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ky {
+  background-image: url(../flags/4x3/ky.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ky.flag-icon-squared {
+  background-image: url(../flags/1x1/ky.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kz {
+  background-image: url(../flags/4x3/kz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-kz.flag-icon-squared {
+  background-image: url(../flags/1x1/kz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-la {
+  background-image: url(../flags/4x3/la.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-la.flag-icon-squared {
+  background-image: url(../flags/1x1/la.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lb {
+  background-image: url(../flags/4x3/lb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lb.flag-icon-squared {
+  background-image: url(../flags/1x1/lb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lc {
+  background-image: url(../flags/4x3/lc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lc.flag-icon-squared {
+  background-image: url(../flags/1x1/lc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-li {
+  background-image: url(../flags/4x3/li.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-li.flag-icon-squared {
+  background-image: url(../flags/1x1/li.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lk {
+  background-image: url(../flags/4x3/lk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lk.flag-icon-squared {
+  background-image: url(../flags/1x1/lk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lr {
+  background-image: url(../flags/4x3/lr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lr.flag-icon-squared {
+  background-image: url(../flags/1x1/lr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ls {
+  background-image: url(../flags/4x3/ls.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ls.flag-icon-squared {
+  background-image: url(../flags/1x1/ls.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lt {
+  background-image: url(../flags/4x3/lt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lt.flag-icon-squared {
+  background-image: url(../flags/1x1/lt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lu {
+  background-image: url(../flags/4x3/lu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lu.flag-icon-squared {
+  background-image: url(../flags/1x1/lu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lv {
+  background-image: url(../flags/4x3/lv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-lv.flag-icon-squared {
+  background-image: url(../flags/1x1/lv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ly {
+  background-image: url(../flags/4x3/ly.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ly.flag-icon-squared {
+  background-image: url(../flags/1x1/ly.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ma {
+  background-image: url(../flags/4x3/ma.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ma.flag-icon-squared {
+  background-image: url(../flags/1x1/ma.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mc {
+  background-image: url(../flags/4x3/mc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mc.flag-icon-squared {
+  background-image: url(../flags/1x1/mc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-md {
+  background-image: url(../flags/4x3/md.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-md.flag-icon-squared {
+  background-image: url(../flags/1x1/md.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-me {
+  background-image: url(../flags/4x3/me.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-me.flag-icon-squared {
+  background-image: url(../flags/1x1/me.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mf {
+  background-image: url(../flags/4x3/mf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mf.flag-icon-squared {
+  background-image: url(../flags/1x1/mf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mg {
+  background-image: url(../flags/4x3/mg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mg.flag-icon-squared {
+  background-image: url(../flags/1x1/mg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mh {
+  background-image: url(../flags/4x3/mh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mh.flag-icon-squared {
+  background-image: url(../flags/1x1/mh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mk {
+  background-image: url(../flags/4x3/mk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mk.flag-icon-squared {
+  background-image: url(../flags/1x1/mk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ml {
+  background-image: url(../flags/4x3/ml.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ml.flag-icon-squared {
+  background-image: url(../flags/1x1/ml.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mm {
+  background-image: url(../flags/4x3/mm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mm.flag-icon-squared {
+  background-image: url(../flags/1x1/mm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mn {
+  background-image: url(../flags/4x3/mn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mn.flag-icon-squared {
+  background-image: url(../flags/1x1/mn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mo {
+  background-image: url(../flags/4x3/mo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mo.flag-icon-squared {
+  background-image: url(../flags/1x1/mo.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mp {
+  background-image: url(../flags/4x3/mp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mp.flag-icon-squared {
+  background-image: url(../flags/1x1/mp.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mq {
+  background-image: url(../flags/4x3/mq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mq.flag-icon-squared {
+  background-image: url(../flags/1x1/mq.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mr {
+  background-image: url(../flags/4x3/mr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mr.flag-icon-squared {
+  background-image: url(../flags/1x1/mr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ms {
+  background-image: url(../flags/4x3/ms.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ms.flag-icon-squared {
+  background-image: url(../flags/1x1/ms.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mt {
+  background-image: url(../flags/4x3/mt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mt.flag-icon-squared {
+  background-image: url(../flags/1x1/mt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mu {
+  background-image: url(../flags/4x3/mu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mu.flag-icon-squared {
+  background-image: url(../flags/1x1/mu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mv {
+  background-image: url(../flags/4x3/mv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mv.flag-icon-squared {
+  background-image: url(../flags/1x1/mv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mw {
+  background-image: url(../flags/4x3/mw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mw.flag-icon-squared {
+  background-image: url(../flags/1x1/mw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mx {
+  background-image: url(../flags/4x3/mx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mx.flag-icon-squared {
+  background-image: url(../flags/1x1/mx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-my {
+  background-image: url(../flags/4x3/my.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-my.flag-icon-squared {
+  background-image: url(../flags/1x1/my.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mz {
+  background-image: url(../flags/4x3/mz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-mz.flag-icon-squared {
+  background-image: url(../flags/1x1/mz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-na {
+  background-image: url(../flags/4x3/na.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-na.flag-icon-squared {
+  background-image: url(../flags/1x1/na.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nc {
+  background-image: url(../flags/4x3/nc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nc.flag-icon-squared {
+  background-image: url(../flags/1x1/nc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ne {
+  background-image: url(../flags/4x3/ne.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ne.flag-icon-squared {
+  background-image: url(../flags/1x1/ne.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nf {
+  background-image: url(../flags/4x3/nf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nf.flag-icon-squared {
+  background-image: url(../flags/1x1/nf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ng {
+  background-image: url(../flags/4x3/ng.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ng.flag-icon-squared {
+  background-image: url(../flags/1x1/ng.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ni {
+  background-image: url(../flags/4x3/ni.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ni.flag-icon-squared {
+  background-image: url(../flags/1x1/ni.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nl {
+  background-image: url(../flags/4x3/nl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nl.flag-icon-squared {
+  background-image: url(../flags/1x1/nl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-no {
+  background-image: url(../flags/4x3/no.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-no.flag-icon-squared {
+  background-image: url(../flags/1x1/no.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-np {
+  background-image: url(../flags/4x3/np.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-np.flag-icon-squared {
+  background-image: url(../flags/1x1/np.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nr {
+  background-image: url(../flags/4x3/nr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nr.flag-icon-squared {
+  background-image: url(../flags/1x1/nr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nu {
+  background-image: url(../flags/4x3/nu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nu.flag-icon-squared {
+  background-image: url(../flags/1x1/nu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nz {
+  background-image: url(../flags/4x3/nz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-nz.flag-icon-squared {
+  background-image: url(../flags/1x1/nz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-om {
+  background-image: url(../flags/4x3/om.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-om.flag-icon-squared {
+  background-image: url(../flags/1x1/om.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pa {
+  background-image: url(../flags/4x3/pa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pa.flag-icon-squared {
+  background-image: url(../flags/1x1/pa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pe {
+  background-image: url(../flags/4x3/pe.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pe.flag-icon-squared {
+  background-image: url(../flags/1x1/pe.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pf {
+  background-image: url(../flags/4x3/pf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pf.flag-icon-squared {
+  background-image: url(../flags/1x1/pf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pg {
+  background-image: url(../flags/4x3/pg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pg.flag-icon-squared {
+  background-image: url(../flags/1x1/pg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ph {
+  background-image: url(../flags/4x3/ph.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ph.flag-icon-squared {
+  background-image: url(../flags/1x1/ph.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pk {
+  background-image: url(../flags/4x3/pk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pk.flag-icon-squared {
+  background-image: url(../flags/1x1/pk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pl {
+  background-image: url(../flags/4x3/pl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pl.flag-icon-squared {
+  background-image: url(../flags/1x1/pl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pm {
+  background-image: url(../flags/4x3/pm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pm.flag-icon-squared {
+  background-image: url(../flags/1x1/pm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pn {
+  background-image: url(../flags/4x3/pn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pn.flag-icon-squared {
+  background-image: url(../flags/1x1/pn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pr {
+  background-image: url(../flags/4x3/pr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pr.flag-icon-squared {
+  background-image: url(../flags/1x1/pr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ps {
+  background-image: url(../flags/4x3/ps.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ps.flag-icon-squared {
+  background-image: url(../flags/1x1/ps.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pt {
+  background-image: url(../flags/4x3/pt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pt.flag-icon-squared {
+  background-image: url(../flags/1x1/pt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pw {
+  background-image: url(../flags/4x3/pw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-pw.flag-icon-squared {
+  background-image: url(../flags/1x1/pw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-py {
+  background-image: url(../flags/4x3/py.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-py.flag-icon-squared {
+  background-image: url(../flags/1x1/py.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-qa {
+  background-image: url(../flags/4x3/qa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-qa.flag-icon-squared {
+  background-image: url(../flags/1x1/qa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-re {
+  background-image: url(../flags/4x3/re.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-re.flag-icon-squared {
+  background-image: url(../flags/1x1/re.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ro {
+  background-image: url(../flags/4x3/ro.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ro.flag-icon-squared {
+  background-image: url(../flags/1x1/ro.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-rs {
+  background-image: url(../flags/4x3/rs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-rs.flag-icon-squared {
+  background-image: url(../flags/1x1/rs.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ru {
+  background-image: url(../flags/4x3/ru.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ru.flag-icon-squared {
+  background-image: url(../flags/1x1/ru.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-rw {
+  background-image: url(../flags/4x3/rw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-rw.flag-icon-squared {
+  background-image: url(../flags/1x1/rw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sa {
+  background-image: url(../flags/4x3/sa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sa.flag-icon-squared {
+  background-image: url(../flags/1x1/sa.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sb {
+  background-image: url(../flags/4x3/sb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sb.flag-icon-squared {
+  background-image: url(../flags/1x1/sb.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sc {
+  background-image: url(../flags/4x3/sc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sc.flag-icon-squared {
+  background-image: url(../flags/1x1/sc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sd {
+  background-image: url(../flags/4x3/sd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sd.flag-icon-squared {
+  background-image: url(../flags/1x1/sd.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-se {
+  background-image: url(../flags/4x3/se.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-se.flag-icon-squared {
+  background-image: url(../flags/1x1/se.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sg {
+  background-image: url(../flags/4x3/sg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sg.flag-icon-squared {
+  background-image: url(../flags/1x1/sg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sh {
+  background-image: url(../flags/4x3/sh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sh.flag-icon-squared {
+  background-image: url(../flags/1x1/sh.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-si {
+  background-image: url(../flags/4x3/si.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-si.flag-icon-squared {
+  background-image: url(../flags/1x1/si.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sj {
+  background-image: url(../flags/4x3/sj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sj.flag-icon-squared {
+  background-image: url(../flags/1x1/sj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sk {
+  background-image: url(../flags/4x3/sk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sk.flag-icon-squared {
+  background-image: url(../flags/1x1/sk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sl {
+  background-image: url(../flags/4x3/sl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sl.flag-icon-squared {
+  background-image: url(../flags/1x1/sl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sm {
+  background-image: url(../flags/4x3/sm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sm.flag-icon-squared {
+  background-image: url(../flags/1x1/sm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sn {
+  background-image: url(../flags/4x3/sn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sn.flag-icon-squared {
+  background-image: url(../flags/1x1/sn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-so {
+  background-image: url(../flags/4x3/so.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-so.flag-icon-squared {
+  background-image: url(../flags/1x1/so.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sr {
+  background-image: url(../flags/4x3/sr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sr.flag-icon-squared {
+  background-image: url(../flags/1x1/sr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ss {
+  background-image: url(../flags/4x3/ss.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ss.flag-icon-squared {
+  background-image: url(../flags/1x1/ss.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-st {
+  background-image: url(../flags/4x3/st.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-st.flag-icon-squared {
+  background-image: url(../flags/1x1/st.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sv {
+  background-image: url(../flags/4x3/sv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sv.flag-icon-squared {
+  background-image: url(../flags/1x1/sv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sx {
+  background-image: url(../flags/4x3/sx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sx.flag-icon-squared {
+  background-image: url(../flags/1x1/sx.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sy {
+  background-image: url(../flags/4x3/sy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sy.flag-icon-squared {
+  background-image: url(../flags/1x1/sy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sz {
+  background-image: url(../flags/4x3/sz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-sz.flag-icon-squared {
+  background-image: url(../flags/1x1/sz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tc {
+  background-image: url(../flags/4x3/tc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tc.flag-icon-squared {
+  background-image: url(../flags/1x1/tc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-td {
+  background-image: url(../flags/4x3/td.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-td.flag-icon-squared {
+  background-image: url(../flags/1x1/td.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tf {
+  background-image: url(../flags/4x3/tf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tf.flag-icon-squared {
+  background-image: url(../flags/1x1/tf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tg {
+  background-image: url(../flags/4x3/tg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tg.flag-icon-squared {
+  background-image: url(../flags/1x1/tg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-th {
+  background-image: url(../flags/4x3/th.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-th.flag-icon-squared {
+  background-image: url(../flags/1x1/th.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tj {
+  background-image: url(../flags/4x3/tj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tj.flag-icon-squared {
+  background-image: url(../flags/1x1/tj.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tk {
+  background-image: url(../flags/4x3/tk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tk.flag-icon-squared {
+  background-image: url(../flags/1x1/tk.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tl {
+  background-image: url(../flags/4x3/tl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tl.flag-icon-squared {
+  background-image: url(../flags/1x1/tl.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tm {
+  background-image: url(../flags/4x3/tm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tm.flag-icon-squared {
+  background-image: url(../flags/1x1/tm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tn {
+  background-image: url(../flags/4x3/tn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tn.flag-icon-squared {
+  background-image: url(../flags/1x1/tn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-to {
+  background-image: url(../flags/4x3/to.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-to.flag-icon-squared {
+  background-image: url(../flags/1x1/to.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tr {
+  background-image: url(../flags/4x3/tr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tr.flag-icon-squared {
+  background-image: url(../flags/1x1/tr.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tt {
+  background-image: url(../flags/4x3/tt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tt.flag-icon-squared {
+  background-image: url(../flags/1x1/tt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tv {
+  background-image: url(../flags/4x3/tv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tv.flag-icon-squared {
+  background-image: url(../flags/1x1/tv.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tw {
+  background-image: url(../flags/4x3/tw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tw.flag-icon-squared {
+  background-image: url(../flags/1x1/tw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tz {
+  background-image: url(../flags/4x3/tz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-tz.flag-icon-squared {
+  background-image: url(../flags/1x1/tz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ua {
+  background-image: url(../flags/4x3/ua.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ua.flag-icon-squared {
+  background-image: url(../flags/1x1/ua.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ug {
+  background-image: url(../flags/4x3/ug.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ug.flag-icon-squared {
+  background-image: url(../flags/1x1/ug.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-um {
+  background-image: url(../flags/4x3/um.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-um.flag-icon-squared {
+  background-image: url(../flags/1x1/um.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-us {
+  background-image: url(../flags/4x3/us.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-us.flag-icon-squared {
+  background-image: url(../flags/1x1/us.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-uy {
+  background-image: url(../flags/4x3/uy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-uy.flag-icon-squared {
+  background-image: url(../flags/1x1/uy.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-uz {
+  background-image: url(../flags/4x3/uz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-uz.flag-icon-squared {
+  background-image: url(../flags/1x1/uz.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-va {
+  background-image: url(../flags/4x3/va.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-va.flag-icon-squared {
+  background-image: url(../flags/1x1/va.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vc {
+  background-image: url(../flags/4x3/vc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vc.flag-icon-squared {
+  background-image: url(../flags/1x1/vc.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ve {
+  background-image: url(../flags/4x3/ve.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ve.flag-icon-squared {
+  background-image: url(../flags/1x1/ve.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vg {
+  background-image: url(../flags/4x3/vg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vg.flag-icon-squared {
+  background-image: url(../flags/1x1/vg.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vi {
+  background-image: url(../flags/4x3/vi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vi.flag-icon-squared {
+  background-image: url(../flags/1x1/vi.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vn {
+  background-image: url(../flags/4x3/vn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vn.flag-icon-squared {
+  background-image: url(../flags/1x1/vn.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vu {
+  background-image: url(../flags/4x3/vu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-vu.flag-icon-squared {
+  background-image: url(../flags/1x1/vu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-wf {
+  background-image: url(../flags/4x3/wf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-wf.flag-icon-squared {
+  background-image: url(../flags/1x1/wf.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ws {
+  background-image: url(../flags/4x3/ws.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ws.flag-icon-squared {
+  background-image: url(../flags/1x1/ws.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ye {
+  background-image: url(../flags/4x3/ye.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-ye.flag-icon-squared {
+  background-image: url(../flags/1x1/ye.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-yt {
+  background-image: url(../flags/4x3/yt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-yt.flag-icon-squared {
+  background-image: url(../flags/1x1/yt.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-za {
+  background-image: url(../flags/4x3/za.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-za.flag-icon-squared {
+  background-image: url(../flags/1x1/za.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-zm {
+  background-image: url(../flags/4x3/zm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-zm.flag-icon-squared {
+  background-image: url(../flags/1x1/zm.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-zw {
+  background-image: url(../flags/4x3/zw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-zw.flag-icon-squared {
+  background-image: url(../flags/1x1/zw.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eu {
+  background-image: url(../flags/4x3/eu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-eu.flag-icon-squared {
+  background-image: url(../flags/1x1/eu.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-eng {
+  background-image: url(../flags/4x3/gb-eng.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-eng.flag-icon-squared {
+  background-image: url(../flags/1x1/gb-eng.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-sct {
+  background-image: url(../flags/4x3/gb-sct.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-sct.flag-icon-squared {
+  background-image: url(../flags/1x1/gb-sct.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-wls {
+  background-image: url(../flags/4x3/gb-wls.svg);
+}
+
+/* line 108, ../scss/main.scss */
+.flag-icon-gb-wls.flag-icon-squared {
+  background-image: url(../flags/1x1/gb-wls.svg);
 }

@@ -1,0 +1,45 @@
+<div class="column large-12 padding0" ng-if=" $index % 2 == 0 ">
+    <div class="column large-4 medium-6 homeArticleContent smaller-left">
+        <span data-ng-bind-html="content = (article.content | filter: {'lang': controller.lang})[0].presentation"></span>
+    </div>
+    <slider images="{{article.images}}"
+            ng-click="fullSlider = true; $parent.index = 0"
+            class="column large-8 medium-6 homeArticleMedia bigger-right relative" style="overflow: hidden">
+    </slider>
+</div>
+<div class="column large-12 padding0" ng-if=" $index % 2 == 1 ">
+    <slider images="{{article.images}}"
+            ng-click="$parent.fullSlider = true; $parent.index = 0"
+            class="column large-4 medium-6 homeArticleMedia relative" style="overflow: hidden">
+    </slider>
+    <div class="column medium-6 large-8 homeArticleContent float-left bigger-right marginTop20">
+        <span data-ng-bind-html="content = (article.content | filter: {'lang': controller.lang})[0].presentation"></span>
+    </div>
+</div>
+<div ng-if="fullSlider && article.images.length > 0"
+     class="height100p width100p float-left absolute left0 right0"
+     style="z-index: 999999" full-slider="{{article.images.length - 1}}">
+    <span size >
+        {{directive}}
+        <i class="fa fa-times float-right absolute right0 padding10 zIndex6" data-ng-click="$parent.fullSlider = false"></i>
+        <div class="width100p float-left slider" style="height: {{$parent.$parent.directive.height}}px; line-height: {{$parent.$parent.directive.height}}px">
+            <div class="column medium-1 height100p " style="line-height: inherit"
+                 ng-click="directive.prevIndex()" hide-sm>
+                <i class="chevron left float-right height100p"></i>
+            </div>
+            <div ng-repeat="image in article.images"
+                 style="line-height: inherit; vertical-align: middle"
+                 class="height100p column medium-10 padding0 text-center"
+                 ng-show="directive.index$1 == $index"
+                 md-swipe-right="directive.prevIndex()"
+                 md-swipe-left="directive.nextIndex()">
+                <img ng-src="{{image}}"
+                     class="animated fadeIn imageSlider"/>
+            </div>
+            <div class=" column small-1 height100p" style="line-height: {{$parent.$parent.directive.height}}px" ng-click="directive.nextIndex()" hide-sm>
+                <i class="chevron right float-left"></i>
+            </div>
+        </div>
+    </span>
+    <div hide-gt-sm class="paddingBottom20 column"></div>
+</div>

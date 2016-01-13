@@ -10,7 +10,6 @@
       <object data="assets/images/title.svg"
       class="column medium-3 large-2 small-8 animated fadeIn"></object>
       <top-bar-content class="column large-10" hide-sm hide-md></top-bar-content>
-      <lang></lang>
     </div>
   </md-toolbar>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" ng-click="directive.toggleLeft()" md-component-id="left">
@@ -23,16 +22,9 @@
   style="z-index: 9999; animation-delay: 0.5s"></object>
   <md-content class="height100p column large-12 padding0" id="mainContent" ng-controller="mainController"  style="overflow-x: hidden; background: transparent">
     <slider images="{{images}}" class="width100p"></slider>
-    <h1 style="z-index: 99999; top:50%" class="column medium-6 medium-offset-3 animated bounceInLeft absolute">
-      <b class=" textColorWhite" >
-        La Cèze et ses Gorges<br/>
-        en Canoë-kayak !
-      </b>
-    </h1>
     <md-toolbar ng-if="true" id="middleBar" class="transparent md-sticky" style="top: -32px; z-index: 9999;" hide-md hide-sm>
       <div class="md-toolbar-tools">
         <top-bar-content class="width100p"></top-bar-content>
-        <lang></lang>
       </div>
     </md-toolbar>
     <div data-ng-view=""></div>
