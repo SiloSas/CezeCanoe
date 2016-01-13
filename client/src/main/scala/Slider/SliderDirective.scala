@@ -56,7 +56,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
     size
   }
 
-  def drawImage(imageToDraw: ImageToDraw, imageContainer: Image,  canvas: Canvas, element: Html): Unit = {
+  /*def drawImage(imageToDraw: ImageToDraw, imageContainer: Image,  canvas: Canvas, element: Html): Unit = {
     val ctx = canvas.getContext("2d")
     canvas.width = getParentWidth(element)
     canvas.height = getParentHeight(element)
@@ -66,7 +66,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         0, 0, canvas.width, canvas.height)
       console.log(2)
     },10)
-  }
+  }*/
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
     elements.headOption.map(_.asInstanceOf[Html]) foreach { element =>
@@ -82,12 +82,13 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       var index = 0
       var imagesLength = images.length
 
-      def defineBg(): Unit = {
-        //element.getElementsByClassName("bg").item(0).asInstanceOf[Html].setAttribute("image", images.head)
-      }
       def insertImages(image: String, image1: String): Unit = {
         imageContainer.src = image
         imageContainer1.src = image1
+        console.log(imageContainer)
+        console.log(imageContainer1)
+        console.log(image)
+        console.log(image1)
       }
 
       def next (): Unit = {
@@ -99,31 +100,31 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         }
         val image =
           if (activeSlide == 0) images(index)
-          else if (index < imagesLength - 2) images(index + 1)
+          else if (index < imagesLength - 1) images(index + 1)
           else images(0)
         val image1 =
           if (activeSlide == 1) images(index)
-          else if (index < imagesLength - 2) images(index + 1)
+          else if (index < imagesLength - 1) images(index + 1)
           else images(0)
 
         insertImages(image, image1)
 
         if (activeSlide == 0) {
-          if(imagesToDraw.exists(_.image == imageContainer.src )) {
-            drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
-              slide.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)
-            timeout( () => {hideOldContainer(slide1: Html, slide: Html)},50)
-          } else {
-            changeImage(imageContainer, slide, slide1)
-          }
+          //if(imagesToDraw.exists(_.image == imageContainer.src )) {
+            /*drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
+              slide.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
+            hideOldContainer(slide1: Html, slide: Html)
+          //} else {
+            //changeImage(imageContainer, slide, slide1)
+          //}
         } else {
-          if(imagesToDraw.exists(_.image == imageContainer1.src)) {
-            drawImage(imagesToDraw.filter(_.image == imageContainer1.src).head, imageContainer1,
-              slide1.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)
-            timeout( () => {hideOldContainer(slide: Html, slide1: Html)},50)
-          } else {
+          //if(imagesToDraw.exists(_.image == imageContainer1.src)) {
+            /*drawImage(imagesToDraw.filter(_.image == imageContainer1.src).head, imageContainer1,
+              slide1.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
+          hideOldContainer(slide: Html, slide1: Html)
+         /* } else {
             changeImage(imageContainer1, slide1, slide)
-          }
+          }*/
         }
         if (play) {
           timeout(fn = () => {
@@ -140,10 +141,10 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         images = element.getAttribute("images").replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
         imagesLength = images.length
         if (images.length > 1) {
-          defineBg()
+          //defineBg()
           imageContainer.src = images(0)
           imageContainer1.src = images(1)
-          changeImage(imageContainer, slide, slide1)
+          //changeImage(imageContainer, slide, slide1)
           if (!play) {
             play = true
             timeout(fn = () => {
@@ -155,7 +156,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           }
         } else {
           imageContainer.src = images.head
-          changeImage(imageContainer, slide, js.undefined)
+          //changeImage(imageContainer, slide, js.undefined)
         }
       }, 50 + Math.floor((Math.random() * 20) + 5).toInt, false)
 
@@ -173,13 +174,12 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       }
 
 
-      def changeImage (image: Image, container: Html, oldContainer: UndefOr[Html]): Unit = {
+      /*def changeImage (image: Image, container: Html, oldContainer: UndefOr[Html]): Unit = {
 
         val callback: Function = (result: CropResult) => {
           val crop = result.topCrop
           val canvas = container.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas]
           if (image.complete) {
-            console.log(3)
             val a = ImageToDraw(image = image.src, cropX = crop.x, cropY = crop.y, cropWidth = crop.width,
               cropHeight = crop.height, any = 0, any2 = 0, canvasWidth = canvas.width, canvasHeight = canvas.height)
             imagesToDraw = imagesToDraw ++ Seq(a)
@@ -191,7 +191,6 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         }
         def cropImage: Unit = {
           if (image.complete) {
-            console.log(4)
             timeout( () => {
               smartCropService.crop(image, defineSize(element), callback)
             })
@@ -202,7 +201,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           }
         }
         cropImage
-      }
+      }*/
 
 
 
@@ -210,10 +209,10 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         imagesToDraw = Seq.empty[ImageToDraw]
         setNewHeight(element.clientWidth * 0.4, element)
         if (images.length > 1) {
-          defineBg()
+          //defineBg()
           imageContainer.src = images.head
           imageContainer1.src = images.tail.head
-          changeImage(imageContainer, slide, slide1)
+          //changeImage(imageContainer, slide, slide1)
           index = 0
           if (!play) {
             play = true
@@ -226,7 +225,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           }
         } else {
           imageContainer.src = images.head
-          changeImage(imageContainer, slide, js.undefined)
+          //changeImage(imageContainer, slide, js.undefined)
         }
       }
 

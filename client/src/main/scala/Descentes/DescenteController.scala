@@ -26,14 +26,10 @@ extends AbstractController[DescenteScope](descenteScope) {
   langService.get(descenteScope, () => lang = langService.lang)
   descenteService.findAll().onComplete {
     case Success(descentes) =>
-      timeout( () => {
         descentesC = descentes.toJSArray
-        descentes.map { descente =>
-          timeout( () => {
-            descenteScope.descentes.push(descente)
-          })
-        }
-      })
+        timeout( () => {
+          descenteScope.descentes = descentes.toJSArray
+        }, 50, true)
     case _ =>
       println("miss")
   }
