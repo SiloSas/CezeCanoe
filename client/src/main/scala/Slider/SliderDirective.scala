@@ -81,6 +81,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       var imagesToDraw: Seq[ImageToDraw] = Seq.empty[ImageToDraw]
       var index = 0
       var imagesLength = images.length
+      var isAlreadyLaunched = false
 
       def insertImages(image: String, image1: String): Unit = {
         imageContainer.src = image
@@ -92,6 +93,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       }
 
       def next (): Unit = {
+        isAlreadyLaunched = true
         index = index + 1
         if (activeSlide == 0) activeSlide = 1
         else activeSlide = 0
@@ -147,12 +149,14 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           //changeImage(imageContainer, slide, slide1)
           if (!play) {
             play = true
-            timeout(fn = () => {
-              next()
-            },
-              delay = 10000 + Math.floor((Math.random() * 2000) + 100).toInt,
-              invokeApply = false
-            )
+            if (!isAlreadyLaunched) {
+              timeout(fn = () => {
+                next()
+              },
+                delay = 10000 + Math.floor((Math.random() * 2000) + 100).toInt,
+                invokeApply = false
+              )
+            }
           }
         } else {
           imageContainer.src = images.head
@@ -206,6 +210,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
 
 
       def doChange(): Unit = {
+        console.log("change")
         imagesToDraw = Seq.empty[ImageToDraw]
         setNewHeight(element.clientWidth * 0.4, element)
         if (images.length > 1) {
@@ -216,12 +221,14 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           index = 0
           if (!play) {
             play = true
-            timeout(fn = () => {
-              next()
-            },
-              delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
-              invokeApply = false
-            )
+            if (!isAlreadyLaunched) {
+              timeout(fn = () => {
+                next()
+              },
+                delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
+                invokeApply = false
+              )
+            }
           }
         } else {
           imageContainer.src = images.head
@@ -235,9 +242,11 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         timer = setTimeout(50)(doChange())
       }
       attrs.$observe("images", (newImages: String) => {
-        images = newImages.replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
-        imagesLength = images.length
-        doChange()
+        if (newImages.length > 2) {
+          images = newImages.replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
+          imagesLength = images.length
+          doChange()
+        }
       })
 
       window.addEventListener("resize", changeHeight)
