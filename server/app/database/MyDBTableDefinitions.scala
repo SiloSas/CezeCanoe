@@ -4,7 +4,6 @@ import BookingBack.{BookingDetail, BookingFormClient, BookingForm}
 import Descentes._
 import Services.ArticleWithSlider
 import administration.UserActor.User
-import DescentsClient.{Room}
 import MyPostgresDriver.api._
 import upickle.default._
 
@@ -20,21 +19,7 @@ trait MyDBTableDefinitions {
     read[Seq[VersionedString]](string)
   }
 
-  
-  class Rooms(tag: Tag) extends Table[Room](tag, "rooms") {
-    def id = column[String]("id")
-    def name = column[String]("name")
-    def presentation = column[String]("presentation")
-    def header = column[String]("header")
-    def images = column[String]("images")
-    def isAnApartment = column[Boolean]("isanapartment")
-    def price = column[String]("price")
 
-    def * = (id, name, presentation, header, images, isAnApartment, price) <> ((Room.apply _).tupled, Room.unapply)
-  }
-  lazy val rooms = TableQuery[Rooms]
-  
-  
   class Descentes(tag: Tag) extends Table[DescenteWithPrice](tag, "descentes") {
     def id = column[String]("id")
     def name = column[String]("name")
