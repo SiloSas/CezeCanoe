@@ -56,7 +56,7 @@ CREATE TABLE informations (
 
 INSERT INTO informations(id, information) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb32ae',
-  '[{"lang": "Fr", "presentation": "Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"}]');
+  '[{"lang": "Fr", "presentation": "Enfant de moins de 30 kg en 3ème place, 6€ sur TOUS nos parcours !<br/> Prix guichet : 7€"}, {"lang": "En", "presentation": "* child under 60 Pounds in a canoe with 2 adults: 6€ for ALL the trips ! </br>7 € on the spot"}]');
 
 
 CREATE TABLE articles (
