@@ -77,8 +77,21 @@
                     </i>
                 </span>
                 <div ng-init="$root.lang = 'Fr'">
-                    <div data-ng-click="$root.lang = 'Fr'; controller.setVersionedDescenteTexts()"> <h2>Fr</h2></div>
-                    <div data-ng-click="$root.lang = 'En'; controller.setVersionedDescenteTexts()"> <h2>En</h2></div>
+                    <div style="white-space: nowrap">
+                        <md-button class="md-fab md-primary top0"
+                        style="font-size: 25px;line-height: 25px;"
+                        ng-class="{'md-hue-1':$root.lang == 'En'}"
+                        data-ng-click="$root.lang = 'En'; controller.setVersionedDescenteTexts()">
+                            <i class="flag-icon flag-icon-gb"></i>
+                        </md-button>
+
+                        <md-button class="md-fab md-primary top0"
+                        style="font-size: 25px;line-height: 25px;"
+                        ng-class="{'md-hue-1': $root.lang == 'Fr'}"
+                        data-ng-click="$root.lang = 'Fr'; controller.setVersionedDescenteTexts()">
+                            <i class="flag-icon flag-icon-fr"></i>
+                        </md-button>
+                    </div>
                 </div>
                 </div>
             </md-toolbar>
