@@ -1,4 +1,4 @@
-package shared
+package DescentsClient
 
 import scala.scalajs.js.annotation.JSExportAll
 

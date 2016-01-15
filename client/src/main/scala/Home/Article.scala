@@ -1,9 +1,9 @@
-package shared
+package Home
 
-import Admin.{VersionedStringScope, VersionedStringToBind, VersionedString, VersionedStringToBindScope}
+import Admin.{VersionedString, VersionedStringScope, VersionedStringToBindScope}
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSExportAll, JSExport}
+import scala.scalajs.js.annotation.JSExportAll
 
 @JSExportAll
 case class Article(id: String, content: js.Array[VersionedStringToBindScope], media: String, yellowThing: js.Array[VersionedStringScope])

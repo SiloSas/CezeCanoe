@@ -5,17 +5,17 @@ import java.util.UUID
 import ArticleWithSlider.{ArticleWithSlider, ArticleWithSliderForBack}
 import Booking.{BookingDetail, BookingFormClient, BookingForm, BookingService}
 import Descentes.DescenteService
-import Home.HomeService
+import Home.{ArticleForBack, HomeService}
 import Lang.LangService
 import Occasions.OccasionService
 import ServicesPage.ServicesService
 import com.greencatsoft.angularjs.core.{Timeout, SceService}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.{console, alert}
-import shared.Descente
-import shared.DescenteForBack
-import shared.PriceForBack
-import shared._
+import DescentsClient.Descente
+import DescentsClient.DescenteForBack
+import DescentsClient.PriceForBack
+import DescentsClient._
 import upickle.default._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js

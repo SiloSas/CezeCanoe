@@ -3,11 +3,11 @@ package Descentes
 import Admin.{VersionedString, VersionedStringScope, VersionedStringToBindScope}
 import com.greencatsoft.angularjs.core.{HttpService, SceService}
 import com.greencatsoft.angularjs.{Factory, Service, injectable}
-import shared.Descente
-import shared.DescenteForBack
-import shared.Price
-import shared.PriceForBack
-import shared._
+import DescentsClient.Descente
+import DescentsClient.DescenteForBack
+import DescentsClient.Price
+import DescentsClient.PriceForBack
+import DescentsClient._
 import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global

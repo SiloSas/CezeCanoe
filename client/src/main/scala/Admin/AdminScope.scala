@@ -3,7 +3,7 @@ package Admin
 import ArticleWithSlider.{ArticleWithSliderForBack, ArticleWithSlider}
 import Booking.BookingForm
 import com.greencatsoft.angularjs.core.Scope
-import shared.{Article, Descente}
+import DescentsClient.Descente
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport

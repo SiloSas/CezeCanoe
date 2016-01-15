@@ -1,18 +1,16 @@
 package Descentes
 
+import DescentsClient.Descente
 import Lang.LangService
-import com.greencatsoft.angularjs.core.{Timeout, SceService}
-import com.greencatsoft.angularjs.{Angular, AbstractController, Controller, injectable}
-import shared.{Price, Descente}
-
+import com.greencatsoft.angularjs.core.{SceService, Timeout}
+import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.console
-import scala.scalajs.js
-import scala.scalajs.js.{Object, Any}
-import scala.scalajs.js.annotation.JSExportAll
-import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.util.Success
+
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.matching.Regex
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
+import scala.scalajs.js.annotation.JSExportAll
+import scala.util.Success
 
 @JSExportAll
 @injectable("descenteController")

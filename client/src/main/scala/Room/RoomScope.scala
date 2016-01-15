@@ -3,7 +3,7 @@ package Room
 import com.greencatsoft.angularjs.core.Scope
 
 import scala.scalajs.js
-import shared.Room
+import DescentsClient.Room
 
 trait RoomScope extends Scope {
 

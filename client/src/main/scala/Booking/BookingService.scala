@@ -1,17 +1,15 @@
 package Booking
 
-import Admin.{VersionedStringScope, VersionedStringToBind, VersionedStringToBindScope, VersionedString}
-import com.greencatsoft.angularjs.core.{SceService, HttpService}
+import com.greencatsoft.angularjs.core.{HttpService, SceService}
 import com.greencatsoft.angularjs.{Factory, Service, injectable}
-import shared.{ArticleForBack, Article}
+import org.scalajs.dom.console
 import upickle.default._
+
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.scalajs.js
-import org.scalajs.dom.console
-import scala.scalajs.js.{Object, JSON}
+import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
-import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.concurrent.ExecutionContext.Implicits.global
 
 @injectable("bookingService")
 class BookingService(http: HttpService, sce: SceService) extends Service {

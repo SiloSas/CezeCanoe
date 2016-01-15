@@ -1,7 +1,7 @@
 package Booking
 
 import com.greencatsoft.angularjs.core.Scope
-import shared.{Price, Descente}
+import DescentsClient.{Price, Descente}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSExportAll, JSExport}

@@ -1,17 +1,15 @@
 package Home
 
-import Admin.VersionedStringToBindScope
 import Lang.LangService
+import com.greencatsoft.angularjs.core.{Location, SceService, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import com.greencatsoft.angularjs.core.{LocationProvider, Location, Timeout, SceService}
-import shared.Article
 import org.scalajs.dom.console
-import scala.scalajs.js
-import scala.scalajs.js.Object
-import scala.scalajs.js.annotation.JSExportAll
-import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.util.{Failure, Success}
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.scalajs.js
+import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
+import scala.scalajs.js.annotation.JSExportAll
+import scala.util.{Failure, Success}
 
 @JSExportAll
 @injectable("homeController")

@@ -8,7 +8,7 @@ import Lang.LangService
 import com.greencatsoft.angularjs.core.{Window, RouteParams, SceService, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import materialDesign.{MdToastService, MdToast}
-import shared.Price
+import DescentsClient.Price
 import org.scalajs.dom.console
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js

@@ -1,4 +1,4 @@
-package shared
+package DescentsClient
 
 import Admin.{VersionedStringToBindScope, VersionedStringScope, VersionedStringToBind, VersionedString}
 
@@ -11,7 +11,7 @@ case class Descente(id: String, name: js.Array[VersionedStringScope], presentati
 
 @JSExportAll
 case class DescenteForBack(id: String, name: Seq[VersionedString], presentation: Seq[VersionedString], tour: Seq[VersionedString],
-                    images: Seq[String], distance: Seq[VersionedString], prices: Seq[PriceForBack], time: Seq[VersionedString])
+                           images: Seq[String], distance: Seq[VersionedString], prices: Seq[PriceForBack], time: Seq[VersionedString])
 
 @JSExportAll
 case class Price(id: String, name: js.Array[VersionedStringScope], price: Double, isBookable: Boolean, medias: js.Array[String], isSupplement: Boolean)

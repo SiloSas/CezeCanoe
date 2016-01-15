@@ -6,7 +6,7 @@ import com.greencatsoft.angularjs.{AbstractController, injectable}
 import example.RoomService
 import scala.scalajs.js
 import org.scalajs.dom
-import shared.{Room, SharedMessages}
+import DescentsClient.{Room, SharedMessages}
 import scala.concurrent.ExecutionContext.Implicits.global
 import org.scalajs.dom.console
 import scala.scalajs.js.annotation.{JSExportAll, JSExport}

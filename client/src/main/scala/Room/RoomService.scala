@@ -10,7 +10,7 @@ import scala.scalajs.js.annotation.JSExport
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.runNow
 import scala.util.{Failure, Success, Try}
-import shared._
+import DescentsClient._
 
 @injectable("roomService")
 class RoomService(http: HttpService) extends Service {

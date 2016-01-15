@@ -1,7 +1,7 @@
 package Descentes
 
 import com.greencatsoft.angularjs.core.Scope
-import shared.{Information, Price, Descente}
+import DescentsClient.{Information, Price, Descente}
 
 import scala.scalajs.js
 
