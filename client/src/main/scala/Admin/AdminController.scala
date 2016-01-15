@@ -250,7 +250,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
           adminScope.descentes = descentes.map {
             descenteToMutableDesente
           }.toJSArray
-          getBooking()
+          getPrices
         })
       case Failure(t: Throwable) =>
         println("adminController.FindAllDescentes: fail")
@@ -271,11 +271,10 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
 
   //prices
 
-  getPrices
-
   def getPrices: Unit = {
     descenteService.findTariffs().onComplete {
       case Success(prices) =>
+        getBooking()
         adminScope.prices = prices.map { price =>
           val newPrice = new Object().asInstanceOf[Price]
           newPrice.id = price.id
@@ -482,7 +481,6 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   }
 
   def computePrice(descenteId: String, prices: js.Array[BookingDetail]): Double = {
-    console.log("yo")
     adminScope.descentes.find(_.id == descenteId) match {
       case Some(descente) =>
         console.log(1)
