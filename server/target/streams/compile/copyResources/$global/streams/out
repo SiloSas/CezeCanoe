@@ -1,6 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/loann/Desktop/CezeCanoe/server/conf/evolutions,/home/loann/Desktop/CezeCanoe/server/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/home/loann/Desktop/CezeCanoe/server/conf/application.conf,/home/loann/Desktop/CezeCanoe/server/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/home/loann/Desktop/CezeCanoe/server/conf/routes,/home/loann/Desktop/CezeCanoe/server/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/home/loann/Desktop/CezeCanoe/server/conf/evolutions/default,/home/loann/Desktop/CezeCanoe/server/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/home/loann/Desktop/CezeCanoe/server/conf/evolutions/default/1.sql,/home/loann/Desktop/CezeCanoe/server/target/scala-2.11/classes/evolutions/default/1.sql)[0m
