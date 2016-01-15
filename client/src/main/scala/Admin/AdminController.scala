@@ -34,6 +34,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   // init var & scope
   adminScope.newImage = ""
   adminScope.descente = new Object().asInstanceOf[DescenteMutable]
+  adminScope.bookings = js.Array[BookingForm]()
   adminScope.setNewDescente = () => {
     setNewDescente
   }
@@ -249,6 +250,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
           adminScope.descentes = descentes.map {
             descenteToMutableDesente
           }.toJSArray
+          getBooking()
         })
       case Failure(t: Throwable) =>
         println("adminController.FindAllDescentes: fail")
@@ -462,8 +464,6 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
   }
 
   //Booking
-  adminScope.bookings = js.Array[BookingForm]()
-  getBooking()
   def getBooking(): Unit = {
     bookingService.get().onComplete {
       case Success(bookings) =>
