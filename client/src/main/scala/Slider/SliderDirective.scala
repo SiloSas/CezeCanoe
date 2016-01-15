@@ -90,7 +90,6 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
 
       def next (): Unit = {
         isAlreadyLaunched = true
-        index = index + 1
         if (activeSlide == 0) activeSlide = 1
         else activeSlide = 0
         if (index >= imagesLength) {
@@ -107,35 +106,32 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
 
         insertImages(image, image1)
 
-        if (activeSlide == 0) {
-          //if(imagesToDraw.exists(_.image == imageContainer.src )) {
-            /*drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
-              slide.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
-            timeout( () => {
+        timeout(fn = () => {
+          if (activeSlide == 0) {
+            //if(imagesToDraw.exists(_.image == imageContainer.src )) {
+              /*drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
+                slide.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
+                hideOldContainer(slide: Html, slide1: Html)
+            //} else {
+              //changeImage(imageContainer, slide, slide1)
+            //}
+          } else {
+            //if(imagesToDraw.exists(_.image == imageContainer1.src)) {
+              /*drawImage(imagesToDraw.filter(_.image == imageContainer1.src).head, imageContainer1,
+                slide1.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
               hideOldContainer(slide1: Html, slide: Html)
-            }, 20)
-          //} else {
-            //changeImage(imageContainer, slide, slide1)
-          //}
-        } else {
-          //if(imagesToDraw.exists(_.image == imageContainer1.src)) {
-            /*drawImage(imagesToDraw.filter(_.image == imageContainer1.src).head, imageContainer1,
-              slide1.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
-          timeout( () => {
-            hideOldContainer(slide: Html, slide1: Html)
-          }, 20)
-         /* } else {
-            changeImage(imageContainer1, slide1, slide)
-          }*/
-        }
-        if (play) {
-          timeout(fn = () => {
-            next()
-          },
-            delay = 10000 + Math.floor((Math.random() * 2000) + 100).toInt,
-            invokeApply = false
-          )
-        }
+           /* } else {
+              changeImage(imageContainer1, slide1, slide)
+            }*/
+          }
+          if (play) {
+              index = index + 1
+              next()
+          }
+        },
+          delay = 10000 + Math.floor((Math.random() * 2000) + 100).toInt,
+          invokeApply = false
+        )
       }
 
       timeout (fn = () => {
@@ -143,22 +139,14 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         images = element.getAttribute("images").replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
         imagesLength = images.length
         if (images.length > 1) {
-          //defineBg()
-          imageContainer.src = images(0)
-          imageContainer1.src = images(1)
-          //changeImage(imageContainer, slide, slide1)
           if (!play) {
+            index = 0
             play = true
             if (!isAlreadyLaunched) {
-              timeout(fn = () => {
-                next()
-              },
-                delay = 10000 + Math.floor((Math.random() * 2000) + 100).toInt,
-                invokeApply = false
-              )
+              next()
             }
           }
-        } else {
+        } else if (imagesLength != 0) {
           imageContainer.src = images.head
           //changeImage(imageContainer, slide, js.undefined)
         }
@@ -214,23 +202,14 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         imagesToDraw = Seq.empty[ImageToDraw]
         setNewHeight(element.clientWidth * 0.4, element)
         if (images.length > 1) {
-          //defineBg()
-          imageContainer.src = images.head
-          imageContainer1.src = images.tail.head
-          //changeImage(imageContainer, slide, slide1)
           index = 0
           if (!play) {
-            play = true
-            if (!isAlreadyLaunched) {
-              timeout(fn = () => {
+              play = true
+              if (!isAlreadyLaunched) {
                 next()
-              },
-                delay = 10000 + Math.floor((Math.random() * 1500) + 50).toInt,
-                invokeApply = false
-              )
-            }
+              }
           }
-        } else {
+        } else if (images.length != 0) {
           imageContainer.src = images.head
           //changeImage(imageContainer, slide, js.undefined)
         }

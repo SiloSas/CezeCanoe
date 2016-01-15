@@ -4,7 +4,7 @@ import BookingBack.{BookingDetail, BookingFormClient, BookingForm}
 import Descentes._
 import Services.ArticleWithSlider
 import administration.UserActor.User
-import shared.{Room}
+import DescentsClient.{Room}
 import MyPostgresDriver.api._
 import upickle.default._
 

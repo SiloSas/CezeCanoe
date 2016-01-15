@@ -12,7 +12,7 @@ import DescentsClient.Price
 import org.scalajs.dom.console
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
-import scala.scalajs.js.{JSON, Object}
+import scala.scalajs.js.{Date, JSON, Object}
 import scala.scalajs.js.annotation.JSExportAll
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.util.Success
@@ -29,6 +29,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var pricesDetails: List[BookingPrice] = List.empty
   var lang = langService.lang
   langService.get(bookingScope, () => lang = langService.lang)
+  var minDate = new Date
 
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
