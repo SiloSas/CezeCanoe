@@ -85,6 +85,25 @@ CREATE TABLE users (
 );
 INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrHuWzrknBqJE8f.8BO7fu.W.d5u0W5r3t.');
 
+CREATE TABLE booking (
+id VARCHAR ,
+descenteId VARCHAR,
+clientForm VARCHAR,
+details VARCHAR
+);
+
+CREATE TABLE services (
+id VARCHAR ,
+content VARCHAR,
+images VARCHAR
+);
+
+CREATE TABLE occasions (
+id VARCHAR ,
+content VARCHAR,
+images VARCHAR
+);
+
 # --- !Downs
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS descentes;
@@ -93,3 +112,6 @@ DROP TABLE IF EXISTS tariffs;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS articles;
 DROP TABLE IF EXISTS homeImages;
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS occasions;

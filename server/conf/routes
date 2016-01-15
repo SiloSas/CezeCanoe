@@ -24,9 +24,18 @@ GET     /articles			    	@Articles.ArticlesController.findAll
 POST    /articles			    	@Articles.ArticlesController.save
 PUT     /articles				    @Articles.ArticlesController.update
 DELETE  /articles/:id   		    @Articles.ArticlesController.delete(id: String)
+GET     /services			    	@Services.ServiceController.findAll
+POST    /services			    	@Services.ServiceController.save
+PUT     /services				    @Services.ServiceController.update
+DELETE  /services/:id   		    @Services.ServiceController.delete(id: String)
+GET     /occasion			    	@Occasion.OccasionController.findAll
+POST    /occasion			    	@Occasion.OccasionController.save
+PUT     /occasion				    @Occasion.OccasionController.update
+DELETE  /occasion/:id   		    @Occasion.OccasionController.delete(id: String)
+GET     /booking			    	@BookingBack.BookingController.findAll
+POST    /booking			    	@BookingBack.BookingController.save
 POST    /upload                     @Descentes.DescentesController.uploadImage
 GET     /images/:fileName           @Descentes.DescentesController.getImage(fileName: String)
-GET	    /rooms						@Room.RoomController.findAll
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
