@@ -87,7 +87,7 @@ INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrH
 
 CREATE TABLE booking (
 id VARCHAR ,
-descenteId VARCHAR,
+descentId VARCHAR,
 clientForm VARCHAR,
 details VARCHAR
 );

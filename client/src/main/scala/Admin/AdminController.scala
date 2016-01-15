@@ -366,6 +366,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         homeService.post(mutableArticleToArticleForBack(adminScope.article)) onComplete {
           case Success(int) =>
             timeout(() => {
+              adminScope.articles.push(adminScope.article)
               needToSave = false
             })
 
@@ -577,6 +578,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     servicesService.post(articleWithSlider) onComplete {
       case Success(int) =>
         timeout ( () => {
+          adminScope.services.push(ArticleWithSlider(adminScope.service.id, adminScope.service.content, adminScope.service.images))
           needToSave = false
           console.log("success")
         })
@@ -661,6 +663,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     occasionService.post(articleWithSlider) onComplete {
       case Success(int) =>
         timeout ( () => {
+          adminScope.occasions.push(ArticleWithSlider(adminScope.occasion.id, adminScope.occasion.content, adminScope.occasion.images))
           needToSave = false
           console.log("success")
         })

@@ -86,10 +86,6 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       def insertImages(image: String, image1: String): Unit = {
         imageContainer.src = image
         imageContainer1.src = image1
-        console.log(imageContainer)
-        console.log(imageContainer1)
-        console.log(image)
-        console.log(image1)
       }
 
       def next (): Unit = {
@@ -115,7 +111,9 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           //if(imagesToDraw.exists(_.image == imageContainer.src )) {
             /*drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
               slide.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
-            hideOldContainer(slide1: Html, slide: Html)
+            timeout( () => {
+              hideOldContainer(slide1: Html, slide: Html)
+            }, 20)
           //} else {
             //changeImage(imageContainer, slide, slide1)
           //}
@@ -123,7 +121,9 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           //if(imagesToDraw.exists(_.image == imageContainer1.src)) {
             /*drawImage(imagesToDraw.filter(_.image == imageContainer1.src).head, imageContainer1,
               slide1.getElementsByTagName("canvas").item(0).asInstanceOf[Canvas], element)*/
-          hideOldContainer(slide: Html, slide1: Html)
+          timeout( () => {
+            hideOldContainer(slide: Html, slide1: Html)
+          }, 20)
          /* } else {
             changeImage(imageContainer1, slide1, slide)
           }*/
