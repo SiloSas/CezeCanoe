@@ -1,0 +1,20 @@
+<i class="fa fa-times float-right" data-ng-click="controller.closeModal()"></i>
+<h1>Contactez-nous</h1>
+<form ng-submit="controller.sendMessage(message)">
+    <md-input-container>
+        <label>Nom</label>
+        <input type="text" ng-model="message.name" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Prenom</label>
+        <input type="text" ng-model="message.firstName" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Email</label>
+        <input type="email" ng-model="message.mail" required>
+    </md-input-container>
+    <h3>Message</h3>
+    <textarea ng-model="message.message" required></textarea>
+    <md-button type="submit" class="md-primary md-raised">Valider</md-button>
+    <md-progress-linear ng-show="controller.waiting" md-mode="indeterminate"></md-progress-linear>
+</form>

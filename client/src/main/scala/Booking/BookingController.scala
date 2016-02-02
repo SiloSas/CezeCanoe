@@ -30,6 +30,8 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var lang = langService.lang
   langService.get(bookingScope, () => lang = langService.lang)
   var minDate = new Date
+  var isGroup = false
+  var reduction = 0.0
 
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
@@ -60,13 +62,19 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
     }
     bookingScope.total = totalPrice
   }
+  def computeReduction(): Unit = {
+    timeout( () => {
+      if (isGroup) reduction = (totalPrice * bookingScope.descente.groupReduction) / 100
+      else reduction = 0.0
+    })
+  }
 
   def sendBooking(bookingForm: js.Any): Unit = {
     val prices = pricesDetails.toSeq map {price =>
       BookingDetail(priceId = price.id, number = price.numberToBook)
     }
     val newBooking = BookingFormBack(id = UUID.randomUUID().toString ,descentId = routeParams.get("id").toString,
-      bookingFormClient = read[BookingFormClient](JSON.stringify(bookingForm)), details = prices)
+      bookingFormClient = read[BookingFormClient](JSON.stringify(bookingForm)), details = prices, read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
     console.log(write(newBooking))
     bookingService.post(newBooking).onComplete {
       case Success(int) =>

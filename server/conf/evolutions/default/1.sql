@@ -21,10 +21,12 @@ CREATE TABLE descentes (
   images                    VARCHAR NOT NULL,
   distance                  VARCHAR NOT NULL,
   prices                    VARCHAR NOT NULL,
-  time                      VARCHAR NOT NULL
+  time                      VARCHAR NOT NULL,
+  isVisible                 BOOLEAN,
+  groupReduction            NUMERIC
 );
 
-INSERT INTO descentes(id, name, presentation, tour, images, distance, prices, time) VALUES
+INSERT INTO descentes(id, name, presentation, tour, images, distance, prices, time, isVisible, groupReduction) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb32ae',
   '[{"lang": "Fr", "presentation": "Les Rochers de St Gély"}, {"lang": "En", "presentation": "Les Rochers de St Gély en"}]',
   '[{"lang": "Fr", "presentation": "<p>Sur ce parcours de <b>7 km</b> (2h non-stop) vous pouvez garder le canoë 3 ou 4 heures pour pique-niquer et vous baigner. Riche en faune et en flore, la rivière vous offrira un agréable moment de détente. Rendez-vous à notre base de Goudargues au centre du village,<br/>et <b>partez immédiatement de 9h à 16h !</b></p>"}, {"lang": "En", "presentation": "<p>Discover the valley of the Ceze river between Goudargues and Cazernau all along this 7 km trip, with a duration of about 2 hours if you choose to do it without any stops. You just have to show up in our base of Goudargues in the village center, then you can go immediately from 9am to 4pm !"}]',
@@ -32,7 +34,7 @@ INSERT INTO descentes(id, name, presentation, tour, images, distance, prices, ti
   '["assets/images/img1.jpg", "assets/images/img2.jpg"]',
   '[{"lang": "Fr", "presentation": "7 km"}, {"lang": "En", "presentation": "7 km"}]',
   '[]',
-  '[{"lang": "Fr", "presentation": "1/2 journée"}, {"lang": "En", "presentation": "1/2 day"}]');
+  '[{"lang": "Fr", "presentation": "1/2 journée"}, {"lang": "En", "presentation": "1/2 day"}]', TRUE, 10.0);
 
 
 CREATE TABLE tariffs (
@@ -89,7 +91,8 @@ CREATE TABLE booking (
 id VARCHAR ,
 descentId VARCHAR,
 clientForm VARCHAR,
-details VARCHAR
+details VARCHAR,
+isGroup BOOLEAN
 );
 
 CREATE TABLE services (
@@ -104,6 +107,13 @@ content VARCHAR,
 images VARCHAR
 );
 
+CREATE TABLE partners (
+id VARCHAR ,
+content VARCHAR,
+media VARCHAR,
+link VARCHAR
+);
+
 # --- !Downs
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS descentes;
@@ -115,3 +125,4 @@ DROP TABLE IF EXISTS homeImages;
 DROP TABLE IF EXISTS booking;
 DROP TABLE IF EXISTS services;
 DROP TABLE IF EXISTS occasions;
+DROP TABLE IF EXISTS partners;

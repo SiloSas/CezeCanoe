@@ -1,5 +1,8 @@
 <div>
     <md-list>
+        <md-checkbox ng-model="descente.isVisible" class="md-primary" aria-label="isVisible" ng-change="controller.setNeedToSaveToTrue()">
+            isVisible : {{descente.isVisible}}
+        </md-checkbox>
         <md-subheader>Description</md-subheader>
         <md-list-item>
             <md-input-container class="column large-12" data-ng-repeat="versionedName in descente.name | filter: {'lang': $root.lang}">
@@ -62,6 +65,10 @@
         </span> Ajouter une image
         <md-devider></md-devider>
         <md-subheader>Tarifs</md-subheader>
+        <md-input-container>
+            <label>Reduction de groupe (%)</label>
+            <input type="number" step="0.1" ng-model="descente.groupReduction" ng-change="controller.setNeedToSaveToTrue()" />
+        </md-input-container>
         <div class="column large-12 padding-0">
             <div ng-repeat="newPrice in descente.prices" class="column large-6 float-left zIndex1 md-whiteframe-z1">
                 <i ng-if="$index == 0">Tarif de référence pour les suppléments</i>

@@ -1,7 +1,7 @@
 import Admin.{TariffFormDirective, TariffsImagesDirective, AdminController}
 import ArticleWithSlider.ArticleWithSliderDirective
 import Booking.{BookingServiceFactory, BookingController}
-import Contact.ContactController
+import Contact.{ContactModalController, ContactController}
 import Descentes.{fullSliderDirective, DescenteServiceFactory, DescenteController, DescenteDirective}
 import Home._
 import Lang.{LangDirective, LangServiceFactory}
@@ -12,7 +12,9 @@ import Size.SizeDirective
 import Slider.{SliderContentDirective, SliderDirective}
 import VideoPlayer.VideoPlayerDirective
 import com.greencatsoft.angularjs._
+import contact.ContactDirective
 import example.RoomServiceFactory
+import partner.{PartnerDirective, PartnersController, PartnersServiceFactory}
 import smartcrop.SmartCropDirective
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
@@ -32,6 +34,7 @@ object App extends JSApp {
     .factory[BookingServiceFactory]
     .factory[ServicesServiceFactory]
     .factory[OccasionServiceFactory]
+    .factory[PartnersServiceFactory]
     .controller[RoomController]
     .controller[HomeController]
     .controller[DescenteController]
@@ -41,6 +44,8 @@ object App extends JSApp {
     .controller[ServicesController]
     .controller[OccasionController]
     .controller[ContactController]
+    .controller[ContactModalController]
+    .controller[PartnersController]
     .directive[RoomMinDirective]
       .directive[SmartCropDirective]
       .directive[SliderDirective]
@@ -56,6 +61,8 @@ object App extends JSApp {
       .directive[SizeDirective]
       .directive[fullSliderDirective]
       .directive[ArticleWithSliderDirective]
+      .directive[PartnerDirective]
+      .directive[ContactDirective]
     .config(RoutingConfig)
   }
 }

@@ -4,9 +4,11 @@ import ArticleWithSlider.{ArticleWithSliderForBack, ArticleWithSlider}
 import Booking.BookingForm
 import com.greencatsoft.angularjs.core.Scope
 import DescentsClient.Descente
+import partner.Partner
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.annotation.{JSExportAll, JSExport}
+
 
 trait AdminScope extends Scope {
   var formTemplate: String = js.native
@@ -25,6 +27,8 @@ trait AdminScope extends Scope {
   var service: ArticleWithSliderMutable = js.native
   var occasions: js.Array[ArticleWithSlider] = js.native
   var occasion: ArticleWithSliderMutable = js.native
+  var partners: js.Array[Partner] = js.native
+  var partner: PartnerMutable = js.native
 }
 
 
@@ -33,6 +37,12 @@ trait ArticleMutable extends js.Object {
   var content: js.Array[VersionedStringToBindScope] = js.native
   var media: String = js.native
   var yellowThing: js.Array[VersionedStringScope] = js.native
+}
+trait PartnerMutable extends js.Object {
+  var id: String = js.native
+  var content: js.Array[VersionedStringToBindScope] = js.native
+  var media: String = js.native
+  var link: String = js.native
 }
 trait ArticleWithSliderMutable extends js.Object {
   var id: String = js.native
@@ -49,6 +59,8 @@ trait DescenteMutable extends js.Object {
   var distance: js.Array[VersionedStringScope] = js.native
   var prices: js.Array[Price] = js.native
   var time: js.Array[VersionedStringScope] = js.native
+  var isVisible: Boolean = js.native
+  var groupReduction: Double = js.native
 }
 
 trait Price extends js.Object {

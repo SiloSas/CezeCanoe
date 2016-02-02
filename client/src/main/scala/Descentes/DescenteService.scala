@@ -44,7 +44,7 @@ class DescenteService(http: HttpService, sce: SceService) extends Service {
               Price(price.id, name = price.name.map(versionedStringToVersionedStringScope).toJSArray, price.price, price.isBookable,
               price.medias.toJSArray, price.isSupplement)
             }.toJSArray,
-            descenteForBack.time.map(versionedStringToVersionedStringScope).toJSArray)
+            descenteForBack.time.map(versionedStringToVersionedStringScope).toJSArray, descenteForBack.isVisible, descenteForBack.groupReduction)
         }
       }
   }
@@ -65,7 +65,7 @@ class DescenteService(http: HttpService, sce: SceService) extends Service {
             Price(price.id, name = price.name.map(versionedStringToVersionedStringScope).toJSArray, price.price, price.isBookable,
               price.medias.toJSArray, price.isSupplement)
           }.toJSArray,
-          descenteForBack.time.map(versionedStringToVersionedStringScope).toJSArray)
+          descenteForBack.time.map(versionedStringToVersionedStringScope).toJSArray, descenteForBack.isVisible, descenteForBack.groupReduction)
       }
   }
 

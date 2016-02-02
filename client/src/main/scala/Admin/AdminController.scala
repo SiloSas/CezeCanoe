@@ -16,6 +16,7 @@ import DescentsClient.Descente
 import DescentsClient.DescenteForBack
 import DescentsClient.PriceForBack
 import DescentsClient._
+import partner.{PartnerForBack, Partner, PartnersService}
 import upickle.default._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
@@ -28,13 +29,14 @@ import scala.util.{Failure, Success}
 @JSExportAll
 @injectable("adminController")
 class AdminController(adminScope: AdminScope, descenteService: DescenteService, $sce: SceService, servicesService: ServicesService,
-                      langService: LangService, timeout: Timeout, homeService: HomeService, bookingService: BookingService, occasionService: OccasionService)
+                      langService: LangService, timeout: Timeout, homeService: HomeService, bookingService: BookingService,
+                      occasionService: OccasionService, partnerService: PartnersService)
   extends AbstractController[AdminScope](adminScope) {
 
   // init var & scope
   adminScope.newImage = ""
   adminScope.descente = new Object().asInstanceOf[DescenteMutable]
-  adminScope.bookings = js.Array[BookingForm]()
+//  adminScope.bookings = js.Array[BookingForm]()
   adminScope.setNewDescente = () => {
     setNewDescente
   }
@@ -86,7 +88,9 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       images = descente.images.toSeq,
       distance = descente.distance.toSeq map versionedStringScopeToVersionedString,
       prices = newPrices.toSeq,
-      time = descente.time.toSeq map versionedStringScopeToVersionedString)
+      time = descente.time.toSeq map versionedStringScopeToVersionedString,
+      isVisible = descente.isVisible,
+      groupReduction = descente.groupReduction)
   }
   def mutableArticleToArticleForBack(articleMutable: ArticleMutable): ArticleForBack = {
     val article = articleMutable
@@ -129,6 +133,8 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     }
     newDescente.time = descente.time
     newDescente.tour = descente.tour
+    newDescente.isVisible = descente.isVisible
+    newDescente.groupReduction = descente.groupReduction
     console.log(newDescente)
     newDescente
   }
@@ -218,6 +224,8 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       newDescente.prices = Seq.empty[Price].toJSArray
       newDescente.time = emptyVersionedStringArray()
       newDescente.tour = emptyVersionedStringArray()
+      newDescente.isVisible = true
+      newDescente.groupReduction = 0.0
       adminScope.descente = newDescente
       adminScope.formTemplate = "assets/templates/Admin/descenteForm.html"
       adminScope.validate = () => {
@@ -471,7 +479,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
           val test = bookings.toJSArray.map{booking =>
             BookingForm(booking.id, booking.descentId, BookingFormClient(booking.bookingFormClient.startTime, booking.bookingFormClient.date,
               booking.bookingFormClient.name, booking.bookingFormClient.firstName, booking.bookingFormClient.address,
-              booking.bookingFormClient.phoneNumber, booking.bookingFormClient.email), booking.details)
+              booking.bookingFormClient.phoneNumber, booking.bookingFormClient.email, booking.bookingFormClient.isGroup), booking.details, booking.isGroup)
           }
           adminScope.bookings = test
         })
@@ -683,6 +691,94 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         }
       case Failure(t: Throwable) =>
         console.log("error delete occasion:" + t)
+    }
+  }
+   
+   // Partners
+
+  getPartners()
+  def getPartners(): Unit = {
+    partnerService.findAll().onComplete {
+      case Success(partners) =>
+        timeout( () => {
+          adminScope.partners = partners.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get partners")
+    }
+  }
+
+  def setPartner(partner: Partner): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val newPartner = new Object().asInstanceOf[PartnerMutable]
+      newPartner.id = partner.id
+      newPartner.content = partner.content
+      newPartner.media = partner.media
+      newPartner.link = partner.link
+      adminScope.partner = newPartner
+      console.log(newPartner)
+      adminScope.formTemplate = "assets/templates/Admin/partnerForm.html"
+      adminScope.validate = () => {
+        val partnerToPost = PartnerForBack(id = adminScope.partner.id, content = adminScope.partner.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.partner.media, adminScope.partner.link)
+        partnerService.update(partnerToPost) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def setNewPartner(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/partnersForm.html"
+      val newPartner = new Object().asInstanceOf[PartnerMutable]
+      newPartner.id = UUID.randomUUID().toString
+      newPartner.content = emptyVersionedStringToBindArray()
+      newPartner.media = ""
+      newPartner.link = ""
+      adminScope.partner = newPartner
+      adminScope.validate = () => {
+        val partnerToPost = PartnerForBack(id = adminScope.partner.id, content = adminScope.partner.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.partner.media, adminScope.partner.link)
+        postPartner(partnerToPost)
+      }
+    }
+  }
+
+  def postPartner(partnerForBack: PartnerForBack): Unit = {
+    partnerService.post(partnerForBack) onComplete {
+      case Success(int) =>
+        timeout ( () => {
+          adminScope.partners.push(Partner(adminScope.partner.id, adminScope.partner.content, adminScope.partner.media, adminScope.partner.link))
+          needToSave = false
+          console.log("success")
+        })
+      case _ =>
+        console.log("error post partner")
+    }
+  }
+
+  def deletePartner(id: String): Unit = {
+    partnerService.delete(id) onComplete {
+      case Success(int) =>
+        adminScope.partners.find(_.id == id) match {
+          case Some(partner) =>
+            timeout( () => {
+              adminScope.partners.splice(adminScope.partners.indexOf(partner), 1)
+            })
+          case _ =>
+            console.log("no partner for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete partner:" + t)
     }
   }
   // listeners

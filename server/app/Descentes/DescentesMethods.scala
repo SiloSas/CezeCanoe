@@ -38,7 +38,9 @@ class DescentesMethods @Inject()(protected val dbConfigProvider: DatabaseConfigP
       tour = descenteWithPrices.tour,
       images = descenteWithPrices.images,
       distance = descenteWithPrices.distance,
-      time = descenteWithPrices.time
+      time = descenteWithPrices.time,
+      isVisible = descenteWithPrices.isVisible,
+      groupReduction = descenteWithPrices.groupReduction
     )
   }
 
@@ -61,7 +63,10 @@ class DescentesMethods @Inject()(protected val dbConfigProvider: DatabaseConfigP
         images = descente.images,
         distance = descente.distance,
         prices = prices.distinct,
-        time = descente.time)
+        time = descente.time,
+        isVisible = descente.isVisible,
+        groupReduction = descente.groupReduction
+      )
     }
 
     descentesWithPrices toSeq

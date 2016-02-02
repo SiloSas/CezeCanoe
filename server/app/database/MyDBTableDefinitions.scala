@@ -5,6 +5,7 @@ import Descentes._
 import Services.ArticleWithSlider
 import administration.UserActor.User
 import MyPostgresDriver.api._
+import partnersBack.Partner
 import upickle.default._
 
 trait MyDBTableDefinitions {
@@ -29,14 +30,17 @@ trait MyDBTableDefinitions {
     def distance = column[String]("distance")
     def prices = column[String]("prices")
     def time = column[String]("time")
+    def isVisible = column[Boolean]("isvisible")
+    def groupReduction =  column[Double]("groupreduction")
 
-    def * = (id, name, presentation, tour, images, distance, prices, time).shaped <> (
-      { case (id, name, presentation, tour, images, distance, prices, time) =>
+    def * = (id, name, presentation, tour, images, distance, prices, time, isVisible, groupReduction).shaped <> (
+      { case (id, name, presentation, tour, images, distance, prices, time, isVisible, groupReduction) =>
         DescenteWithPrice(id, stringToVersionedString(name), stringToVersionedString(presentation), stringToVersionedString(tour),
-          read[Seq[String]](images), stringToVersionedString(distance), read[Seq[Price]](prices), stringToVersionedString(time))
+          read[Seq[String]](images), stringToVersionedString(distance), read[Seq[Price]](prices), stringToVersionedString(time), isVisible, groupReduction)
       }, { descente: DescenteWithPrice =>
       Some((descente.id,  write(descente.name),  write(descente.presentation),
-        write(descente.tour), write(descente.images),  write(descente.distance), write(descente.prices), write(descente.time)))
+        write(descente.tour), write(descente.images),  write(descente.distance), write(descente.prices), write(descente.time),
+        descente.isVisible, descente.groupReduction))
     })
   }
   lazy val descentes = TableQuery[Descentes]
@@ -110,12 +114,13 @@ trait MyDBTableDefinitions {
     def descentId = column[String]("descentid")
     def clientForm = column[String]("clientform")
     def details = column[String]("details")
+    def isGroup = column[Boolean]("isgroup")
 
-    def * = (id, descentId, clientForm, details).shaped <> (
-      { case (id, descentId, clientForm, details) =>
-        BookingForm(id, descentId, read[BookingFormClient](clientForm), read[Seq[BookingDetail]](details))
+    def * = (id, descentId, clientForm, details, isGroup).shaped <> (
+      { case (id, descentId, clientForm, details, isGroup) =>
+        BookingForm(id, descentId, read[BookingFormClient](clientForm), read[Seq[BookingDetail]](details), isGroup)
       }, { bookingForm: BookingForm =>
-      Some(bookingForm.id, bookingForm.descentId, write(bookingForm.bookingFormClient), write(bookingForm.details))
+      Some(bookingForm.id, bookingForm.descentId, write(bookingForm.bookingFormClient), write(bookingForm.details), bookingForm.isGroup)
     })
   }
   lazy val booking = TableQuery[Booking]
@@ -147,5 +152,20 @@ trait MyDBTableDefinitions {
     })
   }
   lazy val occasions = TableQuery[Occasions]
+
+  class Partners(tag: Tag) extends Table[Partner](tag, "partners") {
+    def id = column[String]("id")
+    def content = column[String]("content")
+    def media = column[String]("media")
+    def link = column[String]("link")
+
+    def * = (id, content, media, link).shaped <> (
+      { case (id, content, media, link) =>
+        Partner(id, read[Seq[VersionedString]](content), media, link)
+      }, { partner: Partner =>
+      Some(partner.id, write(partner.content), partner.media, partner.link)
+    })
+  }
+  lazy val partners = TableQuery[Partners]
 
 }

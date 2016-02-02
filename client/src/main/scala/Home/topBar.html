@@ -15,14 +15,15 @@
         <span data-ng-show="controller.lang == 'Fr'">Nous trouver</span>
         <span data-ng-show="controller.lang == 'En'">Find us</span>
     </md-button>
-    <md-button class="md-raised"  ng-class="{'current': controller.current == 4}" aria-label="Groupes" ng-href="#/">Groupes</md-button>
     <md-button class="md-raised" ng-class="{'current': controller.current == 5}" aria-label="Occasions" ng-href="#/occasions">
         Occasions
     </md-button>
-    <md-button class="md-raised" ng-class="{'current': controller.current == 6}" aria-label="Contact" ng-href="#/">
+    <md-button class="md-raised contact" ng-click="directive.openContact()"
+               ng-href=""
+               ng-class="{'current': controller.current == 6}" aria-label="Contact">
         Contact
     </md-button>
-    <md-button class="md-raised" ng-class="{'current': controller.current == 7}" aria-label="Partenaires" ng-href="#/">
+    <md-button class="md-raised" ng-class="{'current': controller.current == 7}" aria-label="Partenaires" ng-href="#/partners">
         <span data-ng-show="controller.lang == 'Fr'">Partenaires</span>
         <span data-ng-show="controller.lang == 'En'">Partners</span>
     </md-button>

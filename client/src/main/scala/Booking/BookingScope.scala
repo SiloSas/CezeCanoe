@@ -15,14 +15,14 @@ trait BookingScope extends Scope {
 }
 
 @JSExportAll
-case class BookingFormBack(id: String, descentId: String, bookingFormClient: BookingFormClient, details: Seq[BookingDetail])
+case class BookingFormBack(id: String, descentId: String, bookingFormClient: BookingFormClient, details: Seq[BookingDetail], isGroup: Boolean)
 
 @JSExportAll
-case class BookingForm(id: String, descentId: String, bookingFormClient: BookingFormClient, details: js.Array[BookingDetail])
+case class BookingForm(id: String, descentId: String, bookingFormClient: BookingFormClient, details: js.Array[BookingDetail], isGroup: Boolean)
 
 @JSExportAll
 case class BookingDetail (priceId: String, number: Int)
 
 
 @JSExportAll
-case class BookingFormClient(startTime: String, date: String, name: String, firstName: String, address: String, phoneNumber: String, email: String)
+case class BookingFormClient(startTime: String, date: String, name: String, firstName: String, address: String, phoneNumber: String, email: String, isGroup: Boolean)

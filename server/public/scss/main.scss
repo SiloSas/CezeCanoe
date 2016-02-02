@@ -102,6 +102,18 @@ body, html {
   }
 }
 
+input {
+  background-color: rgb(229, 238, 193)!important;
+}
+
+md-sidenav > top-bar-content > div > a {
+  width: 80%;
+  text-align: center;
+}
+
+.contactModal {
+  z-index: 999999;
+}
 
 //flags
 

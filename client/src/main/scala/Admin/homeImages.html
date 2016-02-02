@@ -1,4 +1,9 @@
-<img src="{{image}}" data-ng-repeat="image in images" />
+<div class="column large-12">
+    <div data-ng-repeat="image in images" class="column large-12">
+        <i class="fa fa-times" data-ng-click="images.splice($index, 1); controller.needToSave = true"></i>
+        <img src="{{image}}" class="width100p" />
+    </div>
+</div>
 <span class="tooltip-trigger float-left relative">
     <span class="md-primary md-fab md-button zIndex1">
         <i class="fa fa-download"></i>
