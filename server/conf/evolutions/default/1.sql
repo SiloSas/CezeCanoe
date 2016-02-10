@@ -47,7 +47,7 @@ CREATE TABLE tariffs (
 );
 
 INSERT INTO tariffs(id, name, price, isBookable, medias, isSupplement) VALUES
-  ('1', '[{"lang": "Fr", "presentation": "adulte en Kayak"}, {"lang": "En", "presentation": "adult with kayak"}]', 4.0, true,
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', '[{"lang": "Fr", "presentation": "adulte en Kayak"}, {"lang": "En", "presentation": "adult with kayak"}]', 4.0, true,
    '["assets/images/kayak.jpg", "assets/images/kayak1.jpg"]', true);
 
 

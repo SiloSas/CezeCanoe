@@ -17,8 +17,9 @@ class BookingService(http: HttpService, sce: SceService) extends Service {
 
 
   @JSExport
-  def post(bookingForm: BookingFormBack): Future[String] = {
-    http.post[js.Any](s"/booking", write(bookingForm))
+  def post(bookingForm: BookingFormBack, creditCard: CreditCard): Future[String] = {
+    val formWithCreditCard = BookingFormWithCreditCard(bookingForm, creditCard)
+    http.post[js.Any](s"/booking", write(formWithCreditCard))
       .map(JSON.stringify(_))
   }
 
