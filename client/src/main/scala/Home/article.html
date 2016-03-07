@@ -31,7 +31,7 @@
     <div class="column medium-6 homeArticleContent float-left bigger-right marginTop20">
         <span data-ng-bind-html="content = (article.content | filter: {'lang': controller.lang})[0].presentation"></span>
     </div>
-    <div class="md-whiteframe-z1 float-left yellowThing yellowThing-bottom column medium-4 large-2 large-offset-3 medium-offset-1 "
+    <div class="md-whiteframe-z1 yellowThing yellowThing-bottom column medium-4 large-3 float-right medium-offset-1 "
          ng-if="(article.yellowThing | filter: {'lang': controller.lang})[0].presentation.length">
         {{yellowThing = (article.yellowThing | filter: {'lang': controller.lang})[0].presentation}}
     </div>

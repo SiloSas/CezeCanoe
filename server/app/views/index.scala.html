@@ -7,20 +7,18 @@
       <md-button aria-label="menu" class="md-fab md-primary md-mini" ng-click="directive.toggleLeft()" hide-gt-md>
        <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
       </md-button>
-      <object data="assets/images/title.svg"
-      class="column medium-3 large-2 small-8 animated fadeIn"></object>
-      <top-bar-content class="column large-10" hide-sm hide-md></top-bar-content>
+      <top-bar-content class="column" hide-sm hide-md></top-bar-content>
     </div>
   </md-toolbar>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="z-index: 99999" ng-click="directive.toggleLeft()" md-component-id="left">
       <top-bar-content></top-bar-content>
   </md-sidenav>
-
   <object data="assets/images/title.svg"
   class="column large-3 medium-6 animated bounceInLeft absolute left0"
   id="title"
   style="z-index: 9999; animation-delay: 0.5s"></object>
   <md-content class="height100p column large-12 padding0" id="mainContent" ng-controller="mainController"  style="overflow-x: hidden; background: transparent">
+    <lang class="float-right absolute"></lang>
     <slider images="{{images}}" class="width100p"></slider>
     <md-toolbar ng-if="true" id="middleBar" class="transparent md-sticky" style="top: -32px; z-index: 9999;" hide-md hide-sm>
       <div class="md-toolbar-tools">

@@ -2,20 +2,17 @@ package BookingBack
 
 import javax.inject.Inject
 
-import Descentes.{DescentesMethods, ArticleForBack}
+import Descentes.DescentesMethods
 import Prices.PricesMethods
 import administration.Authenticated
 import play.api.db.slick.DatabaseConfigProvider
-import play.api.libs.json
-import play.api.libs.json.JsObject
+import play.api.libs.json.{JsObject, _}
+import play.api.libs.ws.{WSAuthScheme, WSClient}
 import play.api.mvc.{Action, _}
 import upickle.default._
-import play.api.libs.ws.WSClient
-import play.api.libs.json._
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Await, Future}
-import scala.concurrent.duration._
+import scala.concurrent.Future
 
 class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
                                   val bookingMethods: BookingMethods,
@@ -24,57 +21,40 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
                                    val ws: WSClient)
   extends Controller {
 
-  def preparJsPostForPaypal(creditCard: CreditCard, amount: Double): JsValue = {
-
-    Json.parse(s"""{
-        "intent":"sale",
-        "payer":{
-          "payment_method":"credit_card",
-          "funding_instruments":[
-        {
-          "credit_card":{
-          "number":${creditCard.number},
-          "type":${creditCard.card_type},
-          "expire_month":${creditCard.expire_month},
-          "expire_year":${creditCard.expire_year},
-          "cvv2":${creditCard.cvv2.toString},
-          "first_name":${creditCard.first_name},
-          "last_name":${creditCard.last_name},
-          "billing_address":{
-          "line1":${creditCard.billing_address.line1},
-          "city":${creditCard.billing_address.city},
-          "state":${creditCard.billing_address.state},
-          "postal_code":${creditCard.billing_address.postal_code},
-          "country_code":${creditCard.billing_address.country_code}
-        }
-        }
-        }
-          ]
-        },
-        "transactions":[
-        {
-          "amount":{
-            "total":$amount,
-            "currency":"EUR",
-            "details":{
-            "subtotal":"$amount"
-          }
-          },
-          "description":"This is the payment transaction description."
-        }
-        ]
-      }""")
+  def preparJsPostForPaypal(creditCard: CreditCard, amount: Double): JsObject = {
+    Json.parse(s"""{"intent": "sale", "payer": {"payment_method": "credit_card", "funding_instruments": [{"credit_card": {"number": "${creditCard.number}", "type": "${creditCard.card_type}", "expire_month": ${creditCard.expire_month}, "expire_year": ${creditCard.expire_year}, "cvv2": ${creditCard.cvv2.toString}, "first_name": "${creditCard.first_name}", "last_name": "${creditCard.last_name}"}}]}, "transactions": [{"amount": {"total": "$amount", "currency": "EUR"}, "description": "Thisisthepaymenttransactiondescription."}]}""").as[JsObject]
   }
 
-  def getPaypalPaiement(creditCard: CreditCard, amount: Double): Future[Int] = {
+  def getToken: Future[String] = {
+    ws.url("https://api.sandbox.paypal.com/v1/oauth2/token")
+      .withAuth("AZjqcHR8CIY7Y83XtHp5yDeE8pmkgyQqqYmUZ-iH3lL2uE7IUU_IsrVJABDRQx8QS0BG6KfNEwIA8cV-",
+      "EHNMRJ_5eOFOOqseJ-Oxx7WcxBzGgqaia-yfvRS4Qhh_Umfz4dYGfcZuCxxAFN_JSWHsUSMZqZ2TQ4V_", WSAuthScheme.BASIC)
+      .post(Map("grant_type" -> Seq("client_credentials"))) map { a =>
+      println((a.json \ "access_token").get.toString())
+      (a.json \ "access_token").get.toString()
+    } recover { case e: Throwable =>
+      println("e = " + e)
+      throw e
+    }
+  }
+
+
+  def getPaypalPaiement(creditCard: CreditCard, amount: Double, token: String): Future[Int] = {
+    println(creditCard)
+    println(preparJsPostForPaypal(creditCard, amount))
     ws.url("https://api.sandbox.paypal.com/v1/payments/payment")
-      .withHeaders("Content-Type" -> "application/json", "Authorization" -> "Bearer <Access-Token>")
+      .withHeaders("Content-Type" -> "application/json", "Authorization" -> ("Bearer " + token.replace("\"", "")))
       .post(preparJsPostForPaypal(creditCard, amount))
       .map { wsResponse =>
+        println(wsResponse.json)
         val a = wsResponse.json \ "state"
+        println(a.get.toString())
         val b = a.get
-        if (b.toString() == "approved") 1
+        if (b.toString().replace("\"", "") == "approved") 1
         else 0
+    } recover { case t: Throwable =>
+      println(t)
+        throw new Exception()
     }
   }
 
@@ -118,7 +98,7 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
       a => a.collect { case Some(price) => price }
     }
 
-    val total = for {
+    val eventuallyTotal = for {
       prices <- eventuallyPrices
       prices2 <- eventuallyPrices2
       refPrice <- eventuallyDescenteReferencePrice
@@ -140,12 +120,15 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
         else subTotal
     }
 
-    total flatMap { t =>
-      getPaypalPaiement(creditCard, t) map {
-        case isValidate if isValidate == 1 =>
-          Ok(write(t))
-        case _ =>
-          InternalServerError(write("payment error"))
+    eventuallyTotal flatMap { total =>
+      println(total)
+      getToken flatMap { token =>
+        getPaypalPaiement(creditCard, total, token) map {
+          case isValidate if isValidate == 1 =>
+            Ok(write(total))
+          case _ =>
+            InternalServerError(write("payment error"))
+        }
       }
     }
   }

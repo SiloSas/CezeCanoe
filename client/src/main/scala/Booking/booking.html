@@ -3,7 +3,7 @@
     <span data-ng-show="controller.lang == 'En'"><h1 class="textColorWhite">Book your trip</h1></span>
     <h1 class="textColorWhite">{{nameDescente = (descente.name | filter: {'lang': controller.lang})[0].presentation}}</h1>
     <span data-ng-bind-html="presentation = (descente.presentation | filter: {'lang': controller.lang})[0].presentation"></span>
-    <div ng-show="!paiement">
+    <div ng-show="!paiement" class="float-left">
         <h3>Informations Générales</h3>
         <div class="column large-6">
             <md-datepicker ng-model="booking.date" class="float-left width100p" style="background: transparent" md-placeholder="date"
@@ -81,11 +81,13 @@
             </md-checkbox>
         <span data-ng-show="booking.isGroup" class="column"><b>Total: {{total - controller.reduction}} €</b></span></div>
     </div>
-    <a class="md-button md-primary md-raised" ng-disabled="!(total > 0)" data-ng-click="paiement = true">Payer</a>
+    <a class="md-button md-primary md-raised" ng-disabled="!(total > 0)"
+       data-ng-show="!paiement"
+       data-ng-click="paiement = true">Payer</a>
     <div data-ng-show="paiement">
         <md-input-container>
             <label>Numero de carte</label>
-            <input type="number" ng-model="creditCard.number" required>
+            <input type="text" ng-model="creditCard.number" required>
         </md-input-container>
         <md-input-container>
             <label>Type</label>

@@ -5,9 +5,10 @@
         <span data-ng-show="controller.lang == 'En'">Canoe and kayak rental on the river Ceze</span>
     </div>
     <div class="md-whiteframe-z1 float-left yellowThing column medium-10 marginTop0 large-4" hide-gt-md>
-        Location de Canoë  kayak sur la Cèze
+        <span data-ng-show="controller.lang == 'Fr'">Location de Canoë  kayak sur la Cèze</span>
+        <span data-ng-show="controller.lang == 'En'">Canoe and kayak rental on the river Ceze</span>
     </div>
-    <div class="paddingTop50">
+    <div style="padding-top: 60px">
         <home-article data-ng-repeat="article in articles"></home-article>
     </div>
 </ul>

@@ -3,25 +3,22 @@ package Admin
 import java.util.UUID
 
 import ArticleWithSlider.{ArticleWithSlider, ArticleWithSliderForBack}
-import Booking.{BookingDetail, BookingFormClient, BookingForm, BookingService}
+import Booking.{BookingDetail, BookingForm, BookingFormClient, BookingService}
 import Descentes.DescenteService
+import DescentsClient.{Descente, DescenteForBack, PriceForBack}
 import Home.{ArticleForBack, HomeService}
 import Lang.LangService
 import Occasions.OccasionService
 import ServicesPage.ServicesService
-import com.greencatsoft.angularjs.core.{Timeout, SceService}
+import com.greencatsoft.angularjs.core.{SceService, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import org.scalajs.dom.{console, alert}
-import DescentsClient.Descente
-import DescentsClient.DescenteForBack
-import DescentsClient.PriceForBack
-import DescentsClient._
-import partner.{PartnerForBack, Partner, PartnersService}
-import upickle.default._
+import org.scalajs.dom.{alert, console}
+import partner.{Partner, PartnerForBack, PartnersService}
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.scalajs.js.{JSON, Object}
+import scala.scalajs.js.Object
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
 
@@ -718,7 +715,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
       newPartner.link = partner.link
       adminScope.partner = newPartner
       console.log(newPartner)
-      adminScope.formTemplate = "assets/templates/Admin/partnerForm.html"
+      adminScope.formTemplate = "assets/templates/Admin/partnersForm.html"
       adminScope.validate = () => {
         val partnerToPost = PartnerForBack(id = adminScope.partner.id, content = adminScope.partner.content.toSeq.map(versionedStringToBindScopeToVersionedString),
           adminScope.partner.media, adminScope.partner.link)

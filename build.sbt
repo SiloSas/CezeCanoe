@@ -19,6 +19,7 @@ lazy val server = (project in file("server")).settings(
   pipelineStages := Seq(scalaJSProd, gzip),
   resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
   libraryDependencies ++= Seq(
+    ws,
     evolutions,
     "com.vmunier" %% "play-scalajs-scripts" % "0.3.0",
     "org.webjars" %% "webjars-play" % "2.4.0-1",
