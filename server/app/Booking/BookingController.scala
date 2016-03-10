@@ -123,11 +123,16 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
     eventuallyTotal flatMap { total =>
       println(total)
       getToken flatMap { token =>
-        getPaypalPaiement(creditCard, total, token) map {
+        getPaypalPaiement(creditCard, total, token) flatMap {
           case isValidate if isValidate == 1 =>
-            Ok(write(total))
+            bookingMethods.save(bookingForm) map {
+              case saved if saved == 1 =>
+                Ok(write(total))
+              case _ =>
+                InternalServerError(write("save error, please contact us"))
+            }
           case _ =>
-            InternalServerError(write("payment error"))
+            Future(InternalServerError(write("payment error")))
         }
       }
     }

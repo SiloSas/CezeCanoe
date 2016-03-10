@@ -2,21 +2,22 @@ package Booking
 
 import java.util.UUID
 
-import Admin.{VersionedStringScope, VersionedString}
+import Admin.VersionedStringScope
 import Descentes.DescenteService
-import Lang.LangService
-import com.greencatsoft.angularjs.core.{Window, RouteParams, SceService, Timeout}
-import com.greencatsoft.angularjs.{AbstractController, injectable}
-import materialDesign.{MdToastService, MdToast}
 import DescentsClient.Price
+import Lang.LangService
+import com.greencatsoft.angularjs.core.{RouteParams, SceService, Timeout, Window}
+import com.greencatsoft.angularjs.{AbstractController, injectable}
+import materialDesign.MdToastService
 import org.scalajs.dom.console
+import upickle.default._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
-import scala.scalajs.js.{Date, JSON, Object}
-import scala.scalajs.js.annotation.JSExportAll
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
+import scala.scalajs.js.annotation.JSExportAll
+import scala.scalajs.js.{Date, JSON}
 import scala.util.Success
-import upickle.default._
 
 @JSExportAll
 @injectable("bookingController")
@@ -69,14 +70,17 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
     })
   }
 
-  def sendBooking(bookingForm: js.Any, creditCard: js.Any): Unit = {
+  def sendBooking(bookingForm: js.Any, creditCard: js.Any, message: String): Unit = {
     val prices = pricesDetails.toSeq map {price =>
       BookingDetail(priceId = price.id, number = price.numberToBook)
     }
     console.log(creditCard)
     val newCreditCard = read[CreditCard](JSON.stringify(creditCard))
+    val email = read[BookingFormClient](JSON.stringify(bookingForm)).email + "--.," + message
     val newBooking = BookingFormBack(id = UUID.randomUUID().toString ,descentId = routeParams.get("id").toString,
-      bookingFormClient = read[BookingFormClient](JSON.stringify(bookingForm)), details = prices, read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
+      bookingFormClient = read[BookingFormClient](JSON.stringify(bookingForm)).copy(email = email),
+      details = prices,
+      isGroup = read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
     console.log(write(newBooking))
     console.log(write(newCreditCard))
     bookingService.post(newBooking, newCreditCard).onComplete {

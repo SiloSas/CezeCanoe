@@ -124,7 +124,8 @@
                             <p>Nom: {{booking.bookingFormClient$1.name$1}} Prenom: {{booking.bookingFormClient$1.firstName$1}}</p>
                             <p><i class="fa fa-phone"></i> {{booking.bookingFormClient$1.phoneNumber$1}}</p>
                             <p>Adresse: {{booking.bookingFormClient$1.address$1}}</p>
-                            <p><i class="fa fa-envelope"></i> {{booking.bookingFormClient$1.email$1}}</p>
+                            <p><i class="fa fa-envelope"></i> {{booking.bookingFormClient$1.email$1.split("--.,")[0]}}</p>
+                            <p><i>Message: </i> {{booking.bookingFormClient$1.email$1.split("--.,")[1]}}</p>
                             <h4>Details</h4>
                             <span data-ng-repeat="detail in booking.details$1">
                                 <p>Nombre de

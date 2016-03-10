@@ -1,13 +1,11 @@
 package Admin
 
-import ArticleWithSlider.{ArticleWithSliderForBack, ArticleWithSlider}
-import Booking.BookingForm
+import ArticleWithSlider.ArticleWithSlider
 import com.greencatsoft.angularjs.core.Scope
-import DescentsClient.Descente
 import partner.Partner
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSExportAll, JSExport}
+import scala.scalajs.js.annotation.JSExport
 
 
 trait AdminScope extends Scope {
@@ -22,7 +20,7 @@ trait AdminScope extends Scope {
   var articles: js.Array[ArticleMutable] = js.native
   var article: ArticleMutable = js.native
   var images: js.Array[String] = js.native
-  var bookings: js.Array[BookingForm] = js.native
+  var bookings: js.Any = js.native
   var services: js.Array[ArticleWithSlider] = js.native
   var service: ArticleWithSliderMutable = js.native
   var occasions: js.Array[ArticleWithSlider] = js.native

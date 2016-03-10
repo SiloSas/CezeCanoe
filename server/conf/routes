@@ -4,7 +4,6 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /admin                      controllers.Application.admin
 GET     /descentes				    @Descentes.DescentesController.findAll
 POST    /descentes				    @Descentes.DescentesController.save
 PUT     /descentes				    @Descentes.DescentesController.update

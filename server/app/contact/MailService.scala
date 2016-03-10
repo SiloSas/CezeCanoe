@@ -9,7 +9,7 @@ import play.api.mvc.{Action, Controller}
 
 class MailService @Inject() (mailerClient: MailerClient, recipient: String) extends Controller {
 
-  val destinationMail = Seq("<loann.delgado@gmail.com>")
+  val destinationMail = Seq("<romeo.cezecanoes@gmail.com >")
 
   def sendNotificationMail() = Action(parse.json) { request =>
     val content = request.body.as[JsObject].toString()
@@ -19,7 +19,7 @@ class MailService @Inject() (mailerClient: MailerClient, recipient: String) exte
       .replaceFirst("{\"", "")
     val email = Email(
       subject = "CezeCanoe : vous avez une notification",
-      from = "notifications.destoitsenville@gmail.com",
+      from = "romeo.cezecanoes@gmail.com",
       to = destinationMail,
       bodyHtml = Some(
         s"""<html><body><p>$content</body></html>""".stripMargin)

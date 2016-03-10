@@ -12,6 +12,8 @@ object RoutingConfig extends Config {
     routeProvider
       .when(path = "/",
         route = Route(templateUrl = "/assets/templates/main.html", title = "Main"))
+      .when(path = "/conditionGeneral",
+        route = Route(templateUrl = "/assets/templates/conditionsGenerales.html", title = "Main"))
       .when(
         path = "/descentes",
         route = Route(
