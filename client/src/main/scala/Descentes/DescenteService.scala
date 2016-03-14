@@ -155,6 +155,25 @@ class DescenteService(http: HttpService, sce: SceService) extends Service {
       }
   }
 
+  @JSExport
+  def postInformations(informationForBack: InformationForBack): Future[String] = /*flatten*/ {
+    http.post[js.Any]("/informations", write(informationForBack))
+      .map {JSON.stringify(_)}
+  }
+
+  @JSExport
+  def updateInformations(informationForBack: InformationForBack): Future[String] = /*flatten*/ {
+    http.put[js.Any]("/informations", write(informationForBack))
+      .map {JSON.stringify(_)}
+  }
+
+
+  @JSExport
+  def deleteInformations(informationId: String): Future[String] = /*flatten*/ {
+    http.delete[js.Any]("s/informations/" + informationId)
+      .map {JSON.stringify(_)}
+  }
+
 
   def versionedStringToVersionedStringToBindScope(presentation: VersionedString): VersionedStringToBindScope = {
     val pres = new Object().asInstanceOf[VersionedStringToBindScope]

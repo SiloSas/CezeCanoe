@@ -5,7 +5,7 @@ import java.util.UUID
 import ArticleWithSlider.{ArticleWithSlider, ArticleWithSliderForBack}
 import Booking.{BookingDetail, BookingForm, BookingFormClient, BookingService}
 import Descentes.DescenteService
-import DescentsClient.{Descente, DescenteForBack, PriceForBack}
+import DescentsClient._
 import Home.{ArticleForBack, HomeService}
 import Lang.LangService
 import Occasions.OccasionService
@@ -454,6 +454,7 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     else {
       adminScope.formTemplate = "assets/templates/Admin/homeImages.html"
       adminScope.validate = () => {
+        console.log(adminScope.images)
         homeService.updateImages(adminScope.images.toSeq) onComplete {
           case Success(int) =>
             timeout(() => {
@@ -776,6 +777,90 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         }
       case Failure(t: Throwable) =>
         console.log("error delete partner:" + t)
+    }
+  }
+   
+   // Informations
+
+  getInformations()
+  def getInformations(): Unit = {
+    descenteService.findInformations().onComplete {
+      case Success(informations) =>
+        timeout( () => {
+          adminScope.informations = informations.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get informations")
+    }
+  }
+
+  def setInformation(information: Information): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val newInformation = new Object().asInstanceOf[InformationMutable]
+      newInformation.id = information.id
+      newInformation.information = information.information
+      adminScope.information = newInformation
+      console.log(newInformation)
+      adminScope.formTemplate = "assets/templates/Admin/informationsForm.html"
+      adminScope.validate = () => {
+        val informationToPost = InformationForBack(id = adminScope.information.id,
+          information = adminScope.information.information.toSeq.map(versionedStringToBindScopeToVersionedString))
+        descenteService.updateInformations(informationToPost) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def setNewInformation(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/informationsForm.html"
+      val newInformation = new Object().asInstanceOf[InformationMutable]
+      newInformation.id = UUID.randomUUID().toString
+      newInformation.information = emptyVersionedStringToBindArray()
+      adminScope.information = newInformation
+      adminScope.validate = () => {
+        val informationToPost = InformationForBack(id = adminScope.information.id,
+          information = adminScope.information.information.toSeq.map(versionedStringToBindScopeToVersionedString))
+        postInformation(informationToPost)
+      }
+    }
+  }
+
+  def postInformation(informationForBack: InformationForBack): Unit = {
+    descenteService.postInformations(informationForBack) onComplete {
+      case Success(int) =>
+        timeout ( () => {
+          adminScope.informations.push(Information(adminScope.information.id, adminScope.information.information))
+          needToSave = false
+          console.log("success")
+        })
+      case _ =>
+        console.log("error post information")
+    }
+  }
+
+  def deleteInformation(id: String): Unit = {
+    descenteService.deleteInformations(id) onComplete {
+      case Success(int) =>
+        adminScope.informations.find(_.id == id) match {
+          case Some(information) =>
+            timeout( () => {
+              adminScope.informations.splice(adminScope.informations.indexOf(information), 1)
+            })
+          case _ =>
+            console.log("no information for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete information:" + t)
     }
   }
   // listeners

@@ -1,19 +1,17 @@
 package Slider
 
-import java.awt.Container
-
-import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs._
-import org.scalajs.dom.{Element, document, console}
+import com.greencatsoft.angularjs.core.{Timeout, Window}
 import org.scalajs.dom.html._
-import org.scalajs.dom.raw.{Event, UIEvent}
-import smartcrop.{SmartCropService, CropResult, CropSize}
+import org.scalajs.dom.raw.Event
+import org.scalajs.dom.{Element, console}
+import smartcrop.{CropSize, SmartCropService}
 
 import scala.scalajs.js
-import scala.scalajs.js.timers._
-import scala.scalajs.js.{UndefOr, Any, Function, Object}
-import scala.scalajs.js.annotation.JSExport
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
+import scala.scalajs.js.Object
+import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.timers._
 
 
 @JSExport
@@ -84,7 +82,18 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       var isAlreadyLaunched = false
 
       def insertImages(image: String, image1: String): Unit = {
+        val margin1 = image.split('?').length match {
+          case 2 => image.split('?')(1).toDouble
+          case _ => 0.0
+        }
+        val margin2 = image.split('?').length match {
+          case 2 => image1.split('?')(1).toDouble
+          case _ => 0.0
+        }
+
         imageContainer.src = image
+        imageContainer.style.marginTop = margin1 + "%"
+        imageContainer1.style.marginTop = margin2 + "%"
         imageContainer1.src = image1
       }
 
@@ -210,7 +219,13 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
               }
           }
         } else if (images.length != 0) {
-          imageContainer.src = images.head
+          val image = images.head
+          val margin = image.split('?').length match {
+            case 2 => image.split('?')(1).toDouble
+            case _ => 0.0
+          }
+          imageContainer.src = image
+          imageContainer.style.marginTop = margin + "%"
           //changeImage(imageContainer, slide, js.undefined)
         }
       }

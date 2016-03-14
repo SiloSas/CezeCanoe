@@ -67,6 +67,17 @@
                     </div>
                     <md-button ng-click="controller.setNewPartner()">Ajouter un partner</md-button>
                 </div>
+                <h4 data-ng-click="show = 'informations'">Informations <i class="float-right fa fa-eye"></i> </h4>
+                <div data-ng-show="show == 'informations'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="information in informations">
+                        <h5>{{information.id}}</h5>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.setInformation(information)"><i class="fa fa-pencil"></i></md-button>
+                            <md-button class="md-fab md-mini float-right md-primary"
+                            ng-click="controller.deleteInformation(information.id)"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                    <md-button ng-click="controller.setNewInformation()">Ajouter un information</md-button>
+                </div>
                 <h4 data-ng-click="show = 'images'; controller.setImages()">Images du slider<i class="float-right fa fa-eye"></i> </h4>
             </md-content>
         </md-sidenav>

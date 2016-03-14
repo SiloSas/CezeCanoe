@@ -1,13 +1,13 @@
-import Admin.{TariffFormDirective, TariffsImagesDirective, AdminController}
+import Admin.{heightDirective, AdminController, TariffFormDirective, TariffsImagesDirective}
 import ArticleWithSlider.ArticleWithSliderDirective
-import Booking.{BookingServiceFactory, BookingController}
-import Contact.{ContactModalController, ContactController}
-import Descentes.{fullSliderDirective, DescenteServiceFactory, DescenteController, DescenteDirective}
+import Booking.{BookingController, BookingServiceFactory}
+import Contact.{ContactController, ContactModalController}
+import Descentes.{DescenteController, DescenteDirective, DescenteServiceFactory, fullSliderDirective}
 import Home._
 import Lang.{LangDirective, LangServiceFactory}
 import Occasions.{OccasionController, OccasionServiceFactory}
 import Room.{RoomController, RoomMinDirective}
-import ServicesPage.{ServicesServiceFactory, ServicesController, ServicesService}
+import ServicesPage.{ServicesController, ServicesServiceFactory}
 import Size.SizeDirective
 import Slider.{SliderContentDirective, SliderDirective}
 import VideoPlayer.VideoPlayerDirective
@@ -16,6 +16,7 @@ import contact.ContactDirective
 import example.RoomServiceFactory
 import partner.{PartnerDirective, PartnersController, PartnersServiceFactory}
 import smartcrop.SmartCropDirective
+
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
 
@@ -56,6 +57,7 @@ object App extends JSApp {
       .directive[TopBarContentDirective]
       .directive[DescenteDirective]
       .directive[LangDirective]
+      .directive[heightDirective]
       .directive[TariffsImagesDirective]
       .directive[TariffFormDirective]
       .directive[SizeDirective]

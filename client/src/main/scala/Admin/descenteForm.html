@@ -42,10 +42,18 @@
         <md-subheader>Images</md-subheader>
         <div class="column">
            <span data-ng-repeat="image in descente.images" class="column medium-6 float-left">
-               <smart-crop
+              <!-- <smart-crop
                        image="{{image}}" class="width100p float-left relative"
                        style="overflow: hidden" width="100%" height="0.4w">
-               </smart-crop>
+               </smart-crop>-->
+               <div class="float-left width100p" style="overflow: hidden" height="0.4">
+                   <img class="width100p" src="{{image}}" style="margin-top: {{topImage}}%">
+               </div>
+                <input type="number"
+                       ng-init="topImage = image.split('?')[1]"
+                       ng-model="topImage"
+                       ng-blur="descente.images[$index] = image"
+                       ng-change="image = image.split('?')[0] + '?' + topImage; controller.setNeedToSaveToTrue()">
                 <span class="md-primary md-fab md-button zIndex1" data-ng-click="controller.setNeedToSaveToTrue()">
                     <i class="fa fa-download"></i>
                     <input type="file"

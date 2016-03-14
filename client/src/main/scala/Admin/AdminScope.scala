@@ -1,6 +1,7 @@
 package Admin
 
 import ArticleWithSlider.ArticleWithSlider
+import DescentsClient.Information
 import com.greencatsoft.angularjs.core.Scope
 import partner.Partner
 
@@ -27,6 +28,8 @@ trait AdminScope extends Scope {
   var occasion: ArticleWithSliderMutable = js.native
   var partners: js.Array[Partner] = js.native
   var partner: PartnerMutable = js.native
+  var informations: js.Array[Information] = js.native
+  var information: InformationMutable = js.native
 }
 
 
@@ -35,6 +38,10 @@ trait ArticleMutable extends js.Object {
   var content: js.Array[VersionedStringToBindScope] = js.native
   var media: String = js.native
   var yellowThing: js.Array[VersionedStringScope] = js.native
+}
+trait InformationMutable extends js.Object {
+  var id: String = js.native
+  var information: js.Array[VersionedStringToBindScope] = js.native
 }
 trait PartnerMutable extends js.Object {
   var id: String = js.native

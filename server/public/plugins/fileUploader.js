@@ -11,7 +11,7 @@ angular.module('uploader', []).directive('appFilereader', function ($q, $parse, 
                     ImageFactory.postImage(element[0].files[0]).then(function(success) {
                         console.log(modelSetter)
                         console.log(model)
-                        modelSetter(scope, success);
+                        modelSetter(scope, success + "?0");
                     })
                 });
             });
