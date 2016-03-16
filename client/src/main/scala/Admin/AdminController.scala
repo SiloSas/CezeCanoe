@@ -6,6 +6,7 @@ import ArticleWithSlider.{ArticleWithSlider, ArticleWithSliderForBack}
 import Booking.{BookingDetail, BookingForm, BookingFormClient, BookingService}
 import Descentes.DescenteService
 import DescentsClient._
+import Groups.GroupService
 import Home.{ArticleForBack, HomeService}
 import Lang.LangService
 import Occasions.OccasionService
@@ -27,7 +28,7 @@ import scala.util.{Failure, Success}
 @injectable("adminController")
 class AdminController(adminScope: AdminScope, descenteService: DescenteService, $sce: SceService, servicesService: ServicesService,
                       langService: LangService, timeout: Timeout, homeService: HomeService, bookingService: BookingService,
-                      occasionService: OccasionService, partnerService: PartnersService)
+                      occasionService: OccasionService, groupService: GroupService, partnerService: PartnersService)
   extends AbstractController[AdminScope](adminScope) {
 
   // init var & scope
@@ -689,6 +690,92 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
         }
       case Failure(t: Throwable) =>
         console.log("error delete occasion:" + t)
+    }
+  }
+   
+  // Groups
+
+  getGroups()
+  def getGroups(): Unit = {
+    groupService.findAll().onComplete {
+      case Success(groups) =>
+        timeout( () => {
+          adminScope.groups = groups.toJSArray
+        })
+      case Failure(t: Throwable) =>
+        console.log("fail get groups")
+    }
+  }
+
+  def setGroup(group: ArticleWithSlider): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      val newGroup = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newGroup.id = group.id
+      newGroup.content = group.content
+      newGroup.images = group.images
+      adminScope.group = newGroup
+      console.log(newGroup)
+      adminScope.formTemplate = "assets/templates/Admin/groupForm.html"
+      adminScope.validate = () => {
+        val articleToPost = ArticleWithSliderForBack(id = adminScope.group.id, content = adminScope.group.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.group.images)
+        groupService.update(articleToPost) onComplete {
+          case Success(int) =>
+            timeout(() => {
+              needToSave = false
+            })
+
+          case Failure(t: Throwable) =>
+            console.log("bad")
+        }
+      }
+    }
+  }
+
+  def setNewGroup(): Unit = {
+    if (needToSave) alert("Veuillez sauvegarder ou annuler les changements")
+    else {
+      adminScope.formTemplate = "assets/templates/Admin/groupForm.html"
+      val newGroup = new Object().asInstanceOf[ArticleWithSliderMutable]
+      newGroup.id = UUID.randomUUID().toString
+      newGroup.content = emptyVersionedStringToBindArray()
+      newGroup.images = Seq.empty[String].toJSArray
+      adminScope.group = newGroup
+      adminScope.validate = () => {
+      val articleToPost = ArticleWithSliderForBack(id = adminScope.group.id, content = adminScope.group.content.toSeq.map(versionedStringToBindScopeToVersionedString),
+          adminScope.group.images)
+        postGroup(articleToPost)
+      }
+    }
+  }
+
+  def postGroup(articleWithSlider: ArticleWithSliderForBack): Unit = {
+    groupService.post(articleWithSlider) onComplete {
+      case Success(int) =>
+        timeout ( () => {
+          adminScope.groups.push(ArticleWithSlider(adminScope.group.id, adminScope.group.content, adminScope.group.images))
+          needToSave = false
+          console.log("success")
+        })
+      case _ =>
+        console.log("error post group")
+    }
+  }
+
+  def deleteGroup(id: String): Unit = {
+    groupService.delete(id) onComplete {
+      case Success(int) =>
+        adminScope.groups.find(_.id == id) match {
+          case Some(group) =>
+            timeout( () => {
+              adminScope.groups.splice(adminScope.groups.indexOf(group), 1)
+            })
+          case _ =>
+            console.log("no group for this id")
+        }
+      case Failure(t: Throwable) =>
+        console.log("error delete group:" + t)
     }
   }
    

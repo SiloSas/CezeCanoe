@@ -107,6 +107,12 @@ content VARCHAR,
 images VARCHAR
 );
 
+CREATE TABLE groups (
+id VARCHAR ,
+content VARCHAR,
+images VARCHAR
+);
+
 CREATE TABLE partners (
 id VARCHAR ,
 content VARCHAR,

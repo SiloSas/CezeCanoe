@@ -56,6 +56,17 @@
                     </div>
                     <md-button ng-click="controller.setNewOccasion()">Ajouter un occasion</md-button>
                 </div>
+                <h4 data-ng-click="show = 'groups'">Groups <i class="float-right fa fa-eye"></i> </h4>
+                <div data-ng-show="show == 'groups'">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="group in groups">
+                        <h5>{{group.id}}</h5>
+                        <md-button class="md-fab md-mini float-right md-primary"
+                        ng-click="controller.setGroup(group)"><i class="fa fa-pencil"></i></md-button>
+                        <md-button class="md-fab md-mini float-right md-primary"
+                        ng-click="controller.deleteGroup(group.id)"><i class="fa fa-trash"></i></md-button>
+                    </div>
+                    <md-button ng-click="controller.setNewGroup()">Ajouter un group</md-button>
+                </div>
                 <h4 data-ng-click="show = 'partners'">Partners <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'partners'">
                     <div class="column md-whiteframe-z1" data-ng-repeat="partner in partners">

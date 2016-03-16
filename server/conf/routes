@@ -35,6 +35,10 @@ GET     /occasion			    	@Occasion.OccasionController.findAll
 POST    /occasion			    	@Occasion.OccasionController.save
 PUT     /occasion				    @Occasion.OccasionController.update
 DELETE  /occasion/:id   		    @Occasion.OccasionController.delete(id: String)
+GET     /group			    	    @Group.GroupController.findAll
+POST    /group			    	    @Group.GroupController.save
+PUT     /group				        @Group.GroupController.update
+DELETE  /group/:id   		        @Group.GroupController.delete(id: String)
 GET     /booking			    	@BookingBack.BookingController.findAll
 POST    /booking			    	@BookingBack.BookingController.save
 POST    /upload                     @Descentes.DescentesController.uploadImage

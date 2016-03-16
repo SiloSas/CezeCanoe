@@ -26,6 +26,8 @@ trait AdminScope extends Scope {
   var service: ArticleWithSliderMutable = js.native
   var occasions: js.Array[ArticleWithSlider] = js.native
   var occasion: ArticleWithSliderMutable = js.native
+  var groups: js.Array[ArticleWithSlider] = js.native
+  var group: ArticleWithSliderMutable = js.native
   var partners: js.Array[Partner] = js.native
   var partner: PartnerMutable = js.native
   var informations: js.Array[Information] = js.native

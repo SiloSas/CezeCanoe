@@ -3,6 +3,7 @@ import ArticleWithSlider.ArticleWithSliderDirective
 import Booking.{BookingController, BookingServiceFactory}
 import Contact.{ContactController, ContactModalController}
 import Descentes.{DescenteController, DescenteDirective, DescenteServiceFactory, fullSliderDirective}
+import Groups.GroupServiceFactory
 import Home._
 import Lang.{LangDirective, LangServiceFactory}
 import Occasions.{OccasionController, OccasionServiceFactory}
@@ -14,6 +15,7 @@ import VideoPlayer.VideoPlayerDirective
 import com.greencatsoft.angularjs._
 import contact.ContactDirective
 import example.RoomServiceFactory
+import groups.GroupsController
 import partner.{PartnerDirective, PartnersController, PartnersServiceFactory}
 import smartcrop.SmartCropDirective
 
@@ -36,6 +38,7 @@ object App extends JSApp {
     .factory[ServicesServiceFactory]
     .factory[OccasionServiceFactory]
     .factory[PartnersServiceFactory]
+    .factory[GroupServiceFactory]
     .controller[RoomController]
     .controller[HomeController]
     .controller[DescenteController]
@@ -47,6 +50,7 @@ object App extends JSApp {
     .controller[ContactController]
     .controller[ContactModalController]
     .controller[PartnersController]
+    .controller[GroupsController]
     .directive[RoomMinDirective]
       .directive[SmartCropDirective]
       .directive[SliderDirective]

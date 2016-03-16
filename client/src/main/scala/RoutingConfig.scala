@@ -32,6 +32,12 @@ object RoutingConfig extends Config {
           templateUrl = "/assets/templates/Occasions/occasions.html",
           controller = "occasionController",
           title = "Occasions"))
+      .when(
+        path = "/groups",
+        route = Route(
+          templateUrl = "/assets/templates/groups/groups.html",
+          controller = "groupsController",
+          title = "Groups"))
 
       .when(
         path = "/booking/:id",

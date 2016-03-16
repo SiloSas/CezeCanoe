@@ -30,7 +30,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var pricesDetails: List[BookingPrice] = List.empty
   var lang = langService.lang
   langService.get(bookingScope, () => lang = langService.lang)
-  var minDate = new Date
+  var minDate = new Date()
   var isGroup = false
   var reduction = 0.0
 

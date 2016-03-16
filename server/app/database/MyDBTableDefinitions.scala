@@ -153,6 +153,20 @@ trait MyDBTableDefinitions {
   }
   lazy val occasions = TableQuery[Occasions]
 
+  class Groups(tag: Tag) extends Table[ArticleWithSlider](tag, "groups") {
+    def id = column[String]("id")
+    def content = column[String]("content")
+    def images = column[String]("images")
+
+    def * = (id, content, images).shaped <> (
+      { case (id, content, images) =>
+        ArticleWithSlider(id, read[Seq[VersionedString]](content), read[Seq[String]](images))
+      }, { article: ArticleWithSlider =>
+      Some(article.id, write(article.content), write(article.images))
+    })
+  }
+  lazy val groups = TableQuery[Groups]
+
   class Partners(tag: Tag) extends Table[Partner](tag, "partners") {
     def id = column[String]("id")
     def content = column[String]("content")
