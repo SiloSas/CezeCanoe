@@ -54,7 +54,7 @@
         <h3 class="column large-12 textBlack">Choix des embarcations</h3>
         <div data-ng-repeat="price in descente.prices" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
             <md-input-container class="column medium-6">
-                <label class="textBlack" ><b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
+                <label class="textBlack" ><b>{{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
                 <input type="number" min="0" ng-model="number" ng-change="computeTotalPrice(price, number)">
                 <div data-ng-show="number">Sous-total: {{number*price.price}} €</div>
             </md-input-container>
@@ -67,12 +67,12 @@
         </div>
         <div data-ng-repeat="price in tariffs" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
             <md-input-container class="column medium-6" ng-if="!price.isSupplement">
-                <label class="textBlack" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
+                <label class="textBlack" > <b>{{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
                 <input type="number" min="0"  ng-model="number" ng-change="computeTotalPrice(price, number); controller.computeReduction()">
                 <div data-ng-show="number">Sous-total: {{number*price.price}} €</div>
             </md-input-container>
             <md-input-container class="column medium-6" ng-if="price.isSupplement">
-                <label class="textBlack" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}
+                <label class="textBlack" > <b>{{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}
                     ({{price.price + descente.prices[0].price}} €)</b></label>
                 <input type="number"  min="0" ng-model="number" ng-change="computeTotalPrice(price, number); controller.computeReduction()">
                 <div data-ng-show="number">Sous-total: {{number*price.price + number*descente.prices[0].price}} €</div>
