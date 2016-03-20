@@ -31,9 +31,14 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var lang = langService.lang
   langService.get(bookingScope, () => lang = langService.lang)
   var minDate = new Date()
+  var minHour = new Date().getHours() + 6
   var isGroup = false
   var reduction = 0.0
 
+  def changeMinHour(date: js.Date): Unit = {
+    if(date.getDate() > minDate.getDate()) minHour = 0
+    else minHour = minDate.getHours() + 6
+  }
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
     case Success(descente) =>

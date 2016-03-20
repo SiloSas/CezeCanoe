@@ -7,42 +7,54 @@
         <h3>Informations Générales</h3>
         <div class="column large-6">
             <md-datepicker ng-model="booking.date" class="float-left width100p" style="background: transparent" md-placeholder="date"
+                           ng-change="controller.changeMinHour(booking.date)"
                            md-min-date="controller.minDate" required>
             </md-datepicker>
         </div>
-        <md-input-container class="column large-6">
-            <label class="textColorWhite" data-ng-show="controller.lang == 'Fr'"><b>Heure de départ: </b></label>
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'En'"><b>Start time: </b></label>
-            <input type="time" ng-model="booking.startTime" required/>
+        <md-input-container class="column large-3">
+            <label class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Heure de départ: </b></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>Start Hours: </b></label>
+            <input type="number" ng-model="hours"
+                   ng-change="booking.startTime = hours + ' : ' + minutes"
+                   ng-init="hours = controller.minHour; booking.startTime = hours" min="{{controller.minHour}}"
+                   max="15" required/>
+        </md-input-container>
+        <md-input-container class="column large-3">
+            <label class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Minutes</b></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b> Minutes</b></label>
+            <input type="number" ng-model="minutes" step="5"
+                   min="0"
+                   max="60"
+                   ng-change="booking.startTime = hours + ' : ' + minutes" ng-init="minutes = 00" required/>
         </md-input-container>
         <md-input-container class="column large-6">
-            <label class="textColorWhite"  data-ng-show="controller.lang == 'Fr'"><b>Nom: </b></label></label>
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'En'"><b>Name:</b></label></label>
+            <label class="textBlack"  data-ng-show="controller.lang == 'Fr'"><b>Nom: </b></label></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>Name:</b></label></label>
             <input type="text" ng-model="booking.name" required/>
         </md-input-container>
         <md-input-container class="column large-6">
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'Fr'"><b>Prénom:</b></label></label>
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'En'"><b>First name:</b></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Prénom:</b></label></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>First name:</b></label>
             <input type="text" ng-model="booking.firstName" required/>
         </md-input-container>
         <md-input-container class="column large-6">
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'Fr'"><b>Adresse:</b></label></label>
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'En'"><b>Address:</b></label></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Adresse:</b></label></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>Address:</b></label></label>
             <input type="text" ng-model="booking.address" required/>
         </md-input-container>
         <md-input-container class="column large-6">
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'Fr'"><b>Telephone:</b></label>
-            <label  class="textColorWhite" data-ng-show="controller.lang == 'En'"><b>Phone number:</b></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Telephone:</b></label>
+            <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>Phone number:</b></label>
             <input type="text" ng-model="booking.phoneNumber" required/>
         </md-input-container>
         <md-input-container class="column large-6">
-            <label class="textColorWhite"><b>Email:</b></label>
+            <label class="textBlack"><b>Email:</b></label>
             <input type="email" ng-model="booking.email" required/>
         </md-input-container>
-        <h3 class="column large-12 textColorWhite">Choix des embarcations</h3>
+        <h3 class="column large-12 textBlack">Choix des embarcations</h3>
         <div data-ng-repeat="price in descente.prices" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
             <md-input-container class="column medium-6">
-                <label class="textColorWhite" ><b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
+                <label class="textBlack" ><b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
                 <input type="number" min="0" ng-model="number" ng-change="computeTotalPrice(price, number)">
                 <div data-ng-show="number">Sous-total: {{number*price.price}} €</div>
             </md-input-container>
@@ -55,12 +67,12 @@
         </div>
         <div data-ng-repeat="price in tariffs" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
             <md-input-container class="column medium-6" ng-if="!price.isSupplement">
-                <label class="textColorWhite" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
+                <label class="textBlack" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
                 <input type="number" min="0"  ng-model="number" ng-change="computeTotalPrice(price, number); controller.computeReduction()">
                 <div data-ng-show="number">Sous-total: {{number*price.price}} €</div>
             </md-input-container>
             <md-input-container class="column medium-6" ng-if="price.isSupplement">
-                <label class="textColorWhite" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}
+                <label class="textBlack" > <b>nombre de: {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}
                     ({{price.price + descente.prices[0].price}} €)</b></label>
                 <input type="number"  min="0" ng-model="number" ng-change="computeTotalPrice(price, number); controller.computeReduction()">
                 <div data-ng-show="number">Sous-total: {{number*price.price + number*descente.prices[0].price}} €</div>

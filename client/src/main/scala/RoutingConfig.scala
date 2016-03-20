@@ -52,6 +52,12 @@ object RoutingConfig extends Config {
           controller = "contactController",
           title = "Contact"))
       .when(
+        path = "/contactForm",
+        route = Route(
+          templateUrl = "/assets/templates/Contact/contactForm.html",
+          controller = "contactController",
+          title = "Contact"))
+      .when(
         path = "/partners",
         route = Route(
           templateUrl = "/assets/templates/partner/partners.html",

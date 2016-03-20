@@ -14,7 +14,7 @@
         <h3>{{time = (descente.time | filter: {'lang': controller.lang})[0].presentation}}</h3>
         <span data-ng-bind-html="presentation = (descente.presentation | filter: {'lang': controller.lang})[0].presentation"></span>
         <b class="column large-6 descentePrices float-left"
-           ng-class="{'smallerPrice': $last}"
+           ng-class="{'smallerPrice': !$first}"
            data-ng-repeat="price in descente.prices">{{price.price}}€/ {{name = (price.name | filter: {'lang': controller.lang})[0].presentation}}</b>
         <md-button class="md-raised md-primary md-hue-1 float-right" href="#/booking/{{descente.id}}">
             <span data-ng-show="controller.lang == 'Fr'">Réserver</span>

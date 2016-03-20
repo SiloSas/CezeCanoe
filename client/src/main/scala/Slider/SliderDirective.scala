@@ -86,11 +86,10 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           case 2 => image.split('?')(1).toDouble
           case _ => 0.0
         }
-        val margin2 = image.split('?').length match {
+        val margin2 = image1.split('?').length match {
           case 2 => image1.split('?')(1).toDouble
           case _ => 0.0
         }
-
         imageContainer.src = image
         imageContainer.style.marginTop = margin1 + "%"
         imageContainer1.style.marginTop = margin2 + "%"

@@ -42,15 +42,14 @@
     <div class="md-whiteframe-z1 float-left yellowThing yellowThing-bottom column medium-10 margin10 large-4" data-ng-repeat="information in informations">
         <span data-ng-bind-html="informationToDisplay = (information.information | filter: {'lang': controller.lang})[0].presentation"></span>
     </div>
-    <div class="column large-12" data-ng-repeat="tariff in tariffs" ng-if="tariff.medias.length">
+    <div class="column large-12 marginTop10" data-ng-repeat="tariff in tariffs" ng-if="tariff.medias.length">
         <div class="column padding0">
-            <div class="md-whiteframe-z1 float-left yellowThing column medium-6 marginTop0 large-6" style="top: 40px; z-index: 4">
+            <div class="md-whiteframe-z1 top0 float-left yellowThing column medium-6 marginTop0 large-6" style="top: 40px; z-index: 4">
                 {{name = (tariff.name | filter: {'lang': controller.lang})[0].presentation}}: <span ng-if="tariff.isSupplement">+</span>{{tariff.price}} €
             </div>
         </div>
        <div data-ng-repeat="media in tariff.medias"
-            class=" column medium-6 float-left paddingRight0 paddingLeft0"
-            ng-class="{'paddingTop40': $index%2 == 0, 'top-40 bigger-right': $index%2 == 1}">
+            class=" column medium-6 float-left">
            <div class="float-left homeArticleMedia paddingBottom0 width100p relative">
             <smart-crop
                     image="{{media}}" class="width100p float-left relative"
@@ -58,7 +57,7 @@
                     style="overflow: hidden" width="100%" height="0.41w"></smart-crop>
             <smart-crop image="{{media}}"
                         ng-if="$index%2 == 1"
-                        class="width100p float-left relative" style="overflow: hidden" width="100%" height="0.61w"></smart-crop>
+                        class="width100p float-left relative" style="overflow: hidden" width="100%" height="0.41w"></smart-crop>
            </div>
        </div>
     </div>

@@ -9,7 +9,7 @@ import play.api.mvc.{Action, Controller}
 
 class MailService @Inject() (mailerClient: MailerClient, recipient: String) extends Controller {
 
-  val destinationMail = Seq("<romeo.cezecanoes@gmail.com >")
+  val destinationMail = Seq("<romeo.cezecanoes@gmail.com >, <cezecanoes@gmail.com>")
 
   def sendNotificationMail() = Action(parse.json) { request =>
     val content = request.body.as[JsObject].toString()
