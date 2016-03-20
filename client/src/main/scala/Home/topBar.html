@@ -18,8 +18,9 @@
     <md-button class="md-raised" ng-class="{'current': controller.current == 5}" aria-label="Occasions" ng-href="#/occasions">
         Occasions
     </md-button>
-    <md-button class="md-raised" ng-class="{'current': controller.current == 6}" aria-label="Occasions" ng-href="#/groups">
-        Groups
+    <md-button class="md-raised" ng-class="{'current': controller.current == 6}" aria-label="Groups" ng-href="#/groups">
+        <span data-ng-show="controller.lang == 'Fr'">Groupes</span>
+        <span data-ng-show="controller.lang == 'En'">Groups</span>
     </md-button>
     <md-button class="md-raised contact" ng-click="directive.openContact()"
                ng-href="" aria-label="Contact">
