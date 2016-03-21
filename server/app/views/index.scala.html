@@ -8,6 +8,7 @@
        <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
       </md-button>
       <top-bar-content class="column" hide-sm hide-md></top-bar-content>
+      <lang class="float-right" hide-gt-md></lang>
     </div>
   </md-toolbar>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="z-index: 99999" ng-click="directive.toggleLeft()" md-component-id="left">
@@ -18,13 +19,20 @@
   id="title"
   style="z-index: 9999; animation-delay: 0.5s"></object>
   <md-content class="height100p column large-12 padding0" id="mainContent" ng-controller="mainController"  style="overflow-x: hidden; background: transparent">
-    <lang class="float-right absolute"></lang>
-    <h3 class="absolute" style="z-index: 9999;
-    padding: 15px;
-    right: 150px;">
-      <i class="fa fa-phone"></i>
-      <b>04 66 82 37 88</b>
-    </h3>
+    <div class="width100p float-left" style="height: 100px; background: #3B8686;" hide-sm hide-md>
+      <section id="wave">
+        @*<div class="wave-left"></div>*@
+        @*<div class="wave-right"></div>*@
+      </section>
+      <lang class="float-right marginTop20"></lang>
+      <h3 class="float-right relative" style="z-index: 9999;
+      padding: 15px; color: #014048">
+        <b>04 66 82 37 88</b><br/>
+        <b>06 88 69 74 09</b>
+      </h3>
+      <i class="fa fa-phone height100p float-right relative marginTop20" style="font-size: 40px;
+      line-height: 75px; color: #014048"></i>
+    </div>
     <slider images="{{images}}" class="width100p"></slider>
     <md-toolbar ng-if="true" id="middleBar" class="transparent" style="top: -32px; z-index: 9999;" hide-md hide-sm>
       <div class="md-toolbar-tools">
@@ -38,7 +46,7 @@
         <img style="height: 170px" src="https://static.wixstatic.com/media/332f77_631832384b5649bdbac1b9ef3dea1580.jpg/v1/fill/w_198,h_279,al_c,q_75,usm_0.50_1.20_0.00/332f77_631832384b5649bdbac1b9ef3dea1580.jpg">
         <iframe class="column medium-2 float-right" style="border: none" src="http://www.ceze-canoes.com.usrfiles.com/html/332f77_a51adb6e9d7ba02a19d8c0ff8bc9ceab.html"></iframe>
       </div>
-      <b class="column text-center">© 2015 by Cèze Canoës. Société SARL au capital de 10000 €
+      <b class="column text-center">© by Cèze Canoës. Société SARL au capital de 10000 €
         <a class="fa fa-facebook padding10" href="https://www.facebook.com/pages/Ceze-Canoes/439659002843897?fref=ts" target="_blank"></a>
         <br/>
         <i class="fa fa-phone"></i>

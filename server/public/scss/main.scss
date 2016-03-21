@@ -59,7 +59,76 @@ body, html {
 .tooltip-trigger:hover >.tooltip-custom {
   display: block;
 }
+#wave {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  background: #FFCB05;
+}
 
+#wave:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 56%;
+  height: 92px;
+  background-color: #3B8686;
+  right: -3%;
+  top: 37px;
+}
+
+#wave:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55.4%;
+  height: 70px;
+  background-color: #FFCB05;
+  left: -1%;
+  top: 27px;
+}
+
+.wave-left {
+  width: 57%;
+  height: 75px;
+  border-bottom: solid 5px #014048;
+  border-radius: 100% 42% 84%;
+  z-index: 9999999;
+  position: absolute;
+}
+.wave-left:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2%;
+  background-color: #E5EEC1;
+  right: 0;
+  height: 40px;
+}
+.wave-right:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 9%;
+  background-color: #E5EEC1;
+  height: 21px;
+  bottom: 28px;
+  border-radius: 100% 0% 109%;
+  border-top: solid 6px #E5EEC1;
+}
+
+.wave-right {
+  width: 57%;
+  border-top: solid 5px #014048;
+  border-radius: 100% 32%;
+  z-index: 9999999;
+  position: absolute;
+  left: 50%;
+  height: 95px;
+  margin-top: 5px;
+}
 
 .slider {
   background: #E8DDCB;
