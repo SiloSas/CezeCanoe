@@ -19,7 +19,7 @@ object RoutingConfig extends Config {
         route = Route(
           templateUrl = "/assets/templates/Descentes/descentes.html",
           controller = "descenteController",
-          title = "Descentes"))
+          title = "tarifs des parcours en canoe kayak de ceze canoes"))
       .when(
         path = "/services",
         route = Route(
@@ -31,13 +31,13 @@ object RoutingConfig extends Config {
         route = Route(
           templateUrl = "/assets/templates/Occasions/occasions.html",
           controller = "occasionController",
-          title = "Occasions"))
+          title = "vente de materiel occason canoe-kayak"))
       .when(
         path = "/groups",
         route = Route(
           templateUrl = "/assets/templates/groups/groups.html",
           controller = "groupsController",
-          title = "Groups"))
+          title = "sortie pour groupe en canoe-kayak"))
 
       .when(
         path = "/booking/:id",
