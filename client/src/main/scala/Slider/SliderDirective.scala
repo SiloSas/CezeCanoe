@@ -92,8 +92,8 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
         }
         imageContainer.src = image
         imageContainer.style.marginTop = margin1 + "%"
-        imageContainer1.style.marginTop = margin2 + "%"
         imageContainer1.src = image1
+        imageContainer1.style.marginTop = margin2 + "%"
       }
 
       def next (): Unit = {
@@ -112,9 +112,9 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           else if (index < imagesLength - 1) images(index + 1)
           else images(0)
 
-        insertImages(image, image1)
 
         timeout(fn = () => {
+          insertImages(image, image1)
           if (activeSlide == 0) {
             //if(imagesToDraw.exists(_.image == imageContainer.src )) {
               /*drawImage(imagesToDraw.filter(_.image == imageContainer.src).head, imageContainer,
@@ -214,6 +214,8 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
           if (!play) {
               play = true
               if (!isAlreadyLaunched) {
+                index = 1
+                insertImages(images.head, images(1))
                 next()
               }
           }
