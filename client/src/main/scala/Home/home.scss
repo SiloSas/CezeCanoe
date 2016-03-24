@@ -73,7 +73,7 @@ top-bar-content > * > .md-button {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #3B8686 !important;
+  background-color: #2FB7C7 !important;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
   box-shadow: 0 1px 4px #79BD9A;
   cursor: pointer !important;
@@ -85,7 +85,7 @@ top-bar-content > * > .md-button {
 top-bar-content > * > .md-button:hover, top-bar-content > * > .md-button.current {
             background-color: #E5EEC1!important;
             transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-            color: #3B8686!important;
+            color: #2FB7C7!important;
           }
 @media (max-width: 600px) {
   .bigger-right {

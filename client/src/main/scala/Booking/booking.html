@@ -15,8 +15,7 @@
             <label class="textBlack" data-ng-show="controller.lang == 'Fr'"><b>Heure de départ: </b></label>
             <label  class="textBlack" data-ng-show="controller.lang == 'En'"><b>Start Hours: </b></label>
             <input type="number" ng-model="hours"
-                   ng-change="booking.startTime = hours + ' : ' + minutes"
-                   ng-init="hours = controller.minHour; booking.startTime = hours" min="{{controller.minHour}}"
+                   ng-change="booking.startTime = hours + ' : ' + minutes" min="{{controller.minHour}}"
                    max="15" required/>
         </md-input-container>
         <md-input-container class="column large-3">
@@ -86,16 +85,18 @@
         </div>
         <div class="column large-12" ><b data-ng-show="total > 0">Total: {{total}} €</b></div>
         <div class="column large-12">
-            <md-checkbox ng-model="booking.isGroup" ng-change="controller.isGroup = booking.isGroup; controller.computeReduction()"
+            <md-checkbox ng-model="booking.isGroup"
+                         ng-show="descente.groupReduction != 0"
+                         ng-change="controller.isGroup = booking.isGroup; controller.computeReduction()"
                      ng-init="booking.isGroup = false" aria-label="isGroup" class="md-primary">
-                Bénéficier d'une réduction de groupe de {{descente.groupReduction}}% (minimum 10 persones)?
+                Bénéficier d'une réduction de groupe de {{descente.groupReduction}}% (minimum 10 personnes)?
                 <span data-ng-show="controller.reduction > 0">  reduction: {{controller.reduction}} €</span>
             </md-checkbox>
         <span data-ng-show="booking.isGroup" class="column"><b>Total: {{total - controller.reduction}} €</b></span></div>
     </div>
     <div class="column large-12">
         <b>Message</b>
-        <textarea ng-model="message" class="column large-12"></textarea>
+        <textarea ng-model="message" ng-init="message = ''" class="column large-12"></textarea>
     </div><br/>
     <md-checkbox ng-model="conditionGeneral" aria-label="conditionGeneral" class="md-primary">
         J'accepte les <a href="#/conditionGeneral" style="color: #3B8686">conditions générales</a>
@@ -151,4 +152,9 @@
     </div>
     <md-button type="submit" class="md-primary md-hue-1 md-raised float-left">Valider</md-button>
 </form>
+<div ng-if="controller.validationMessage.length">
+    {{controller.validationMessage}}
+    <md-progress-linear md-mode="query" class="column" ng-show="controller.validationMessage == 'loading'">
+    </md-progress-linear>
+</div>
 <div class="column padding50"></div>

@@ -16,7 +16,12 @@
                        ng-init="topImage = image.split('?')[1]"
                        ng-model="topImage"
                        ng-blur="service.images[$index] = image"
-                       ng-change="image = image.split('?')[0] + '?' + topImage; controller.setNeedToSaveToTrue()">
+                       ng-change="imageChanged = true;
+                       image = image.split('?')[0] + '?' + topImage; controller.setNeedToSaveToTrue()">
+               <md-button class="md-primary md-raised"
+                          ng-show="imageChanged"
+                          ng-click="descente.images[$index] = image"
+                       >Valider les modifications de l'image</md-button>
             <span class="md-primary md-fab md-button zIndex1" data-ng-click="controller.setNeedToSaveToTrue()">
                 <i class="fa fa-download"></i>
                 <input type="file"

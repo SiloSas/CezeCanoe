@@ -18,6 +18,7 @@ import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.scalajs.js.annotation.JSExportAll
 import scala.scalajs.js.{Date, JSON}
 import scala.util.Success
+import scala.util.control.NonFatal
 
 @JSExportAll
 @injectable("bookingController")
@@ -34,6 +35,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var minHour = new Date().getHours() + 6
   var isGroup = false
   var reduction = 0.0
+  var validationMessage = ""
 
   def changeMinHour(date: js.Date): Unit = {
     if(date.getDate() > minDate.getDate()) minHour = 0
@@ -79,6 +81,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
     val prices = pricesDetails.toSeq map {price =>
       BookingDetail(priceId = price.id, number = price.numberToBook)
     }
+    validationMessage = "loading"
     console.log(creditCard)
     val newCreditCard = read[CreditCard](JSON.stringify(creditCard))
     val email = read[BookingFormClient](JSON.stringify(bookingForm)).email + "--.," + message
@@ -88,13 +91,17 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
       isGroup = read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
     console.log(write(newBooking))
     console.log(write(newCreditCard))
-    bookingService.post(newBooking, newCreditCard).onComplete {
-      case Success(int) =>
+    bookingService.post(newBooking, newCreditCard).map {
+      case int if int.toInt == 1 =>
+        timeout(() => validationMessage = "Reservation validée")
         val a = mdToast.simple("Reservation validée")
         mdToast.show(a)
         console.log(int)
       case _ =>
+        timeout(() => validationMessage = "Une erreur s'est produite")
         print("post booking error")
+    } recover { case NonFatal(e) =>
+      timeout(() => validationMessage = "Une erreur s'est produite")
     }
   }
 

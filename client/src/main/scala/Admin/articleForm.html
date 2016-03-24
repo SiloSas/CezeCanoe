@@ -20,12 +20,9 @@
 
     <md-input-container class="width100p">
         <label>Informations </label>
-        <textarea
-                class="column large-12 md-whiteframe-z1"
-                ng-change="controller.setNeedToSaveToTrue()"
+        <input  ng-change="controller.setNeedToSaveToTrue()"
                 ng-init="yellowThing.presentation = yellowThing.presentation.toString()"
-                text-angular="text-angular"
-                ta-disabled='disabled'
-                ng-model="yellowThing.presentation"  data-ng-repeat="yellowThing in article.yellowThing | filter: {lang: $root.lang}"></textarea>
+                ng-model="yellowThing.presentation"
+                data-ng-repeat="yellowThing in article.yellowThing | filter: {lang: $root.lang}"/>
     </md-input-container>
 </form>
