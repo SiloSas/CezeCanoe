@@ -32,7 +32,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var lang = langService.lang
   langService.get(bookingScope, () => lang = langService.lang)
   var minDate = new Date()
-  var minHour = new Date().getHours() + 6
+  var minHour = 9
   var isGroup = false
   var reduction = 0.0
   var validationMessage = ""
