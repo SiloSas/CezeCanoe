@@ -92,15 +92,11 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
       isGroup = read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
     console.log(write(newBooking))
     console.log(write(newCreditCard))
-    bookingService.post(newBooking, newCreditCard).map {
-      case int if int.toInt == 1 =>
-        timeout(() => validationMessage = "Reservation validée")
+    bookingService.post(newBooking, newCreditCard).map { response =>
+        timeout(() => validationMessage = "Reservation validée: Total:" + response + "€")
         val a = mdToast.simple("Reservation validée")
         mdToast.show(a)
-        console.log(int)
-      case _ =>
-        timeout(() => validationMessage = "Une erreur s'est produite")
-        print("post booking error")
+        console.log(response)
     } recover { case NonFatal(e) =>
       timeout(() => validationMessage = "Une erreur s'est produite")
     }
