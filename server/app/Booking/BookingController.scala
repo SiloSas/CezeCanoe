@@ -50,7 +50,7 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
         val a = wsResponse.json \ "state"
         println(a.get.toString())
         val b = a.get
-        if (b.toString().replace("\"", "") == "approved") 1
+        if (b.toString().indexOf("approved") > -1) 1
         else 0
     } recover { case t: Throwable =>
       println(t)
