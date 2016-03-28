@@ -38,8 +38,9 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var validationMessage = ""
 
   def changeMinHour(date: js.Date): Unit = {
-    if(date.getDate() > minDate.getDate()) minHour = 0
-    else minHour = minDate.getHours() + 6
+    console.log(date.getTime())
+    if(date.getTime() > minDate.getTime()) { println(date); timeout(() => minHour = 9)}
+    else timeout(() => minHour = minDate.getHours() + 6)
   }
   val id = routeParams.get("id").toString
   descenteService.findById(id).onComplete {
@@ -68,7 +69,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
         totalPrice = totalPrice + (detail.price * detail.numberToBook + basePrice * detail.numberToBook)
       } else totalPrice = totalPrice + detail.price * detail.numberToBook
     }
-    bookingScope.total = totalPrice
+    bookingScope.total = Math.round(totalPrice * 100) / 100
   }
   def computeReduction(): Unit = {
     timeout( () => {
