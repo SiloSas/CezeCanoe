@@ -143,7 +143,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       }
 
       timeout (fn = () => {
-        setNewHeight(element.clientWidth * 0.4, element)
+        setNewHeight(element.clientWidth * 0.487, element)
         images = element.getAttribute("images").replaceAll("\"", "").replace("[", "").replace("]", "").split(",").toSeq.toJSArray
         imagesLength = images.length
         if (images.length > 1) {
@@ -208,7 +208,7 @@ class SliderDirective(window: Window, timeout: Timeout, smartCropService: SmartC
       def doChange(): Unit = {
         console.log("change")
         imagesToDraw = Seq.empty[ImageToDraw]
-        setNewHeight(element.clientWidth * 0.4, element)
+        setNewHeight(element.clientWidth * 0.487, element)
         if (images.length > 1) {
           index = 0
           if (!play) {
@@ -268,11 +268,11 @@ class SliderContentDirective(window: Window, timeout: Timeout) extends ClassDire
       }
 
       timeout (fn = () => {
-        setNewHeight(window.innerWidth * 0.4)
+        setNewHeight(window.innerWidth * 0.487)
       }, 50, false)
 
       val changeHeight = (event: Event) =>
-        setNewHeight(window.innerWidth * 4)
+        setNewHeight(window.innerWidth * 0.487)
       window.addEventListener("resize", changeHeight)
 
       scope.$on("$destroy", () => {

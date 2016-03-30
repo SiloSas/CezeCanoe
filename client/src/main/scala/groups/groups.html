@@ -17,6 +17,6 @@ randonnee canoe,transport bus,enterrement vie de garcon, enterrement vie de jeun
         <span data-ng-show="controller.lang == 'En'">Occasions</span>
     </div>
     <div class="paddingTop50">
-        <article-with-slider data-ng-repeat="article in groups"></article-with-slider>
+        <article-with-slider data-ng-repeat="article in groups | orderBy: 'content[0].presentation'"></article-with-slider>
     </div>
 </ul>

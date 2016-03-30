@@ -9,6 +9,6 @@
         <span data-ng-show="controller.lang == 'En'">Canoe and kayak rental on the river Ceze</span>
     </div>
     <div style="padding-top: 60px">
-        <home-article data-ng-repeat="article in articles"></home-article>
+        <home-article data-ng-repeat="article in articles | orderBy: 'content[0].presentation'"></home-article>
     </div>
 </ul>

@@ -21,6 +21,12 @@ lang {
   z-index: 9999;
 }
 
+.bar > .md-button, .bar > a {
+  font-size: 17px;
+  padding: 0px 4px!important;
+  margin: 0px 5px!important;
+}
+
 .homeArticleMedia {
   background: url("/assets/images/border.png") no-repeat;
   background-size: 100% auto;

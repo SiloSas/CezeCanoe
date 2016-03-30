@@ -37,6 +37,8 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
   var reduction = 0.0
   var validationMessage = ""
 
+  org.scalajs.dom.document.getElementById("mainContent").scrollTop = window.innerWidth * 0.45
+
   def changeMinHour(date: js.Date): Unit = {
     console.log(date.getTime())
     if(date.getTime() > minDate.getTime()) { println(date); timeout(() => minHour = 9)}

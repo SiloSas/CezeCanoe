@@ -14,11 +14,11 @@
     <span data-ng-show="controller.lang == 'Fr'">Carte , Parcours & Prix</span>
     <span data-ng-show="controller.lang == 'En'">Map, Trips & Prices</span>
 </div>
-<b class="column large-12">
+<b class="column large-12 center">
     <i data-ng-show="controller.lang == 'Fr'">Payez votre descente en ligne pour profiter des prix web. Paiement sécurisé, CB, Visa, MasterCard.
-    Ou bien réservez simplement par téléphone au 04 66 82 37 88</i>
+    <br/>Ou bien réservez simplement par téléphone au 04 66 82 37 88</i>
     <i data-ng-show="controller.lang == 'En'">Book your trip online to benefit discount prices. Secured payment, CB, Visa, MasterCard.
-        Or simply call us to book +(33)4 66 82 37 88</i>
+        <br/>Or simply call us to book +(33)4 66 82 37 88</i>
 </b>
 <div class="width100p float-left text-center">
     <img data-ng-show="controller.lang == 'Fr'" src="assets/images/parcours.png" style="max-width: 100%"/>
@@ -32,14 +32,14 @@
     </span>
     <span data-ng-if="directive.width > 1024 || !directive.width">
         <span class="column large-6" style="position: inherit">
-            <descente ng-repeat="descente in descentes"
+            <descente ng-repeat="descente in descentes | orderBy: 'name[0].presentation'"
                       ng-if="$index%2 == 0 && descente.isVisible"
                       style="position: inherit"
                       class="column padding0 descente">
             </descente>
         </span>
         <span class="column large-6 paddingTop40" style="position: inherit">
-            <descente ng-repeat="descente in descentes"
+            <descente ng-repeat="descente in descentes | orderBy: 'name[0].presentation'"
                       ng-if="$index%2 == 1 && descente.isVisible"
                       style="position: inherit"
                       class="column padding0 descente">

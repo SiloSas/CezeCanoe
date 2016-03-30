@@ -17,6 +17,6 @@ vendre un canoe/kayak d'occasion avec ceze-canoe">
         <span data-ng-show="controller.lang == 'En'">Occasions</span>
     </div>
     <div class="paddingTop50">
-        <article-with-slider data-ng-repeat="article in occasions"></article-with-slider>
+        <article-with-slider data-ng-repeat="article in occasions | orderBy: 'content[0].presentation'"></article-with-slider>
     </div>
 </ul>

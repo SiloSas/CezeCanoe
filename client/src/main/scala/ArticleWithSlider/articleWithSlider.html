@@ -1,6 +1,6 @@
 <div class="column large-12 padding0" ng-if=" $index % 2 == 0 ">
     <div class="column large-4 medium-6 homeArticleContent smaller-left">
-        <span data-ng-bind-html="content = (article.content | filter: {'lang': controller.lang})[0].presentation"></span>
+        <span data-ng-bind-html="(article.content | filter: {'lang': controller.lang})[0].presentation.toString().substring((article.content | filter: {'lang': controller.lang})[0].presentation.toString().indexOf('?') + 1)"></span>
     </div>
     <slider images="{{article.images}}"
             ng-click="fullSlider = true; $parent.index = 0"
@@ -10,10 +10,10 @@
 <div class="column large-12 padding0" ng-if=" $index % 2 == 1 ">
     <slider images="{{article.images}}"
             ng-click="$parent.fullSlider = true; $parent.index = 0"
-            class="column large-4 medium-6 homeArticleMedia relative" style="overflow: hidden">
+            class="column large-8 medium-6 homeArticleMedia relative" style="overflow: hidden">
     </slider>
-    <div class="column medium-6 large-8 homeArticleContent float-left bigger-right marginTop20">
-        <span data-ng-bind-html="content = (article.content | filter: {'lang': controller.lang})[0].presentation"></span>
+    <div class="column medium-6 large-4 homeArticleContent float-left bigger-right marginTop20">
+        <span data-ng-bind-html="(article.content | filter: {'lang': controller.lang})[0].presentation.toString().substring((article.content | filter: {'lang': controller.lang})[0].presentation.toString().indexOf('?') + 1)"></span>
     </div>
 </div>
 <div ng-if="fullSlider && article.images.length > 0"

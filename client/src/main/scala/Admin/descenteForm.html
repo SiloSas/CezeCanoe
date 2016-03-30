@@ -1,4 +1,12 @@
 <div>
+     <span class="float-left width100p">Position actuelle:
+         {{descente.name[0].presentation[descente.name[0].presentation.indexOf('?') -1]}}</span>
+    <md-input-container>
+        <label>Position</label>
+        <input ng-model="position"
+               ng-change="descente.name[0].presentation = position + '?' +
+               descente.name[0].presentation.toString().substring(descente.name[0].presentation.indexOf('?') +1); controller.setNeedToSaveToTrue()">
+    </md-input-container>
     <md-list>
         <md-checkbox ng-model="descente.isVisible" class="md-primary" aria-label="isVisible" ng-change="controller.setNeedToSaveToTrue()">
             isVisible : {{descente.isVisible}}

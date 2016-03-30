@@ -39,7 +39,7 @@ class HomeController(scope: HomeScope, homeService: HomeService, $sce: SceServic
         2
       case contact if contact.indexOf("contact") > -1 =>
         3
-      case occasions if occasions.indexOf("occasions") > -1 =>
+      case occasions if occasions.indexOf("materielOccasion") > -1 =>
         5
       case groups if groups.indexOf("groups") > -1 =>
         6

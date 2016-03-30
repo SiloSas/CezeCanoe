@@ -13,7 +13,7 @@
                 <h4 data-ng-click="show = ''; formTemplate = false">Réservations<i class="float-right fa fa-eye"></i> </h4>
                 <h4 data-ng-click="show = 'descentes'">Descentes <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'descentes'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="descente in descentes | orderBy: 'name[0].presentation'">
                         <h5>{{name = (descente.name | filter: {'lang': $root.lang})[0].presentation}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="setDescente(descente)"><i class="fa fa-pencil"></i></md-button>
@@ -25,7 +25,7 @@
                 <h4 data-ng-click="show = 'prices'; controller.setPrices()">Tarifs généraux <i class="float-right fa fa-eye"></i> </h4>
                 <h4 data-ng-click="show = 'articles'">Articles (home)<i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'articles'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="article in articles">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="article in articles | orderBy: 'content[0].presentation'">
                         <h5>{{article.id}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="controller.setArticle(article)"><i class="fa fa-pencil"></i></md-button>
@@ -36,7 +36,7 @@
                 </div>
                 <h4 data-ng-click="show = 'services'">Services <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'services'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="service in services">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="service in services | orderBy: 'content[0].presentation'">
                         <h5>{{service.id}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="controller.setService(service)"><i class="fa fa-pencil"></i></md-button>
@@ -47,7 +47,7 @@
                 </div>
                 <h4 data-ng-click="show = 'occasions'">Occasions <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'occasions'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="occasion in occasions">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="occasion in occasions | orderBy: 'content[0].presentation'">
                         <h5>{{occasion.id}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="controller.setOccasion(occasion)"><i class="fa fa-pencil"></i></md-button>
@@ -58,7 +58,7 @@
                 </div>
                 <h4 data-ng-click="show = 'groups'">Groups <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'groups'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="group in groups">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="group in groups | orderBy: 'content[0].presentation'">
                         <h5>{{group.id}}</h5>
                         <md-button class="md-fab md-mini float-right md-primary"
                         ng-click="controller.setGroup(group)"><i class="fa fa-pencil"></i></md-button>
@@ -69,7 +69,7 @@
                 </div>
                 <h4 data-ng-click="show = 'partners'">Partners <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'partners'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="partner in partners">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="partner in partners | orderBy: 'content[0].presentation'">
                         <h5>{{partner.id}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="controller.setPartner(partner)"><i class="fa fa-pencil"></i></md-button>
@@ -80,7 +80,7 @@
                 </div>
                 <h4 data-ng-click="show = 'informations'">Informations <i class="float-right fa fa-eye"></i> </h4>
                 <div data-ng-show="show == 'informations'">
-                    <div class="column md-whiteframe-z1" data-ng-repeat="information in informations">
+                    <div class="column md-whiteframe-z1" data-ng-repeat="information in informations | orderBy: 'content[0].presentation'">
                         <h5>{{information.id}}</h5>
                             <md-button class="md-fab md-mini float-right md-primary"
                             ng-click="controller.setInformation(information)"><i class="fa fa-pencil"></i></md-button>

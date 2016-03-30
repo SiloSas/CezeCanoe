@@ -1,4 +1,12 @@
 <form>
+    <span class="float-left width100p">Position actuelle:
+        {{service.content[0].presentation.toString()[service.content[0].presentation.indexOf('?') -1]}}</span>
+    <md-input-container>
+        <label>Position</label>
+        <input ng-model="position"
+               ng-change="service.content[0].presentation = position + '?' +
+               service.content[0].presentation.toString().substring(service.content[0].presentation.indexOf('?') +1); controller.setNeedToSaveToTrue()">
+    </md-input-container>
     <div data-ng-repeat="content in service.content | filter: {lang: $root.lang}"
          text-angular="text-angular"
          ta-disabled='disabled'

@@ -61,7 +61,7 @@ body, html {
 }
 #wave {
   position: absolute;
-  height: 70px;
+  height: 50px;
   width: 100%;
   background: #FFCB05;
 }
@@ -72,10 +72,10 @@ body, html {
   position: absolute;
   border-radius: 100% 50%;
   width: 56%;
-  height: 92px;
+  height: 50px;
   background-color: #2FB7C7;
   right: -3%;
-  top: 37px;
+  top: 26px;
 }
 
 #wave:after {
@@ -87,7 +87,7 @@ body, html {
   height: 70px;
   background-color: #FFCB05;
   left: -1%;
-  top: 27px;
+  top: 2px;
 }
 
 .wave-left {

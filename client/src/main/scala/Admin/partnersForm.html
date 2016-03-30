@@ -1,4 +1,12 @@
 <form>
+    <span class="float-left width100p">Position actuelle:
+        {{partner.content[0].presentation.toString()[partner.content[0].presentation.indexOf('?') -1]}}</span>
+    <md-input-container>
+        <label>Position</label>
+        <input ng-model="position"
+               ng-change="partner.content[0].presentation = position + '?' +
+               partner.content[0].presentation.toString().substring(partner.content[0].presentation.indexOf('?') +1); controller.setNeedToSaveToTrue()">
+    </md-input-container>
     <div data-ng-repeat="content in partner.content | filter: {lang: $root.lang}"
          class="column large-12 md-whiteframe-z1"
          ng-change="controller.setNeedToSaveToTrue()"

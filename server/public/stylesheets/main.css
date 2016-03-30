@@ -24377,6 +24377,13 @@ lang {
 }
 
 /* line 24, ../../../client/src/main/scala/Home/home.scss */
+.bar > .md-button, .bar > a {
+  font-size: 17px;
+  padding: 0px 4px !important;
+  margin: 0px 5px !important;
+}
+
+/* line 30, ../../../client/src/main/scala/Home/home.scss */
 .homeArticleMedia {
   background: url("/assets/images/border.png") no-repeat;
   background-size: 100% auto;
@@ -24392,26 +24399,26 @@ lang {
   border-image-repeat: repeat;
 }
 
-/* line 38, ../../../client/src/main/scala/Home/home.scss */
+/* line 44, ../../../client/src/main/scala/Home/home.scss */
 .bigger-right {
   height: 120%;
   left: -5px;
   z-index: 9999;
 }
 
-/* line 44, ../../../client/src/main/scala/Home/home.scss */
+/* line 50, ../../../client/src/main/scala/Home/home.scss */
 .bigger-left {
   height: 120%;
   right: -5px;
   z-index: 9999;
 }
 
-/* line 50, ../../../client/src/main/scala/Home/home.scss */
+/* line 56, ../../../client/src/main/scala/Home/home.scss */
 .smaller-left {
   margin-top: 1.5%;
 }
 
-/* line 53, ../../../client/src/main/scala/Home/home.scss */
+/* line 59, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing {
   background: #FFCB05;
   font: italic 40px/1.4em Anton,sans-serif;
@@ -24425,13 +24432,13 @@ lang {
   font-size: 28px;
 }
 
-/* line 66, ../../../client/src/main/scala/Home/home.scss */
+/* line 72, ../../../client/src/main/scala/Home/home.scss */
 .yellowThing-bottom {
   margin-top: -10px;
   z-index: 3;
 }
 
-/* line 71, ../../../client/src/main/scala/Home/home.scss */
+/* line 77, ../../../client/src/main/scala/Home/home.scss */
 top-bar-content > * > .md-button {
   top: 0;
   right: 0;
@@ -24446,7 +24453,7 @@ top-bar-content > * > .md-button {
   line-height: 43px;
 }
 
-/* line 85, ../../../client/src/main/scala/Home/home.scss */
+/* line 91, ../../../client/src/main/scala/Home/home.scss */
 top-bar-content > * > .md-button:hover, top-bar-content > * > .md-button.current {
   background-color: #E5EEC1 !important;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
@@ -24454,26 +24461,26 @@ top-bar-content > * > .md-button:hover, top-bar-content > * > .md-button.current
 }
 
 @media (max-width: 600px) {
-  /* line 91, ../../../client/src/main/scala/Home/home.scss */
+  /* line 97, ../../../client/src/main/scala/Home/home.scss */
   .bigger-right {
     height: 100%;
     left: 0;
     z-index: 9999;
   }
 
-  /* line 97, ../../../client/src/main/scala/Home/home.scss */
+  /* line 103, ../../../client/src/main/scala/Home/home.scss */
   .yellowThing-bottom {
     margin-top: 0px;
   }
 
-  /* line 100, ../../../client/src/main/scala/Home/home.scss */
+  /* line 106, ../../../client/src/main/scala/Home/home.scss */
   .bigger-left {
     height: 100%;
     right: 0;
     z-index: 9999;
   }
 
-  /* line 106, ../../../client/src/main/scala/Home/home.scss */
+  /* line 112, ../../../client/src/main/scala/Home/home.scss */
   .smaller-left {
     margin-top: 0;
   }
@@ -24604,7 +24611,7 @@ body, html {
 /* line 62, ../scss/main.scss */
 #wave {
   position: absolute;
-  height: 70px;
+  height: 50px;
   width: 100%;
   background: #FFCB05;
 }
@@ -24616,10 +24623,10 @@ body, html {
   position: absolute;
   border-radius: 100% 50%;
   width: 56%;
-  height: 92px;
+  height: 50px;
   background-color: #2FB7C7;
   right: -3%;
-  top: 37px;
+  top: 26px;
 }
 
 /* line 81, ../scss/main.scss */
@@ -24632,7 +24639,7 @@ body, html {
   height: 70px;
   background-color: #FFCB05;
   left: -1%;
-  top: 27px;
+  top: 2px;
 }
 
 /* line 93, ../scss/main.scss */

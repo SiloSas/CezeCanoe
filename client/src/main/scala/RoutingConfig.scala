@@ -27,11 +27,11 @@ object RoutingConfig extends Config {
           controller = "servicesController",
           title = "Services"))
       .when(
-        path = "/occasions",
+        path = "/materielOccasion",
         route = Route(
           templateUrl = "/assets/templates/Occasions/occasions.html",
           controller = "occasionController",
-          title = "vente de materiel occason canoe-kayak"))
+          title = "vente de materiel occasion canoe-kayak"))
       .when(
         path = "/groups",
         route = Route(
