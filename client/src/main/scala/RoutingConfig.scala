@@ -27,7 +27,7 @@ object RoutingConfig extends Config {
           controller = "servicesController",
           title = "Services"))
       .when(
-        path = "/materielOccasion",
+        path = "/occasions",
         route = Route(
           templateUrl = "/assets/templates/Occasions/occasions.html",
           controller = "occasionController",
