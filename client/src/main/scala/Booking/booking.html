@@ -1,7 +1,10 @@
 <form class="column large-12" ng-submit="paiement = true" data-ng-show="!paiement">
-    <span data-ng-show="controller.lang == 'Fr'"><h1 class="textColorWhite">Reservez votre descente</h1></span>
+    <span data-ng-show="controller.lang == 'Fr'"><h1 class="textColorWhite">Réservez votre descente</h1></span>
     <span data-ng-show="controller.lang == 'En'"><h1 class="textColorWhite">Book your trip</h1></span>
-    <h1 class="textColorWhite">{{nameDescente = (descente.name | filter: {'lang': controller.lang})[0].presentation}}</h1>
+    <h1 class="textColorWhite">
+        "{{name = (descente.name | filter: {'lang': controller.lang})[0].presentation.substring((descente.name | filter: {'lang': controller.lang})[0].presentation.indexOf('?') +1)}}"
+        - {{distance = (descente.distance | filter: {'lang': controller.lang})[0].presentation}}
+    </h1>
     <span data-ng-bind-html="presentation = (descente.presentation | filter: {'lang': controller.lang})[0].presentation"></span>
     <div ng-show="!paiement" class="float-left">
         <h3>Informations Générales</h3>
@@ -51,18 +54,12 @@
             <input type="email" ng-model="booking.email" required/>
         </md-input-container>
         <h3 class="column large-12 textBlack">Choix des embarcations</h3>
-        <div data-ng-repeat="price in descente.prices" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
-            <md-input-container class="column medium-6">
+        <div data-ng-repeat="price in descente.prices" class="column large-6 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
+            <md-input-container class="column">
                 <label class="textBlack" ><b>{{name = (price.name | filter: {'lang': controller.lang})[0].presentation}} ({{price.price}} €)</b></label>
                 <input type="number" min="0" ng-model="number" ng-change="computeTotalPrice(price, number)">
                 <div data-ng-show="number">Sous-total: {{number*price.price}} €</div>
             </md-input-container>
-            <div class="column medium-6">
-                <smart-crop
-                        image="{{price.medias[0]}}" class="width100p float-left relative"
-                        style="overflow: hidden" width="100%" height="0.41w" hide-sm>
-                </smart-crop>
-            </div>
         </div>
         <div data-ng-repeat="price in tariffs" class="column large-12 float-left md-whiteframe-z1 marginTop10" ng-if="price.isBookable">
             <md-input-container class="column medium-6" ng-if="!price.isSupplement">
