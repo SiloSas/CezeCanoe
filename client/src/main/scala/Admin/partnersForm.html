@@ -14,15 +14,4 @@
          text-angular="text-angular"
          ta-disabled='disabled'
          ng-init="content.presentation = content.presentation.toString()"></div>
-    <img ng-src="{{partner.media}}" />
-    <span class="md-primary md-fab md-button zIndex1" data-ng-click="controller.setNeedToSaveToTrue()">
-        <i class="fa fa-download"></i>
-        <input type="file"
-               app-filereader="partner.media"
-               class="absolute left0 height100p" style="opacity: 0"/>
-    </span> Modifier l'image {{partner.media}}
-    <md-input-container>
-        <label>Link (without http://)</label>
-        <input ng-model="partner.link" ng-change="controller.setNeedToSaveToTrue()">
-    </md-input-container>
 </form>

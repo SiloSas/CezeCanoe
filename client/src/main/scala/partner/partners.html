@@ -15,13 +15,12 @@
         <div class="column large-6 padding0">
         <partner data-ng-repeat="partner in controller.partners$2 | orderBy: 'content[0].presentation'"
                  style="padding: 10px 0px 10px 0px;"
-                 class="column large-12" ng-if="$index%2 == 0 && $index != 0"></partner>
+                 class="column large-12" ng-if="$index%2 == 1 && $index != 0"></partner>
         </div>
-    </div>
         <div class="column large-6 padding0">
         <partner data-ng-repeat="partner in controller.partners$2 | orderBy: 'content[0].presentation'"
                  style="padding: 10px 0px 10px 0px;"
-                 class="column large-12" ng-if="$index%2 == 1 && $index != 0"></partner>
+                 class="column large-12" ng-if="$index%2 == 0 && $index != 0"></partner>
         </div>
     </div>
 </ul>
