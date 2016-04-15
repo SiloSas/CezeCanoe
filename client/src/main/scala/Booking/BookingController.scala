@@ -71,7 +71,7 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
         totalPrice = totalPrice + (detail.price * detail.numberToBook + basePrice * detail.numberToBook)
       } else totalPrice = totalPrice + detail.price * detail.numberToBook
     }
-    bookingScope.total = Math.round(totalPrice * 100) / 100
+    bookingScope.total = totalPrice
   }
   def computeReduction(): Unit = {
     timeout( () => {
