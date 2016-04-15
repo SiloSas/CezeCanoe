@@ -24,7 +24,7 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
   def preparJsPostForPaypal(creditCard: CreditCard, amount: Double): JsObject = {
     val newAmount: String = BigDecimal(amount).setScale(2, BigDecimal.RoundingMode.HALF_UP).toString()
     println(newAmount)
-    Json.parse(s"""{"intent": "sale", "payer": {"payment_method": "credit_card", "funding_instruments": [{"credit_card": {"number": "${creditCard.number}", "type": "${creditCard.card_type}", "expire_month": ${creditCard.expire_month}, "expire_year": ${creditCard.expire_year}, "cvv2": ${creditCard.cvv2.toString}, "first_name": "${creditCard.first_name}", "last_name": "${creditCard.last_name}"}}]}, "transactions": [{"amount": {"total": $newAmount, "currency": "EUR"}, "description": "Thisisthepaymenttransactiondescription."}]}""").as[JsObject]
+    Json.parse(s"""{"intent": "sale", "payer": {"payment_method": "credit_card", "funding_instruments": [{"credit_card": {"number": "${creditCard.number}", "type": "${creditCard.card_type}", "expire_month": ${creditCard.expire_month}, "expire_year": ${creditCard.expire_year}, "cvv2": ${creditCard.cvv2.toString}, "first_name": "${creditCard.first_name}", "last_name": "${creditCard.last_name}"}}]}, "transactions": [{"amount": {"total": "$newAmount", "currency": "EUR"}, "description": "Thisisthepaymenttransactiondescription."}]}""").as[JsObject]
   }
 
   def getToken: Future[String] = {
