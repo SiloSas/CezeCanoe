@@ -69,8 +69,6 @@ class DescentesController @Inject()(protected val dbConfigProvider: DatabaseConf
     request.body.file("picture").map { image =>
       image.contentType match {
         case Some(fileExtension)  =>
-
-          println(image)
           val filename = image.filename
           image.ref.moveTo(new File(Play.application().path().getPath + "/public/images/" + filename), replace = true)
 

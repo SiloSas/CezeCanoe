@@ -23,7 +23,6 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
 
   def preparJsPostForPaypal(creditCard: CreditCard, amount: Double): JsObject = {
     val newAmount: String = BigDecimal(amount).setScale(2, BigDecimal.RoundingMode.HALF_UP).toString()
-    println(newAmount)
     Json.parse(s"""{"intent": "sale", "payer": {"payment_method": "credit_card", "funding_instruments": [{"credit_card": {"number": "${creditCard.number}", "type": "${creditCard.card_type}", "expire_month": ${creditCard.expire_month}, "expire_year": ${creditCard.expire_year}, "cvv2": ${creditCard.cvv2.toString}, "first_name": "${creditCard.first_name}", "last_name": "${creditCard.last_name}"}}]}, "transactions": [{"amount": {"total": "$newAmount", "currency": "EUR"}, "description": "Thisisthepaymenttransactiondescription."}]}""").as[JsObject]
   }
 
@@ -32,37 +31,26 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
       .withAuth("AZjqcHR8CIY7Y83XtHp5yDeE8pmkgyQqqYmUZ-iH3lL2uE7IUU_IsrVJABDRQx8QS0BG6KfNEwIA8cV-",
       "EHNMRJ_5eOFOOqseJ-Oxx7WcxBzGgqaia-yfvRS4Qhh_Umfz4dYGfcZuCxxAFN_JSWHsUSMZqZ2TQ4V_", WSAuthScheme.BASIC)
       .post(Map("grant_type" -> Seq("client_credentials"))) map { a =>
-      println((a.json \ "access_token").get.toString())
       (a.json \ "access_token").get.toString()
-    } recover { case e: Throwable =>
-      println("e = " + e)
-      throw e
     }
   }
 
 
   def getPaypalPaiement(creditCard: CreditCard, amount: Double, token: String): Future[Int] = {
-    println(creditCard)
-    println(preparJsPostForPaypal(creditCard, amount))
     ws.url("https://api.sandbox.paypal.com/v1/payments/payment")
       .withHeaders("Content-Type" -> "application/json", "Authorization" -> ("Bearer " + token.replace("\"", "")))
       .post(preparJsPostForPaypal(creditCard, amount))
       .map { wsResponse =>
-        println(wsResponse.json)
         val a = wsResponse.json \ "state"
         println(a.get.toString())
         val b = a.get
         if (b.toString().indexOf("approved") > -1) 1
         else 0
-    } recover { case t: Throwable =>
-      println(t)
-        throw new Exception()
     }
   }
 
   def findAll() = Authenticated.async {
     bookingMethods.findAll map { bookings =>
-      println(bookings)
       Ok(write(bookings))
     }
   }
@@ -123,7 +111,6 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
     }
 
     eventuallyTotal flatMap { total =>
-      println(total)
       getToken flatMap { token =>
         getPaypalPaiement(creditCard, total, token) flatMap {
           case isValidate if isValidate == 1 =>
