@@ -27,9 +27,9 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
   }
 
   def getToken: Future[String] = {
-    ws.url("https://api.sandbox.paypal.com/v1/oauth2/token")
-      .withAuth("AZjqcHR8CIY7Y83XtHp5yDeE8pmkgyQqqYmUZ-iH3lL2uE7IUU_IsrVJABDRQx8QS0BG6KfNEwIA8cV-",
-      "EHNMRJ_5eOFOOqseJ-Oxx7WcxBzGgqaia-yfvRS4Qhh_Umfz4dYGfcZuCxxAFN_JSWHsUSMZqZ2TQ4V_", WSAuthScheme.BASIC)
+    ws.url("https://api.paypal.com/v1/oauth2/token")
+      .withAuth("AamGsyFPB03PdZMVaIocRi1o1mDMH-0SJbHlVEmfMPlPFXwrwg6azjHIHkzo2haFFUq8nyC9xQRdjaAS",
+      "EODy4efVv4bygzqyF6k8eQTt1bXN8q1bpZTRiVTrLeZqeLWW4ymUCu5CczwOX5m__epyVfh7vraww1YS", WSAuthScheme.BASIC)
       .post(Map("grant_type" -> Seq("client_credentials"))) map { a =>
       (a.json \ "access_token").get.toString()
     }
@@ -37,10 +37,11 @@ class BookingController @Inject()(protected val dbConfigProvider: DatabaseConfig
 
 
   def getPaypalPaiement(creditCard: CreditCard, amount: Double, token: String): Future[Int] = {
-    ws.url("https://api.sandbox.paypal.com/v1/payments/payment")
+    ws.url("https://api.paypal.com/v1/payments/payment")
       .withHeaders("Content-Type" -> "application/json", "Authorization" -> ("Bearer " + token.replace("\"", "")))
       .post(preparJsPostForPaypal(creditCard, amount))
       .map { wsResponse =>
+        println(wsResponse.json)
         val a = wsResponse.json \ "state"
         println(a.get.toString())
         val b = a.get
