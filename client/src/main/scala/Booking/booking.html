@@ -101,13 +101,18 @@
     <md-checkbox ng-model="nager" aria-label="nager" class="md-primary">
         Je certifie savoir nager.
     </md-checkbox><br/>
-    <md-button class="md-button md-primary md-raised"
+    <!--<md-button class="md-button md-primary md-raised"
        ng-disabled="!(total > 0) || !conditionGeneral || !nager"
        type="submit"
        data-ng-show="!paiement">
         Payer
-    </md-button>
+    </md-button>-->
 </form>
+<md-button class="md-button md-primary md-raised"
+           ng-disabled="!(total > 0) || !conditionGeneral || !nager"
+           ng-click="controller.bookWithoutPay(booking, message)">
+    Reserver et payer sur place
+</md-button>
 <form data-ng-show="paiement" ng-submit="controller.sendBooking(booking, creditCard, message)">
     <div class="column"><img class="column large-4" src="/assets/images/payPalBanner.svg"></div>
     <div class="column">

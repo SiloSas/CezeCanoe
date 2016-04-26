@@ -137,8 +137,10 @@
                     <span data-ng-repeat="booking in bookings | orderBy: 'bookingFormClient$1.date$1' | limitTo: limit"
                     data-ng-show="!dateFilter || (dateFilter | date : 'dd-MM-yyyy') == (booking.bookingFormClient$1.date$1 | date : 'dd-MM-yyyy')"
                     class="md-whiteframe-z1 column large-6 padding50 float-left">
-                        Formulaire de reservation n°{{booking.id$1}} - {{controller.computePrice(booking.descentId$1, booking.details$1)}} €
+                        {{booking.bookingFormClient$1.name$1}} {{booking.bookingFormClient$1.firstName$1}} -
+                        {{controller.computePrice(booking.descentId$1, booking.details$1)}} €
                         <i class="fa fa-eye" data-ng-click="showDetails = !showDetails"></i>
+                        <i class="fa fa-times" data-ng-click="controller.deleteBooking(booking.id$1)">Delete</i>
                         <span data-ng-show="showDetails"><h4>Description</h4>
                             <p>Date: {{booking.bookingFormClient$1.date$1 | date : 'dd-MM-yyyy'}}</p>
                             <p>Heure: {{booking.bookingFormClient$1.startTime$1 | date : 'hh:mm a'}}</p>

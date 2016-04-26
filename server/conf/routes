@@ -41,6 +41,8 @@ PUT     /group				        @Group.GroupController.update
 DELETE  /group/:id   		        @Group.GroupController.delete(id: String)
 GET     /booking			    	@BookingBack.BookingController.findAll
 POST    /booking			    	@BookingBack.BookingController.save
+POST    /bookingMail			    @BookingBack.BookingController.send
+DELETE  /booking/:id      	    	@BookingBack.BookingController.delete(id: String)
 POST    /upload                     @Descentes.DescentesController.uploadImage
 GET     /images/:fileName           @Descentes.DescentesController.getImage(fileName: String)
 POST    /mails                      @contact.MailService.sendNotificationMail

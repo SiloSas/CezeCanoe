@@ -104,6 +104,26 @@ timeout: Timeout, $sce: SceService, langService: LangService, bookingService: Bo
     }
   }
 
+  def bookWithoutPay(bookingForm: js.Any, message: String): Unit = {
+    val prices = pricesDetails.toSeq map {price =>
+      BookingDetail(priceId = price.id, number = price.numberToBook)
+    }
+    validationMessage = "loading"
+    val email = read[BookingFormClient](JSON.stringify(bookingForm)).email + "--.," + message
+    val newBooking = BookingFormBack(id = UUID.randomUUID().toString ,descentId = routeParams.get("id").toString,
+      bookingFormClient = read[BookingFormClient](JSON.stringify(bookingForm)).copy(email = email),
+      details = prices,
+      isGroup = read[BookingFormClient](JSON.stringify(bookingForm)).isGroup)
+    bookingService.postWithoutPayment(newBooking).map { response =>
+      timeout(() => validationMessage = "Reservation validée: Total:" + response + "€")
+      val a = mdToast.simple("Reservation validée")
+      mdToast.show(a)
+      console.log(response)
+    } recover { case NonFatal(e) =>
+      timeout(() => validationMessage = "Une erreur s'est produite")
+    }
+  }
+
   def doComputeTotalPrice(price: Price, numberToBook: Int): List[BookingPrice] = {
     pricesDetails.find(_.name == price.name) match {
       case Some(bookingPrice) =>

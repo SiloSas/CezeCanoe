@@ -27,4 +27,7 @@ class BookingMethods @Inject()(protected val dbConfigProvider: DatabaseConfigPro
   def delete(id: String): Future[Int] = {
     db.run(articles.filter(_.id === id).delete)
   }
+  def deleteBooking(id: String): Future[Int] = {
+    db.run(booking.filter(_.id === id).delete)
+  }
 }

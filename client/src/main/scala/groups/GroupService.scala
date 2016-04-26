@@ -20,7 +20,7 @@ class GroupService(http: HttpService, sce: SceService) extends Service {
   def versionedStringToVersionedStringToBindScope(presentation: VersionedString): VersionedStringToBindScope = {
     val pres = new Object().asInstanceOf[VersionedStringToBindScope]
     pres.lang = presentation.lang
-    pres.presentation = sce.trustAs("html", presentation.presentation)
+    pres.presentation = sce.trustAsHtml(presentation.presentation.substring(presentation.presentation.indexOf("?") + 1))
     pres
   }
 
@@ -42,7 +42,7 @@ class GroupService(http: HttpService, sce: SceService) extends Service {
       .map(JSON.stringify(_))
       .map { stringArticle =>
         console.log(stringArticle)
-        read[Seq[ArticleWithSliderForBack]](stringArticle).map { article =>
+        read[Seq[ArticleWithSliderForBack]](stringArticle).sortBy(_.content(0).presentation).map { article =>
           articleForBackToArticle(article)
         }
       }

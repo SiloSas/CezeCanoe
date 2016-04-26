@@ -487,6 +487,12 @@ class AdminController(adminScope: AdminScope, descenteService: DescenteService, 
     }
   }
 
+  def deleteBooking(id: js.Any): Unit = {
+    bookingService.delete(id.toString) map { response =>
+      getBooking()
+    }
+  }
+
   def computePrice(descenteId: String, prices: js.Array[BookingDetail]): Double = {
     adminScope.descentes.find(_.id == descenteId) match {
       case Some(descente) =>

@@ -24,6 +24,12 @@ class BookingService(http: HttpService, sce: SceService) extends Service {
   }
 
   @JSExport
+  def postWithoutPayment(bookingForm: BookingFormBack): Future[String] = {
+    http.post[js.Any](s"/bookingMail", write(bookingForm))
+      .map(JSON.stringify(_))
+  }
+
+  @JSExport
   def get(): Future[Seq[BookingForm]] = {
     http.get[js.Any](s"/booking")
       .map(JSON.stringify(_))
@@ -31,6 +37,11 @@ class BookingService(http: HttpService, sce: SceService) extends Service {
         console.log(read[Seq[BookingFormBack]](bookingForm))
         read[Seq[BookingForm]](bookingForm)
       }
+  }
+  @JSExport
+  def delete(id: String): Future[String] = {
+    http.delete[js.Any](s"/booking/" + id)
+      .map(JSON.stringify(_))
   }
 
 
